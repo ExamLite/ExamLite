@@ -1,0 +1,152 @@
+body {
+background-color: slategray;
+}
+
+table {
+
+color: lavender;
+padding: 5px;
+margin: auto;
+font-size: 22px;
+text-align: center;
+
+}
+
+th {
+
+padding: 8px;
+
+}
+
+.item1 {grid-area: header; }
+.item2 {grid-area: menu; }
+.item3 {grid-area: main; }
+.item4 {grid-area: rightad; }
+.item5 {grid-area: bottomad; }
+.item6 {grid-area: leftad; }
+.item7 {grid-area: bottomleftad; }
+.item8 {grid-area: bottomrightad; }
+
+.item9 {grid-area: h1; }
+.item10 {grid-area: h2; }
+
+.grid-container1 {
+display: grid;
+grid-template-areas:
+'header header header header header header header header header header header header'
+'menu main main main main main main main main main main rightad'
+'menu bottomleftad bottomleftad bottomleftad bottomad bottomad bottomad bottomad bottomad bottomrightad bottomrightad bottomrightad';
+gap: 7px;
+background-color: #333333;
+border: 3px solid lavender;
+padding: 0px;
+}
+
+.grid-container2 {
+display: grid;
+grid-template-areas:
+'h1 h1 h1 h2 h2 h2 h2'
+'h1 h1 h1 h2 h2 h2 h2';
+gap: 7px;
+background-color: #333333;
+border: 3px solid lavender;
+font-family:'Trebuchet MS', sans-serif;
+color:lavender;
+padding: 5px;
+}
+
+.header {
+background-color: lightseagreen;
+}
+
+.menu {
+background-color: lightseagreen;
+text-align: center;
+padding: 20px;
+color: lavender;
+font-family:'Trebuchet MS', sans-serif;
+font-size: 10px;
+}
+
+.main {
+background-color: lightseagreen;
+padding: 20px;
+color: lavender;
+font-family:'Trebuchet MS', sans-serif;
+font-size: 20px;
+}
+
+.rightad {
+background-image:url('side ad 1.jpg');
+background-repeat: no-repeat;
+text-align: center;
+padding: 0px;
+font-size: 15px;
+}
+
+.bottomad {
+background-image:url('top ad 1.jpg');
+background-repeat: no-repeat;
+text-align: center;
+padding: 40px;
+font-size: 15px;
+}
+
+.leftad {
+background-image:url('side ad 1.jpg');
+background-repeat: no-repeat;
+text-align: center;
+padding: 0px;
+font-size: 15px;
+}
+
+.ulmenu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+  font-family:'Trebuchet MS', sans-serif;
+}
+
+li {
+  float: left;
+}
+
+
+li a {
+  display: block;
+  color: lavender;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+
+.question {
+
+background-color: #333333;
+color: lavender;
+font-size: 15px;
+padding: 6px;
+margin:auto;
+
+}
+
+
+th a {
+  display: block;
+  color: lavender;
+  text-align: center;
+  font-size: 20px;
+  padding: 4px;
+  text-decoration: none;
+}
+
+th a:hover {
+  background-color: #111111;
+}
