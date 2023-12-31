@@ -137,6 +137,17 @@ margin:auto;
 
 }
 
+.footer {
+
+background-color: #333333;
+border: 2px solid lavender;
+text-align: center;
+color: lavender;
+font-size: 15px;
+padding: 2px;
+margin:auto;
+
+}
 
 th a {
   display: block;
