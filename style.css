@@ -35,7 +35,7 @@ display: grid;
 grid-template-areas:
 'header header header header header header header header header header header header'
 'menu main main main main main main main main main rightad rightad'
-'menu bottomleftad bottomleftad bottomleftad bottomad bottomad bottomad bottomad bottomad bottomrightad rightad rightad';
+'menu bottomleftad bottomleftad bottomleftad bottomrightad bottomrightad bottomrightad bottomrightad bottomrightad bottomrightad rightad rightad';
 gap: 7px;
 background-color: #333333;
 border: 3px solid lavender;
@@ -82,9 +82,9 @@ font-size: 20px;
 .rightad {
 position: fixed;
 top: 20%;
-Left: 90%;
+Left: 87.5%;
 text-align: center;
-padding: 10px;
+padding: 0px;
 font-size: 15px;
 }
 
