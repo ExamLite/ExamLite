@@ -35,12 +35,12 @@ display: grid;
 grid-template-areas:
 'header header header header header header header header header header header header'
 'menu main main main main main main main main main rightad rightad'
-'menu bottomleftad bottomleftad bottomleftad bottomad bottomad bottomad bottomad bottomad bottomrightad bottomrightad bottomrightad';
+'menu bottomleftad bottomleftad bottomleftad bottomad bottomad bottomad bottomad bottomad bottomrightad rightad rightad';
 gap: 7px;
 background-color: #333333;
 border: 3px solid lavender;
 width: 100%;
-padding: 2px;
+padding: 0px;
 }
 
 .grid-container2 {
@@ -54,7 +54,7 @@ background-color: #333333;
 border: 3px solid lavender;
 font-family:'Trebuchet MS', sans-serif;
 color:lavender;
-padding: 2px;
+padding: 0px;
 }
 
 .header {
@@ -73,25 +73,24 @@ font-size: 10px;
 .main {
 background-color: lightseagreen;
 padding: 5px;
-width: 95%;
+width: 92%;
 color: lavender;
 font-family:'Trebuchet MS', sans-serif;
 font-size: 20px;
 }
 
 .rightad {
-background-image:url('side ad 1.jpg');
-background-repeat: no-repeat;
+position: fixed;
+top: 20%;
+Left: 90%;
 text-align: center;
 padding: 10px;
 font-size: 15px;
 }
 
 .bottomad {
-background-image:url('top ad 1.jpg');
-background-repeat: no-repeat;
 text-align: center;
-padding: 40px;
+padding: 0px;
 font-size: 15px;
 }
 
@@ -149,7 +148,7 @@ text-align: center;
 color: lavender;
 font-size: 15px;
 width: 100%;
-padding: 2px;
+padding: 0px;
 margin:auto;
 
 }
