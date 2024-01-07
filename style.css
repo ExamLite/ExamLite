@@ -1,0 +1,194 @@
+* {
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+body {
+
+background-color: #333333;
+color: lavender;
+
+}
+
+.home {
+
+background-color: lightseagreen;
+display: flex;
+height: 100vh;
+width: 80%;
+margin: 0 auto;
+justify-content: center;
+align-items: center;
+
+}
+
+.home-content {
+
+max-width: 600px;
+display: flex;
+align-items: center;
+flex-direction: column;
+
+}
+
+.home-content h1 {
+
+font-size: 80px;
+font-weight: 700;
+
+}
+
+.home-content p {
+
+font-size: 20px;
+text-align: center;
+
+}
+
+.header {
+
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+padding: 20px;
+background-color: #333333;
+border: 2px solid #333333;
+border-bottom-color: lavender;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 100px;
+
+}
+
+
+.navbar a {
+
+font-size: 25px;
+color: lavender;
+text-decoration: none;
+margin-left: 35px;
+transition: .3s;
+
+}
+
+.navtext {
+
+font-size: 25px;
+color: lavender;
+text-decoration: none;
+margin-left: 35px;
+transition: .3s;
+
+}
+
+.navbar a:hover,
+.navbar a.active {
+
+color: lightseagreen;
+
+}
+
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #333333;
+min-width: 150px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+}
+
+.dropdown-content a {
+color: lavender;
+text-decoration: none;
+display: block;
+}
+
+.dropdown-content a:hover {background-color: transparent;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.footer {
+
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+padding: 20px;
+border: 2px solid #333333;
+border-top-color: lavender;
+background-color: #333333;
+justify-content: space-between;
+text-align: center;
+
+}
+
+.exam {
+
+background-color: lightseagreen;
+width: 80%;
+margin: 0 auto;
+
+}
+
+.exam-content {
+
+display: flex;
+flex-direction: column;
+
+}
+
+.exam-content h1 {
+
+font-size: 80px;
+font-weight: 700;
+text-align: center;
+
+}
+
+.question-box {
+
+background-color: #333333;
+border: 2px solid lavender;
+border-radius:30px;
+padding: 20px;
+width: 90%;
+margin: auto;
+font-size: 20px;
+
+}
+
+.submit-box {
+
+background-color: #333333;
+border: 2px solid lavender;
+border-radius:30px;
+padding: 20px;
+width: 15%;
+margin: auto;
+font-size: 20px;
+text-align: center;
+
+}
+
+
+.submit-box a {
+
+color: lavender;
+text-decoration: none;
+transition: .3s;
+
+}
+
+.submit-box a:hover {
+
+color: lightseagreen;
+
+}
