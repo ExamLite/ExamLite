@@ -1,87 +1,69 @@
 <!DOCTYPE html>
-
-<html>
+<hmtl lang="en">
 
 <head>
-<title> ExamLite - Exam 4 </title>
-<link rel="shortcut icon" type="image/jpg" href="favicon.jpg">
-<link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
-<meta name="description" content="Free IT cert exams">
-<meta name="keywords" content="Exam, Quiz, Test, free, IT cert, certification">
-<meta name="author" content="Preston Burcham">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device width, initial-scale=1.0">
+<title> Examlite - Exam 4 </title>
 </head>
 
 <body>
 
-<div class="grid-container2">
-<div class="item9"> 
+<header class="header">
 
-<img src="logo.jpg">
+<a href="index.html"><img src="logo.jpg"></a>
+
+<nav class="navbar">
+<a href="index.html"> Home </a>
+
+<div class="dropdown">
+<p class="navtext"> Exams </p>
+<div class="dropdown-content">
+<br>
+<a href="exam1.html">Exam 1</a>
+<hr>
+<br>
+<a href="exam2.html">Exam 2</a>
+<hr>
+<br>
+<a href="exam3.html">Exam 3</a>
+<hr>
+<br>
+<a href="exam4.html" class="active">Exam 4</a>
+<hr>
+<br>
+<a href="exam5.html">Exam 5</a>
+<hr>
 </div>
-<div class="item10">
-<h1 style="display:inline; font-size:40px; padding: 5px;"> Exam 4 </h1>
+</div>
+
+<a href="about.html"> About us </a>
+<a href="contact.html"> Contact us </a>
+
+</nav>
+
+</header>
+
+ 
+<section class="exam">
+
+<div class="exam-content">
+
 <br>
 <br>
-</div>
+<br>
+<br>
+<br>
+<br>
+<h1> Exam 4 </h1>
+<br>
 
-</div>
-
-
-<div class="grid-container1">
-
-
-  <div class="item1 header">
-
-
-
-<ul class="ulmenu">
-<li> <a href="https://www.examlite.com"> Home </a> </li>
-<li style="float:right;"><a href="about.html"> About us </a> </li>
-<li style="float:right;"><a href="contact.html"> Contact us </a> </li>
-</ul>
-
-
-</div>
-
-
-  <div class="item2 menu">
-
-<h1 style="font-size:20px;"> <u>Practice exams</u> </h1>
-
-
-<table>
-
-<tr>
-<th><a href="exam 1.html"> Exam 1 </th>
-</tr>
-<tr>
-<th><a href="exam 2.html"> Exam 2 </th>
-</tr>
-<tr>
-<th><a href="exam 3.html"> Exam 3 </th>
-</tr>
-<tr>
-<th><a href="exam 4.html"> <u> Exam 4 </u> </th>
-</tr>
-<tr>
-<th><a href="exam 5.html"> Exam 5 </th>
-</tr>
-
-</table>
-
-
-  </div>
-
-
-  <div class="item3 main">
-
-<h3 style="text-align:center;"> Exam 4 </h3>
-
-<div class="question">
+<div class="question-box">
 
 <h3> Q1. What is my favorite color? </h3>
+<hr>
+<br>
 <input type="radio" id="blue" name="Q1" value="blue">
 <label for="blue">Blue</label><br><br>
 <input type="radio" id="red" name="Q1" value="red">
@@ -94,9 +76,11 @@
 </div>
 <br>
 
-<div class="question">
+<div class="question-box">
 
 <h3> Q2. What is my favorite color? </h3>
+<hr>
+<br>
 <input type="radio" id="blue" name="Q2" value="blue">
 <label for="blue">Blue</label><br><br>
 <input type="radio" id="red" name="Q2" value="red">
@@ -109,9 +93,11 @@
 </div>
 <br>
 
-<div class="question">
+<div class="question-box">
 
-<h3> Q3. How is my favorite color? </h3>
+<h3> Q3. What is my favorite color? </h3>
+<hr>
+<br>
 <input type="radio" id="blue" name="Q3" value="blue">
 <label for="blue">Blue</label><br><br>
 <input type="radio" id="red" name="Q3" value="red">
@@ -124,9 +110,11 @@
 </div>
 <br>
 
-<div class="question">
+<div class="question-box">
 
-<h3> Q4. When is my favorite color? </h3>
+<h3> Q4. What is my favorite color? </h3>
+<hr>
+<br>
 <input type="radio" id="blue" name="Q4" value="blue">
 <label for="blue">Blue</label><br><br>
 <input type="radio" id="red" name="Q4" value="red">
@@ -139,9 +127,11 @@
 </div>
 <br>
 
-<div class="question">
+<div class="question-box">
 
-<h3> Q5. Why is my favorite color? </h3>
+<h3> Q5. What is my favorite color? </h3>
+<hr>
+<br>
 <input type="radio" id="blue" name="Q5" value="blue">
 <label for="blue">Blue</label><br><br>
 <input type="radio" id="red" name="Q5" value="red">
@@ -154,29 +144,111 @@
 </div>
 <br>
 
-<div>
-<input type="submit" value="Submit" onclick="results()">
+<div class="question-box">
+
+<h3> Q6. What is my favorite color? </h3>
+<hr>
+<br>
+<input type="radio" id="blue" name="Q6" value="blue">
+<label for="blue">Blue</label><br><br>
+<input type="radio" id="red" name="Q6" value="red">
+<label for="blue">Red</label><br><br>
+<input type="radio" id="green" name="Q6" value="green">
+<label for="blue">Green</label><br><br>
+<input type="radio" id="yellow" name="Q6" value="yellow">
+<label for="blue">Yellow</label><br><br>
+
+</div>
+<br>
+
+<div class="question-box">
+
+<h3> Q7. What is my favorite color? </h3>
+<hr>
+<br>
+<input type="radio" id="blue" name="Q7" value="blue">
+<label for="blue">Blue</label><br><br>
+<input type="radio" id="red" name="Q7" value="red">
+<label for="blue">Red</label><br><br>
+<input type="radio" id="green" name="Q7" value="green">
+<label for="blue">Green</label><br><br>
+<input type="radio" id="yellow" name="Q7" value="yellow">
+<label for="blue">Yellow</label><br><br>
+
+</div>
+<br>
+
+<div class="question-box">
+
+<h3> Q8. What is my favorite color? </h3>
+<hr>
+<br>
+<input type="radio" id="blue" name="Q8" value="blue">
+<label for="blue">Blue</label><br><br>
+<input type="radio" id="red" name="Q8" value="red">
+<label for="blue">Red</label><br><br>
+<input type="radio" id="green" name="Q8" value="green">
+<label for="blue">Green</label><br><br>
+<input type="radio" id="yellow" name="Q8" value="yellow">
+<label for="blue">Yellow</label><br><br>
+
+</div>
+<br>
+
+<div class="question-box">
+
+<h3> Q9. What is my favorite color? </h3>
+<hr>
+<br>
+<input type="radio" id="blue" name="Q9" value="blue">
+<label for="blue">Blue</label><br><br>
+<input type="radio" id="red" name="Q9" value="red">
+<label for="blue">Red</label><br><br>
+<input type="radio" id="green" name="Q9" value="green">
+<label for="blue">Green</label><br><br>
+<input type="radio" id="yellow" name="Q9" value="yellow">
+<label for="blue">Yellow</label><br><br>
+
+</div>
+<br>
+
+<div class="question-box">
+
+<h3> Q10. What is my favorite color? </h3>
+<hr>
+<br>
+<input type="radio" id="blue" name="Q10" value="blue">
+<label for="blue">Blue</label><br><br>
+<input type="radio" id="red" name="Q10" value="red">
+<label for="blue">Red</label><br><br>
+<input type="radio" id="green" name="Q10" value="green">
+<label for="blue">Green</label><br><br>
+<input type="radio" id="yellow" name="Q10" value="yellow">
+<label for="blue">Yellow</label><br><br>
+
 </div>
 
-</div>  
+<br>
+<br>
+<div class="submit-box">
+<a href="index.html"><h3> Submit </h3></a>
+</div>
 
-
-<div class="item4 rightad"><img src="side ad gif.gif" width="225px" height="600"></div>
-
-<div class="item7 bottomad"><img src="top ad gif.gif" width="600px" height="125px"></div>
-
-<div class="item8 bottomad"><img src="top ad gif.gif" width="600px" height="125px"></div>
-
-
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </div>
+</section>
+
 
 <div class="footer">
-
 <p> © Copyright 2023 - 2024 ∴ Site designed and hosted by ExamLite </p>
-
 </div>
-  
+
 </body>
+
 
 </html>
