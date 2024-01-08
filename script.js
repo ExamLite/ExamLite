@@ -1,30 +1,30 @@
 const questions = [
 
     {
-        question: "What is my favorite color?",
+        question: "Do he got that dog in him?",
         answers: [
-            {text: "Blue", correct: true},
-            {text: "Red", correct: false},
-            {text: "Green", correct: false},
-            {text: "Yellow", correct: false},
+            {text: "Don't you mean dawg?", correct: true},
+            {text: "Yes", correct: false},
+            {text: "I don't think so", correct: false},
+            {text: "No", correct: false},
         ]
     },
     {
-        question: "What is my favorite color?",
+        question: "When did he get that dawg in him?",
         answers: [
-            {text: "Blue", correct: true},
-            {text: "Red", correct: false},
-            {text: "Green", correct: false},
-            {text: "Yellow", correct: false},
+            {text: "2 weeks ago", correct: false},
+            {text: "There is a dog in him?", correct: false},
+            {text: "At birth", correct: true},
+            {text: "Recently", correct: false},
         ] 
     },
     {
-    question: "What is my favorite color?",
+    question: "What is the airspeed velocity of an unladen swallow?",
         answers: [
-            {text: "Blue", correct: true},
-            {text: "Red", correct: false},
-            {text: "Green", correct: false},
-            {text: "Yellow", correct: false},
+            {text: "I don't know that", correct: false},
+            {text: "7", correct: false},
+            {text: "Purple", correct: false},
+            {text: "An African or European swallow?", correct: true},
         ]
     }
 ];
