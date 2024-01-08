@@ -47,7 +47,7 @@ function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.
+    questionElement.innerHTML = "Q" + questionNo + " / 3 <br><br>" + currentQuestion.
     question;
 
     currentQuestion.answers.forEach(answer => {
