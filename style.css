@@ -10,6 +10,7 @@
     
     background-color: #333333;
     color: lavender;
+    font-family: 'Brush Script MT', cursive;
     
     }
     
@@ -226,7 +227,7 @@
     background-color: silver;
     color: #333333;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 17px;
     width: 100%;
     border: 1px solid #333333;
     padding: 30px;
