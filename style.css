@@ -25,6 +25,23 @@
     
     }
     
+    .privacy {
+    
+    background-color: #333333;
+    border: 2px solid lavender;
+    border-radius:30px;
+    display: flex;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+        
+        }
+
+    .privacy-content {
+    display: flex;
+    flex-direction: column;
+
+    }
     .home-content {
     
     display: flex;
@@ -50,7 +67,52 @@
     text-indent: 10px;
     
     }
+
+    .privacy-content h1 {
     
+    font-size: 80px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px #000000;
+    Padding: 20px;
+        
+        }
+ .privacy-content h4 {
+    color: lightseagreen;
+    font-size: 23px;
+    text-indent: 10px;
+
+        }
+
+.privacy-content h5 {
+    font-size: 20px;
+    text-indent: 10px;
+
+        
+     }
+
+ .privacy-content h5 a {
+    font-size: 20px;
+    color: lavender;
+    text-decoration: none;
+    transition: .3s;
+    
+            
+    }
+
+    .privacy-content h5 a:hover,
+    .privacy-content h5 a.active {
+    
+    color: lightseagreen;
+    
+    }
+
+.privacy-content h3 {
+    font-size: 23px;
+    color: lightseagreen;
+    text-indent: 10px;
+    
+    }
+
     .header {
     
     top: 0;
@@ -128,10 +190,25 @@
     border: 2px solid #333333;
     border-top-color: lavender;
     background-color: #333333;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     
     }
+    .footer a {
+    
+        color: lavender;
+        text-decoration: none;
+        margin-left: 35px;
+        transition: .3s;
+        
+        }
+        
+    .footer a:hover,
+    .footer a.active {
+        
+        color: lightseagreen;
+        
+        }
     
     .exam {
     
