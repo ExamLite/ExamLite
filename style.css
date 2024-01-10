@@ -19,7 +19,7 @@
     border: 2px solid lavender;
     border-radius:30px;
     display: flex;
-    height: 75vh;
+    height: 100%;
     width: 50%;
     margin: 0 auto;
     
@@ -165,6 +165,8 @@
     display: none;
     position: absolute;
     background-color: #333333;
+    border: 2px solid lavender;
+    border-radius:30px;
     min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -173,18 +175,39 @@
     .dropdown-content a {
     color: lavender;
     text-decoration: none;
+    font-size: 20px;
     display: block;
     }
     
     .dropdown-content a:hover {background-color: transparent;}
     
     .dropdown:hover .dropdown-content {display: block;}
+
+    .examlink a {
+    
+    font-size: 25px;
+    color: lavender;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: .3s;
+    display: block;
+    width: 15%;
+    padding: 10px;
+            
+    }
+    
+    .examlink a:hover,
+    .examlink a.active {
+    
+    color: lightseagreen;
+    
+    }
     
     .footer {
     
     position: fixed;
-    bottom: 0;
-    left: 0;
+    left: 0px;
+    bottom: 0px;
     width: 100%;
     padding: 12px;
     border: 2px solid #333333;
@@ -214,7 +237,7 @@
     
     background-color: transparent;
     width: 50%;
-    height: 85vh;
+    height: 100%;
     margin: 0 auto;
     
     }
