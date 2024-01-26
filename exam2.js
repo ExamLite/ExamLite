@@ -1,50 +1,104 @@
 const questions = [
-
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
-    {
+// question 1 //
+{
+    question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
+    answers: [
+        {text: "RAM", correct: false},
+        {text: "Swap file", correct: false},
+        {text: "Processor Cache", correct: true},
+        {text: "USB", correct: false},
+    ]
+},
+// question 2 //
+{
+    question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
+    answers: [
+        {text: "True negative", correct: false},
+        {text: "False Negative", correct: false},
+        {text: "True positive", correct: false},
+        {text: "False positive", correct: true},
+    ] 
+},
+// question 3 //
+{
     question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-            answers: [
-                {text: "Insider threat", correct: false},
-                {text: "Script kiddies", correct: false},
-                {text: "A hacktivist", correct: true},
-                {text: "Advanced Persistent threat", correct: false},
-            ]
-        },
-        {
-            question: "Which biometic scan utilizes visible and near-infrared light?",
-                answers: [
-                    {text: "Iris recognition", correct: true},
-                    {text: "A retinal scan", correct: false},
-                    {text: "A signature kinetics scan", correct: false},
-                    {text: "Facial recognition", correct: false},
-                ]
-            }
+    answers: [
+        {text: "RC4", correct: true},
+        {text: "ECC", correct: false},
+        {text: "RSA", correct: false},
+        {text: "DSA", correct: false},
+    ]
+},
+// question 4 //
+{
+    question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
+    answers: [
+        {text: "Insider threat", correct: false},
+        {text: "Script kiddies", correct: false},
+        {text: "A hacktivist", correct: true},
+        {text: "Advanced Persistent threat", correct: false},
+    ]
+},
+// question 5 //
+{
+    question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
+    answers: [
+        {text: "Insider threat", correct: false},
+        {text: "Script kiddies", correct: false},
+        {text: "A hacktivist", correct: true},
+        {text: "Advanced Persistent threat", correct: false},
+    ]
+},
+// question 6 //
+{
+    question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
+    answers: [
+        {text: "RAM", correct: false},
+        {text: "Swap file", correct: false},
+        {text: "Processor Cache", correct: true},
+        {text: "USB", correct: false},
+    ]
+},
+// question 7 //
+{
+    question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
+    answers: [
+        {text: "True negative", correct: false},
+        {text: "False Negative", correct: false},
+        {text: "True positive", correct: false},
+        {text: "False positive", correct: true},
+    ] 
+},
+// question 8 //
+{
+    question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
+    answers: [
+        {text: "RC4", correct: true},
+        {text: "ECC", correct: false},
+        {text: "RSA", correct: false},
+        {text: "DSA", correct: false},
+    ]
+},
+// question 9 //
+{
+    question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
+    answers: [
+        {text: "Insider threat", correct: false},
+        {text: "Script kiddies", correct: false},
+        {text: "A hacktivist", correct: true},
+        {text: "Advanced Persistent threat", correct: false},
+    ]
+},
+// question 10 //
+{
+    question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
+    answers: [
+        {text: "Insider threat", correct: false},
+        {text: "Script kiddies", correct: false},
+        {text: "A hacktivist", correct: true},
+        {text: "Advanced Persistent threat", correct: false},
+    ]
+}
 ];
 
 const questionElement = document.getElementById("question");
@@ -65,7 +119,7 @@ function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = "Q" + questionNo + " / 5 <br><br>" + currentQuestion.
+    questionElement.innerHTML = "Q" + questionNo + " / 10 <br><br>" + currentQuestion.
     question;
 
     currentQuestion.answers.forEach(answer => {
