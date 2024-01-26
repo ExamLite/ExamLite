@@ -43,10 +43,13 @@
     flex-direction: column;
 
     }
-    .home-content {
-    
-    display: flex;
-    flex-direction: column;
+    .home-content img {
+
+        align-items: center;
+        border-radius: 30%;
+        border: 3px solid lavender;
+        position: relative;
+        left: 20%;
     
     }
     
