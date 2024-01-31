@@ -81,7 +81,7 @@
     
     .home-content p {
     
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 500;
     text-shadow: 1px 1px 2px #000000;
     padding: 10px;
@@ -230,21 +230,22 @@
     font-size: 25px;
     color: #333333;
     text-decoration: none;
+    text-align: center;
     margin-left: 35px;
     transition: .3s;
     display: block;
     width: 38%;
     padding: 10px;
-    background-color: lavender;
-    border: 2px solid lightseagreen;
-    border-radius:30px;
-            
+    background-color: silver;
+    border: 3px solid lightseagreen;
+    border-radius:4px;
+
     }
     
     .examlink a:hover,
     .examlink a.active {
     
-    color: lightseagreen;
+    background-color: lightseagreen;
     
     }
     
