@@ -19,7 +19,6 @@
     background-color: #333333;
     border: 2px solid lavender;
     border-radius:30px;
-    display: flex;
     height: 100%;
     width: 65%;
     margin: 0 auto;
@@ -50,7 +49,6 @@
         border-radius: 30%;
         border: 3px solid lavender;
         position: relative;
-        left: 20%;
     
     }
     
@@ -60,7 +58,6 @@
     font-weight: 700;
     text-shadow: 2px 2px 4px #000000;
     Padding: 15px;
-    text-align: center;
     
     }
 
@@ -71,7 +68,6 @@
         color: lavender;
         text-shadow: 2px 2px 4px #000000;
         text-decoration: none;
-        margin-left: 35px;
         display: block;
         padding: 7px;
                 
@@ -159,12 +155,12 @@
 
     .header {
     
-    top: 0;
-    left: 0;
     width: 100%;
-    padding: 13px;
+    padding: 8px;
     text-shadow: 2px 2px 4px #000000;
-    background-color: transparent;
+    background-color: #333333;
+    border: 2px solid #333333;
+    border-bottom-color: lavender;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -227,20 +223,68 @@
     
     .dropdown:hover .dropdown-content {display: block;}
 
+    
+    .exam-table {
+
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+    }
+
+    th {
+
+    font-size: 30px;
+    color: lightseagreen;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    text-decoration: none;
+    
+    }
+
+    
+    td {
+
+    font-size: 25px;
+    color: lavender;
+    transition: .3s;
+    width: 10%;
+
+    }
+
+
+    .exam-table a {
+    
+    font-size: 23px;
+    color: lavender;
+    text-decoration: none;
+    text-align: center;
+    transition: .3s;
+    display: block;
+    width: 80%;
+    padding: 10px;
+    
+    }
+
+    .exam-table a:hover,
+    .exam-table a.active {
+    
+    color: lightseagreen;
+    
+    }
+    
     .examlink a {
     
     font-size: 25px;
-    color: #333333;
+    color: lavender;
     text-decoration: none;
     text-align: center;
-    margin-left: 35px;
     transition: .3s;
     display: block;
     width: 38%;
     padding: 10px;
-    background-color: silver;
-    border: 3px solid lightseagreen;
-    border-radius:4px;
 
     }
     
