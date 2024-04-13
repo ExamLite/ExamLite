@@ -263,8 +263,11 @@ function selectAnswer(e){
 
 function showScore(){
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    <p> "words words words" </p>
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!
+    words
+    words
+    words
+    `;
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }
