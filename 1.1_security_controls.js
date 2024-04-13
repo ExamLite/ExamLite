@@ -263,9 +263,8 @@ function selectAnswer(e){
 
 function showScore(){
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!
-    words
-    words
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}! + <br> +
+    words + <br> +
     words
     `;
     NextButton.innerHTML = "Take again";
