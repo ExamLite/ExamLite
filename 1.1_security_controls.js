@@ -259,7 +259,6 @@ function selectAnswer(e){
         }
         button.disabled = true;
     });
-    breakdown
     NextButton.style.display = "block";
 }
 
