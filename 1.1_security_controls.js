@@ -264,7 +264,7 @@ function selectAnswer(e){
 function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    questionElement.innerHTML = `EXPLANATION: words words words!`;
+    questionElement.innerHTML = "EXPLANATION: words words words!";
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }
