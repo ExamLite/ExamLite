@@ -259,13 +259,14 @@ function selectAnswer(e){
         }
         button.disabled = true;
     });
+    breakdown
     NextButton.style.display = "block";
 }
 
 function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    breakdownElement.innerHTML = `Words words words`;
+    breakdownElement.innerHTML = "Words words words";
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }
