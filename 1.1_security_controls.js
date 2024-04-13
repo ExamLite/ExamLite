@@ -31,7 +31,7 @@ const questions = [
 },
 // question 4 //
 {
-    question: "You have been tasked with coordinating / avoiding a potential network outage. A router in your network needs to be sent back to the provider for repairs. You must substitute the router with something that affords the same or better level of protection to ensure your network remains secure and operational. What type of security control is this considered?",
+    question: "You have been tasked with coordinating / avoiding a potential network outage. A router in your network needs to be sent back to the provider for repairs. You must replace the router with something that offers the same or better level of protection to ensure your network remains secure and operational. What type of security control is this considered?",
     answers: [
         {text: "Deterrent", correct: false},
         {text: "Directive", correct: false},
@@ -310,7 +310,7 @@ C - Compensating
 <span style="color:#9aeabc;"> D - Deterrent </span>
 <br>
 <br>
-Explanation: 
+A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices. A Compensating security control is a substitute for a principal control that affords the same or better level of protection.  
 <br>
 <br>
 <br>
@@ -332,14 +332,14 @@ C - Preventive
 D - Deterrent
 <br>
 <br>
-Explanation: 
+A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network. A Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying.
 <br>
 <br>
 <br>
 <hr>
 <br>
 <br>
-<span style="font-size: 25px;">Q4.</span> You have been tasked with coordinating / avoiding a potential network outage. A router in your network needs to be sent back to the provider for repairs. You must substitute the router with something that affords the same or better level of protection to ensure your network remains secure and operational. What type of security control is this considered?
+<span style="font-size: 25px;">Q4.</span> You have been tasked with coordinating / avoiding a potential network outage. A router in your network needs to be sent back to the provider for repairs. You must replace the router with something that offers the same or better level of protection to ensure your network remains secure and operational. What type of security control is this considered?
 <br>
 <br>
 A - Deterrent
@@ -354,7 +354,7 @@ B - Directive
 D - Detective
 <br>
 <br>
-Explanation: 
+A Compensating security control is a substitute for a principal control that affords the same or better level of protection. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network.
 <br>
 <br>
 <br>
@@ -376,7 +376,7 @@ C - Preventive
 D - Corrective
 <br>
 <br>
-Explanation: 
+A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack.
 <br>
 <br>
 <br>
@@ -398,7 +398,7 @@ C - Directive
 <span style="color:#9aeabc;"> D - Detective </span>
 <br>
 <br>
-Explanation:
+A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices.
 <br>
 <br>
 <br>
@@ -420,7 +420,7 @@ B - Managerial
 D - Technical
 <br>
 <br>
-Explanation:
+Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware. Operational control is implemented primarily by people. Security guards and training programs would be considered Operational. Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Technical control is implemented as a system (Hardware, software, firmware).
 <br>
 <br>
 <br>
@@ -442,7 +442,7 @@ C - Managerial
 D - Physical
 <br>
 <br>
-Explanation:
+Operational control is implemented primarily by people. Security guards and training programs would be considered Operational. Technical control is implemented as a system (Hardware, software, firmware). Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware.
 <br>
 <br>
 <br>
@@ -464,7 +464,7 @@ C - Operational
 D - Physical
 <br>
 <br>
-Explanation:
+Technical control is implemented as a system (Hardware, software, firmware). Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Operational control is implemented primarily by people. Security guards and training programs would be considered Operational. Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware.
 <br>
 <br>
 <br>
@@ -486,7 +486,7 @@ C - Technical
 <span style="color:#9aeabc;"> D - Managerial </span>
 <br>
 <br>
-Explanation:
+Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Operational control is implemented primarily by people. Security guards and training programs would be considered Operational. Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware. Technical control is implemented as a system (Hardware, software, firmware).
 <br>
 <br>
 <br>
@@ -508,7 +508,7 @@ C - Managerial
 D - Physical
 <br>
 <br>
-Explanation:
+Operational control is implemented primarily by people. Security guards and training programs would be considered Operational. Technical control is implemented as a system (Hardware, software, firmware). Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware.
 <br>
 <br>
 <br>
@@ -530,7 +530,7 @@ C - Operational
 D - Technical
 <br>
 <br>
-Explanation:
+Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware. Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Operational control is implemented primarily by people. Security guards and training programs would be considered Operational. Technical control is implemented as a system (Hardware, software, firmware).
 <br>
 <br>
 <br>
@@ -552,7 +552,7 @@ C - Deterrent
 <span style="color:#9aeabc;"> D - Preventive </span>
 <br>
 <br>
-Explanation:
+A Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying.
 <br>
 <br>
 <br>
@@ -574,7 +574,7 @@ C - Directive
 <span style="color:#9aeabc;"> D - Detective </span>
 <br>
 <br>
-Explanation:
+A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices.
 <br>
 <br>
 <br>
@@ -596,7 +596,7 @@ C - Preventive
 D - Directive
 <br>
 <br>
-Explanation:
+A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Compensating security control is a substitute for a principal control that affords the same or better level of protection. A Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices.
 <br>
 <br>
 <br>
@@ -618,7 +618,7 @@ B - Preventive
 D - Compensating
 <br>
 <br>
-Explanation:
+A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Compensating security control is a substitute for a principal control that affords the same or better level of protection.
 <br>
 <br>
 <br>
@@ -640,7 +640,7 @@ C - Detective
 D - Corrective
 <br>
 <br>
-Explanation:
+A Compensating security control is a substitute for a principal control that affords the same or better level of protection. A Directive security control can be defined as guidelines, policies, SOPs, laws, or regulations. Companies will hold training and awareness programs to keep their employees up to date on the Cyber-security best practices. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack.
 <br>
 <br>
 <br>
@@ -662,7 +662,7 @@ C - Detective
 D - Corrective
 <br>
 <br>
-Explanation:
+A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack.
 <br>
 <br>
 <br>
@@ -684,7 +684,7 @@ B - Managerial
 D - Operational
 <br>
 <br>
-Explanation:
+Technical control is implemented as a system (Hardware, software, firmware). Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware. Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Operational control is implemented primarily by people. Security guards and training programs would be considered Operational.
 <br>
 <br>
 <br>
@@ -706,7 +706,7 @@ C - Physical
 D - Operational
 <br>
 <br>
-Explanation:
+Managerial control is also known as Administrative control. It gives oversight of the information system and focuses on the management of risk. Technical control is implemented as a system (Hardware, software, firmware). Physical controls are usually anything tangible that is used to prevent unauthorized access, such as alarms, gateways, locks, lighting, and security cameras that deter and detect access to a premises and hardware. Operational control is implemented primarily by people. Security guards and training programs would be considered Operational.
 <br>
 <br>
 <br>
