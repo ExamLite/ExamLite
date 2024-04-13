@@ -23,10 +23,10 @@ const questions = [
 {
     question: "Your company experienced an attack on their servers overnight. The IT department was able to perform a system backup to restore services. What type of security control is this considered?",
     answers: [
-        {text: "Corrective", correct: false},
+        {text: "Corrective", correct: true},
         {text: "Detective", correct: false},
         {text: "Preventive", correct: false},
-        {text: "Deterrent", correct: true},
+        {text: "Deterrent", correct: false},
     ]
 },
 // question 4 //
@@ -264,6 +264,7 @@ function selectAnswer(e){
 function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    questionElement.innerHTML = `EXPLANATION: words words words!`;
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }
