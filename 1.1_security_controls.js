@@ -263,24 +263,7 @@ function selectAnswer(e){
 
 function showScore(){
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}! <br> 
-    <br>
-    <br>
-    Q1. Management has been taking measures to increase the network security. You have been tasked with implementing an ACL on the edge router. What type of security control could this be considered?
-    <br>
-    A - Corrective
-    <br>
-    B - Preventive
-    <br>
-    C - Deterrent
-    <br>
-    D – Detective
-    <br>
-    EXPLANATION: 
-    Implementing a Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network.
-    <br>
-    
-    `;
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }
