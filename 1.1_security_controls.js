@@ -151,7 +151,7 @@ const questions = [
 },
 // question 16 //
 {
-   question: "Every day at noon, you are to perform preventative maintenance on a Third-party system. You are not familiar with this system, but you know it is vital to maintaining your network. Luckily, there is a Standard Operating Procedure (SOP) that details every step of the required maintenance. What type of security control is this considered?",
+   question: "Everyday at noon, you are to perform preventative maintenance on a Third-party system. You are not familiar with this system, but you know it is vital to maintaining your network. Luckily, there is a Standard Operating Procedure (SOP) that details every step of the required maintenance. What type of security control is this considered?",
     answers: [
         {text: "Deterrent", correct: false},
         {text: "Preventive", correct: false},
@@ -263,7 +263,456 @@ function selectAnswer(e){
 
 function showScore(){
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!
+<br>
+<br>
+Below is a breakdown of the exam:
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="color:lavender; font-weight: 3; font-size: 18px;">
+<span style="font-size: 25px;">Q1.</span> Management has been taking measures to increase the network security. You have been tasked with implementing an ACL on the edge router. What type of security control could this be considered?
+<br>
+<br>
+A - Corrective
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Preventive </span>
+<br>
+<br>
+C - Deterrent
+<br>
+<br>
+D - Detective
+<br>
+<br>
+Implementing a Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network.
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q2.</span> Your company has decided to ramp up security by adding a large warning sign that states “NO TRESPASSING! VIOLATORS WILL BE PROSECUTED!” at every entrance. What type of security control could this be considered?
+<br>
+<br>
+A - Corrective
+<br>
+<br>
+B - Directive
+<br>
+<br>
+C - Compensating
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Deterrent </span>
+<br>
+<br>
+Explanation: 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q3.</span> Your company experienced an attack on their servers overnight. The IT department was able to perform a system backup to restore services. What type of security control is this considered?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Corrective </span>
+<br>
+<br>
+B - Detective
+<br>
+<br>
+C - Preventive
+<br>
+<br>
+D - Deterrent
+<br>
+<br>
+Explanation: 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q4.</span> You have been tasked with coordinating / avoiding a potential network outage. A router in your network needs to be sent back to the provider for repairs. You must substitute the router with something that affords the same or better level of protection to ensure your network remains secure and operational. What type of security control is this considered?
+<br>
+<br>
+A - Deterrent
+<br>
+<br>
+B - Directive 
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Compensating </span>
+<br>
+<br>
+D - Detective
+<br>
+<br>
+Explanation: 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q5.</span> You attend orientation for a new cyber security job and spend the afternoon filling out paperwork and reviewing company policies. One of the policies outlines what will happen if you do not comply to the “Security best practices”. This policy is included in every employee contract. What type of security control is this considered?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Directive </span>
+<br>
+<br>
+B - Deterrent
+<br>
+<br>
+C - Preventive
+<br>
+<br>
+D - Corrective
+<br>
+<br>
+Explanation: 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q6.</span> An attack on your companies SQL Server took place overnight. Management believes it may have been a disgruntled employee who was recently let go. You are tasked with checking the logs for any attempted or successful intrusions. What type of security control is this considered?
+<br>
+<br>
+A - Corrective
+<br>
+<br>
+B - Preventive
+<br>
+<br>
+C - Directive
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Detective </span>
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q7.</span> To access the server room, you must unlock the door by entering an access code on the keypad. What category of security controls would this fall under?
+<br>
+<br>
+A - Operational
+<br>
+<br>
+B - Managerial
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Physical </span>
+<br>
+<br>
+D - Technical
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q8.</span> Once a year, the IT department emails everyone a link to mandatory cyber security training. This is to ensure that employees stay up to date on the latest cyber security best practices. What category of security controls would this be considered?
+<br>
+<br>
+A - Technical
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Operational </span>
+<br>
+<br>
+C - Managerial
+<br>
+<br>
+D - Physical
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q9.</span> The Sales department has received a new shipment of laptops. You are tasked with downloading Antivirus software before they are allowed to use them. What category of security controls would this be considered?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Technical </span>
+<br>
+<br>
+B - Managerial
+<br>
+<br>
+C - Operational
+<br>
+<br>
+D - Physical
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q10.</span> An old legacy router is due to be phased out of your network design soon. Before any changes can be approved to the equipment or the security policies, a team of department heads need to evaluate the system and identify any risk associated with removing or adding equipment. What category of security controls would this more than likely fall under?
+<br>
+<br>
+A - Operational
+<br>
+<br>
+B - Physical
+<br>
+<br>
+C - Technical
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Managerial </span>
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q11.</span> Your company has decided to place a security guard at every entrance of the building. They will be responsible for checking ID badges as you enter / exit the premises. What category of security controls would this most likely be considered? 
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Operational </span>
+<br>
+<br>
+B - Technical
+<br>
+<br>
+C - Managerial
+<br>
+<br>
+D - Physical
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q12.</span> Your company has decided to place a motion activated light and a security camera at the server room entrance. What category of security controls would this most likely be considered?
+<br>
+<br>
+A - Managerial
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Physical </span>
+<br>
+<br>
+C - Operational
+<br>
+<br>
+D - Technical
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q13.</span> A new software revision has come out for a router in your network. Management has decided that upgrading to the new revision will reduce the likelihood of a successful attack. What type of security control is this considered?
+<br>
+<br>
+A - Detective
+<br>
+<br>
+B - Corrective
+<br>
+<br>
+C - Deterrent
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Preventive </span>
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q14.</span> You have been tasked with consoling into a server. It requires a unique username and password before letting you make any configuration changes. You accidentally type in your username or password wrong, and it creates a log entry. What type of security control might this log be used for?
+<br>
+<br>
+A - Deterrent
+<br>
+<br>
+B - Corrective
+<br>
+<br>
+C - Directive
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Detective </span>
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q15.</span> An attack on your computer has left your network vulnerable to hackers looking to gain access through a backdoor. After consulting with a Subject matter expert, management has determined we must install a new patch to address the vulnerability. What type of security control would this be considered?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Corrective </span>
+<br>
+<br>
+B - Compensating
+<br>
+<br>
+C - Preventive
+<br>
+<br>
+D - Directive
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q16.</span> Everyday at noon, you are to perform preventative maintenance on a Third-party system. You are not familiar with this system, but you know it is vital to maintaining your network. Luckily, there is a Standard Operating Procedure (SOP) that details every step of the required maintenance. What type of security control is this considered? 
+<br>
+<br>
+A - Deterrent
+<br>
+<br>
+B - Preventive 
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Directive </span>
+<br>
+<br>
+D - Compensating
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q17.</span> You are reviewing a diagram of the network. You notice there is a router labeled “R1-Main” and another labeled “R2-Back-up”. Having this router redundancy could be considered a form of what security control?
+<br>
+<br>
+A - Directive
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Compensating </span>
+<br>
+<br>
+C - Detective
+<br>
+<br>
+D - Corrective
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q18.</span> When you go to console into a switch, you notice a long banner pop up. It details the harsh punishments for accessing the equipment illegally. What type of security control is this considered?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Deterrent  </span>
+<br>
+<br>
+B - Preventive
+<br>
+<br>
+C - Detective
+<br>
+<br>
+D - Corrective
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q19.</span> Employees have been reporting a suspicious “Bank” email. Management wants you to implement an ACL to deny any message traffic from this email address. What category of security controls could this be considered?
+<br>
+<br>
+A - Physical
+<br>
+<br>
+B - Managerial
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Technical </span>
+<br>
+<br>
+D - Operational
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="font-size: 25px;">Q20.</span> You have been tasked with drafting up an Incident response plan for any network outages that may occur. You must coordinate with other department heads to come up with a solution to any potential threats. What category of security controls would this fall under?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Managerial </span>
+<br>
+<br>
+B - Technical
+<br>
+<br>
+C - Physical
+<br>
+<br>
+D - Operational
+<br>
+<br>
+Explanation:
+<br>
+<br>
+<br>
+</span>
+
+`;
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }
