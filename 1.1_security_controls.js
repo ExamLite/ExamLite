@@ -202,7 +202,6 @@ const questions = [
 ];
 
 const questionElement = document.getElementById("question");
-const breakdownElement = document.getElementById("breakdown");
 const answerButtons = document.getElementById("answer-buttons");
 const NextButton = document.getElementById("next-btn");
 
@@ -265,7 +264,6 @@ function selectAnswer(e){
 function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    breakdownElement.innerHTML = "Words words words";
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }
