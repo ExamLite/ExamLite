@@ -236,15 +236,15 @@
 
     th {
 
-    font-size: 30px;
+    font-size: 25px;
     color: lightseagreen;
-    text-align: center;
+    text-align: left;
     text-shadow: 2px 2px 4px #000000;
     text-decoration: none;
     
     }
-
     
+
     td {
 
     font-size: 25px;
@@ -260,13 +260,14 @@
     font-size: 23px;
     color: lavender;
     text-decoration: none;
-    text-align: center;
+    text-align: left;
     transition: .3s;
     display: block;
-    width: 80%;
+    width: 48%;
     padding: 10px;
     
     }
+
 
     .exam-table a:hover,
     .exam-table a.active {
@@ -294,6 +295,7 @@
     background-color: lightseagreen;
     
     }
+
     
     .footer {
     
