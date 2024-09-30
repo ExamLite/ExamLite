@@ -404,13 +404,17 @@
     font-weight: 500;
     padding: 2px;
     color: #FFBF00;
+    font-size: 25px;
+    color: lightseagreen;
+    text-align: left;
+    text-shadow: 2px 2px 4px #000000;
     text-decoration: none;
     
     }
-    
+
+    td {
 
     .exam-table td {
-
     margin: 0 auto;
     font-size: 10px;
     color: #fff;
@@ -418,7 +422,6 @@
     width: 10%;
 
     }
-
 
     .exam-table a {
     
@@ -429,10 +432,13 @@
     transition: .3s;
     display: block;
     width: 25%;
+    text-align: left;
+    transition: .3s;
+    display: block;
+    width: 48%;
     padding: 10px;
     
     }
-
 
     .exam-table a:hover,
     .exam-table a.active {
@@ -733,6 +739,7 @@ background: #FFC000;
     align-items: center;
     justify-content: space-around;
     padding: 6px;
+
 }
 
 
@@ -790,5 +797,7 @@ background: #FFC000;
 }
 
 .checkbox:checked + .checkbox-label .ball {
-  transform: translateX(24px);
+
+transform: translateX(24px);
+
 }
