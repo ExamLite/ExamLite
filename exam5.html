@@ -18,7 +18,7 @@ crossorigin="anonymous"></script>
 
 <header class="header">
 
-<a href="https://www.examlite.com"><img src="logo.jpg"></a>
+<a href="https://www.examlite.com"><img src="logo.png"></a>
 
 <nav class="navbar">
 <a href="https://www.examlite.com"> Home </a>
@@ -27,11 +27,7 @@ crossorigin="anonymous"></script>
     <p class="navtext"> Exams </p>
     <div class="dropdown-content">
     <br>
-    <a href="security.html">Security +</a>
-    <br>
-    <hr>
-    <br>
-    <a href="ccna.html">CCNA</a>
+    <a href="security.html">Security+</a>
     <br>
     </div>
     </div>
@@ -46,13 +42,10 @@ crossorigin="anonymous"></script>
 <br>
 <br>
 <section class="exam">
-
 <div class="exam-content">
 
-<h1> Exam 5 </h1>
-<br>
-
 <div class="question-box">
+<h1><span style="color:#FFBF00;"> Exam 5 </span></h1>
 <h3 id="question">Question goes here</h3>
 <div class="question-content">
     <div id="answer-buttons">
@@ -62,6 +55,13 @@ crossorigin="anonymous"></script>
         <button class="btn"> Answer 4 </button>
     </div>
     <button id="next-btn">Next</button>
+    <button onclick="myFunction()", id="info-btn">Explanation</button>
+<br>
+
+<div class="info-box">
+<p id="info">Info goes here</p>
+</div>
+
 </div>
 </div>
 
@@ -90,9 +90,24 @@ crossorigin="anonymous"></script>
 <div class="footer">
 <p> © Copyright 2023 - 2024 ∴ Site designed and hosted by ExamLite </p>
 <a href="privacy.html">Privacy policy</a>
+
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <span class="ball"></span>
+  </label>
+
 </div>
 
-<script src="exam5.js"></script>
+<script>
+
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  var element = document.body;
+  document.body.classList.toggle("dark-mode")
+})
+
+</script>
+<script src="Exam5.js"></script>
 </body>
 
 

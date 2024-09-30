@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-<title> Examlite - About us </title>
+<title> Examlite </title>
 <link rel="shortcut icon" type="image/jpg" href="favicon.jpg">
 <link rel="stylesheet" type="text/css" href="style.css">
 <meta charset="UTF-8">
-<meta name="keywords" content="Practice exams, Security +, Free sec + exams">
+<meta name="keywords" content="Practice exams, free practice sec + test, Security +, Free sec + exams, security + SY0-701">
 <meta name="description" content="Free practice test for security + exams">
 <meta name="author" content="Examlite">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@ crossorigin="anonymous"></script>
 
 <header class="header">
 
-<a href="https://www.examlite.com"><img src="logo.jpg"></a>
+<a href="https://www.examlite.com"><img src="logo.png"></a>
 
 <nav class="navbar">
 <a href="https://www.examlite.com"> Home </a>
@@ -27,76 +27,91 @@ crossorigin="anonymous"></script>
     <p class="navtext"> Exams </p>
     <div class="dropdown-content">
     <br>
-    <a href="security.html">Security +</a>
+    <a href="security.html">Security+</a>
     <br>
     <hr>
     <br>
-    <a href="ccna.html">CCNA</a>
+    <a href="security.html">Linux</a>
+    <br>
+    <hr>
+    <br>
+    <a href="security.html">CCNA</a>
     <br>
     </div>
     </div>
 
-<a href="about.html" class="active"> About us </a>
+<a href="about.html"> About us </a>
 <a href="contact.html"> Contact us </a>
-
 </nav>
 
 </header>
-
 <br>
 <br>
 <section class="home">
 <center>
-<div class="home-content">
-<h1> About us </h1>
-<br>
-<p> Our goal is to provide a <span style="color: lightseagreen"> free source of study material </span> for anyone who needs it. </p>
-<p> We believe you should have access to study material regardless of your financial status. </p>
-<p> We encourage you to pursue your IT certs the way you see fit! </p>
-<p> Bear with us as we prepare this website to provide you with everything you need to pass. </p>
-<br>
-<br>
-<hr>
-<br>
-<br>
-<p style="color: lightseagreen; text-align: center;"> ∴ ∴ ∴ ∴ ∴</p>
-<p> We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with compTIA. </p>
-<p> None of the study material on this website is taken directly from compTIA.</p>
-<p> All study material / exam questions will be organically and carefully written by ExamLite to help prepare you to pass your exams.</p>
-<p style="color: lightseagreen; text-align: center;"> ∴ ∴ ∴ ∴ ∴</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
-</center>
+   <div class="home-content">
+      <br>
+      <h1> About us </h1>
+      <hr>
+      <br>
+   </center>
+      <div class="home-content">
+      <p> I started this website in late 2023 as a way to learn/practice HTML in my free time. </p>
+      <p> Since then it has become somewhat of a passion project for anyone who might find it useful.</p>
+      <br>
+      <br>
+      <p> If the website looks shitty, its likely a combination of: 
+      <p> 1. I don't know what i'm doing. </p> 
+      <p> 2. I'm testing what functions work together. </p>
+      <br>
+      <br>
+      <p> Ultimately, my goal is to provide a <span style="color: #FFBF00;"> free source of study material </span> for anyone who needs it. </p>
+      <p> Bear with me as I prepare this website to provide you with everything you need to pass. </p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h3> Disclaimer: </h3>
+      <p> We are not affiliated, associated, authorized, endorsed by, or in any way officially connected with compTIA. </p>
+      <p> None of the study material on this website is taken directly from compTIA.</p>
+      <p> All study material / exam questions will be organically and carefully written by ExamLite to help prepare you to pass your exams.</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </div>
+   </div>
 </section>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="footer">
 <p> © Copyright 2023 - 2024 ∴ Site designed and hosted by ExamLite </p>
 <a href="privacy.html">Privacy policy</a>
+
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <span class="ball"></span>
+  </label>
+
 </div>
+
+<script>
+
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  var element = document.body;
+  document.body.classList.toggle("dark-mode")
+})
+
+</script>
 
 </body>
 

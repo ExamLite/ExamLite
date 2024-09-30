@@ -1,909 +1,1001 @@
 const questions = [
 // question 1 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "Is this an example of a question?",
+    info: "This IS an example of a question.",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 2 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 3 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 4 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 5 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 6 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 7 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ] 
+},
 // question 8 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 9 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 10 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 11 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 12 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ] 
+},
 // question 13 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 14 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 15 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 16 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 17 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ] 
+},
 // question 18 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 19 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 20 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 21 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 22 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 23 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 24 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 25 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 26 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 27 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 28 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 29 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 30 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 31 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 32 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ] 
+},
 // question 33 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 34 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 35 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 36 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 37 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 38 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 39 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 40 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 41 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 42 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 43 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 44 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 45 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 46 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 47 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ] 
+},
 // question 48 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 49 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 50 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 51 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 52 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ] 
+},
 // question 53 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 54 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 55 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 56 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 57 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ] 
+},
 // question 58 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 59 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 60 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 61 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 62 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ] 
+},
 // question 63 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 64 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 65 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 66 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 67 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ] 
+},
 // question 68 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 69 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 70 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 71 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 72 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ] 
+},
 // question 73 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 74 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 75 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 76 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 77 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 78 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 79 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 80 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 81 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 82 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 83 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 84 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 85 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 86 //
-    {
-        question: "Examlite need to collect evidence for a recent data breach. What do we need to collect first based on the order of volatility?",
-        answers: [
-            {text: "RAM", correct: false},
-            {text: "Swap file", correct: false},
-            {text: "Processor Cache", correct: true},
-            {text: "USB", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+    ]
+},
 // question 87 //
-    {
-        question: "We received an alert that a firewall went down. Upon investigation, we found no vulnerability existed on the system. We can categorize this as a:",
-        answers: [
-            {text: "True negative", correct: false},
-            {text: "False Negative", correct: false},
-            {text: "True positive", correct: false},
-            {text: "False positive", correct: true},
-        ] 
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ] 
+},
 // question 88 //
-    {
-        question: "We need to set up a symmetric cyrptographic algorithm. Which algorithm should we use?",
-        answers: [
-            {text: "RC4", correct: true},
-            {text: "ECC", correct: false},
-            {text: "RSA", correct: false},
-            {text: "DSA", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+    ]
+},
 // question 89 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    },
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 // question 90 //
-    {
-        question: "Examlite was hacked recently! The hacker redirected our website to a blog called 'Save the whales!'. What can we most likely classify this hacker as? ",
-        answers: [
-            {text: "Insider threat", correct: false},
-            {text: "Script kiddies", correct: false},
-            {text: "A hacktivist", correct: true},
-            {text: "Advanced Persistent threat", correct: false},
-        ]
-    }
+{
+    question: "",
+    info: "",
+    answers: [
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+    ]
+},
 ];
 
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const NextButton = document.getElementById("next-btn");
+const InfoButton = document.getElementById("info-btn");
+const infoElement = document.getElementById("info");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -912,6 +1004,7 @@ function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     NextButton.innerHTML = "Next";
+    InfoButton.innerHTML = "Explanation";
     showQuestion();
 }
 
@@ -921,6 +1014,7 @@ function showQuestion(){
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = "Q" + questionNo + " / 90 <br><br>" + currentQuestion.
     question;
+    infoElement.innerHTML = currentQuestion.info;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -934,9 +1028,16 @@ function showQuestion(){
     });
 }
 
+function myFunction() {
+  var x = document.getElementById("info");
+  x.style.display = x.style.display != "block"?"block":"none"
+}
+
 function resetState(){
 
     NextButton.style.display = "none";
+    InfoButton.style.display = "none";
+    infoElement.style.display = "none";
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -959,11 +1060,2181 @@ function selectAnswer(e){
         button.disabled = true;
     });
     NextButton.style.display = "block";
+    InfoButton.style.display = "block";
 }
+
 
 function showScore(){
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!
+<br>
+<br>
+Below is a breakdown of the exam:
+<br>
+<br>
+<hr>
+<br>
+<br>
+<span style="color:lavender; font-weight: 3; font-size: 18px;">
+
+<!—Question 1 -->
+<span style="font-size: 25px;">Q1.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 2 -->
+<span style="font-size: 25px;">Q2.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 3 -->
+<span style="font-size: 25px;">Q3.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 4 -->
+<span style="font-size: 25px;">Q4.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words 
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 5 -->
+<span style="font-size: 25px;">Q5.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 6 -->
+<span style="font-size: 25px;">Q6.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 7 -->
+<span style="font-size: 25px;">Q7.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 8 -->
+<span style="font-size: 25px;">Q8.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 9 -->
+<span style="font-size: 25px;">Q9.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 10 -->
+<span style="font-size: 25px;">Q10.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 11 -->
+<span style="font-size: 25px;">Q11.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 12 -->
+<span style="font-size: 25px;">Q12.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 13 -->
+<span style="font-size: 25px;">Q13.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 14 -->
+<span style="font-size: 25px;">Q14.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 15 -->
+<span style="font-size: 25px;">Q15.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 16 -->
+<span style="font-size: 25px;">Q16.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 17 -->
+<span style="font-size: 25px;">Q17.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 18 -->
+<span style="font-size: 25px;">Q18.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 19 -->
+<span style="font-size: 25px;">Q19.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 20 -->
+<span style="font-size: 25px;">Q20.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+
+<!—Question 21 -->
+<span style="font-size: 25px;">Q21.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 22 -->
+<span style="font-size: 25px;">Q22.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 23 -->
+<span style="font-size: 25px;">Q23.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 24 -->
+<span style="font-size: 25px;">Q24.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words 
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 25 -->
+<span style="font-size: 25px;">Q25.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 26 -->
+<span style="font-size: 25px;">Q26.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 27 -->
+<span style="font-size: 25px;">Q27.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 28 -->
+<span style="font-size: 25px;">Q28.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 29 -->
+<span style="font-size: 25px;">Q29.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 30 -->
+<span style="font-size: 25px;">Q30.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 31 -->
+<span style="font-size: 25px;">Q31.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 32 -->
+<span style="font-size: 25px;">Q32.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 33 -->
+<span style="font-size: 25px;">Q33.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 34 -->
+<span style="font-size: 25px;">Q34.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words 
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 35 -->
+<span style="font-size: 25px;">Q35.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 36 -->
+<span style="font-size: 25px;">Q36.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 37 -->
+<span style="font-size: 25px;">Q37.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 38 -->
+<span style="font-size: 25px;">Q38.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 39 -->
+<span style="font-size: 25px;">Q39.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 40 -->
+<span style="font-size: 25px;">Q40.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 41 -->
+<span style="font-size: 25px;">Q41.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 42 -->
+<span style="font-size: 25px;">Q42.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 43 -->
+<span style="font-size: 25px;">Q43.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 44 -->
+<span style="font-size: 25px;">Q44.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words 
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 45 -->
+<span style="font-size: 25px;">Q45.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 46 -->
+<span style="font-size: 25px;">Q46.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 47 -->
+<span style="font-size: 25px;">Q47.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 48 -->
+<span style="font-size: 25px;">Q48.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 49 -->
+<span style="font-size: 25px;">Q49.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 50 -->
+<span style="font-size: 25px;">Q50.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+<!—Question 51 -->
+<span style="font-size: 25px;">Q51.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 52 -->
+<span style="font-size: 25px;">Q52.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 53 -->
+<span style="font-size: 25px;">Q53.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 54 -->
+<span style="font-size: 25px;">Q54.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 55 -->
+<span style="font-size: 25px;">Q55.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 56 -->
+<span style="font-size: 25px;">Q56.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 57 -->
+<span style="font-size: 25px;">Q57.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 58 -->
+<span style="font-size: 25px;">Q58.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 59 -->
+<span style="font-size: 25px;">Q59.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 60 -->
+<span style="font-size: 25px;">Q60.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+<!—Question 61 -->
+<span style="font-size: 25px;">Q61.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 62 -->
+<span style="font-size: 25px;">Q62.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 63 -->
+<span style="font-size: 25px;">Q63.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 64 -->
+<span style="font-size: 25px;">Q64.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words 
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 65 -->
+<span style="font-size: 25px;">Q65.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 66 -->
+<span style="font-size: 25px;">Q66.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 67 -->
+<span style="font-size: 25px;">Q67.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 68 -->
+<span style="font-size: 25px;">Q68.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 69 -->
+<span style="font-size: 25px;">Q69.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 70 -->
+<span style="font-size: 25px;">Q70.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+<!—Question 71 -->
+<span style="font-size: 25px;">Q71.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 72 -->
+<span style="font-size: 25px;">Q72.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 73 -->
+<span style="font-size: 25px;">Q73.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 74 -->
+<span style="font-size: 25px;">Q74.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 75 -->
+<span style="font-size: 25px;">Q75.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 76 -->
+<span style="font-size: 25px;">Q76.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 77 -->
+<span style="font-size: 25px;">Q77.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 78 -->
+<span style="font-size: 25px;">Q78.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 79 -->
+<span style="font-size: 25px;">Q79.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 80 -->
+<span style="font-size: 25px;">Q80.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+<!—Question 81 -->
+<span style="font-size: 25px;">Q81.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 82 -->
+<span style="font-size: 25px;">Q82.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info 
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 83 -->
+<span style="font-size: 25px;">Q83.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 84 -->
+<span style="font-size: 25px;">Q84.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words 
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 85 -->
+<span style="font-size: 25px;">Q85.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 86 -->
+<span style="font-size: 25px;">Q86.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 87 -->
+<span style="font-size: 25px;">Q87.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 88 -->
+<span style="font-size: 25px;">Q88.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> D - Words </span>
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 89 -->
+<span style="font-size: 25px;">Q89.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 90 -->
+<span style="font-size: 25px;">Q90.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+
+
+`;
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
 }

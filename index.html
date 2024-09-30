@@ -6,7 +6,7 @@
 <link rel="shortcut icon" type="image/jpg" href="favicon.jpg">
 <link rel="stylesheet" type="text/css" href="style.css">
 <meta charset="UTF-8">
-<meta name="keywords" content="Practice exams, Security +, Free sec + exams">
+<meta name="keywords" content="Practice exams, free practice sec + test, Security +, Free sec + exams, security + SY0-701">
 <meta name="description" content="Free practice test for security + exams">
 <meta name="author" content="Examlite">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,80 +18,101 @@ crossorigin="anonymous"></script>
 
 <header class="header">
 
-<a href="https://www.examlite.com"><img src="logo.jpg"></a>
+<a href="https://www.examlite.com"><img src="logo.png"></a>
 
 <nav class="navbar">
-<a href="https://www.examlite.com" class="active"> Home </a>
+<a href="https://www.examlite.com"> Home </a>
 
 <div class="dropdown">
-<p class="navtext"> Exams </p>
-<div class="dropdown-content">
-<br>
-<a href="security.html">Security +</a>
-<br>
-<hr>
-<br>
-<a href="ccna.html">CCNA</a>
-<br>
-</div>
-</div>
+    <p class="navtext"> Exams </p>
+    <div class="dropdown-content">
+    <br>
+    <a href="security.html">Security+</a>
+    <br>
+    <hr>
+    <br>
+    <a href="security.html">Linux</a>
+    <br>
+    <hr>
+    <br>
+    <a href="security.html">CCNA</a>
+    <br>
+    </div>
+    </div>
 
 <a href="about.html"> About us </a>
 <a href="contact.html"> Contact us </a>
-
 </nav>
 
 </header>
-
 <br>
 <br>
 <section class="home">
-<center><div class="home-content">
-<h1> Welcome to ExamLite!</h1>
-<p> This site is currently <span style="color: yellow"> under construction. </span> </p>
-<p> Soon we hope to offer <B style="color: lightseagreen">FREE</B> Security + (SY0 701) practice exams.</p>
+<center>
+<div class="home-content">
 <br>
-<hr style="width: 60%;">
+<h1>Exam<span style="color:#FFBF00;">lite</span></h1>
+<hr>
 <br>
-<p> Below is an example of the exams we are building! </p>
-<p> In the meantime, check out the<a href="security.html">Exams</a>tab to play around with the exams we currently have working! </p>
+<p> Welcome to Examlite! </p>
+<p> We offer free practice exams for <span style="color:#FFBF00;"> IT certifications</span>.</p>
+<p> Bare with us as we finish preparing this website.</p>
 <br>
-<div>
-<img src="exam.jpg" style="width: 60%; margin: auto;">
 </div>
+
 <br>
 <br>
+
+<table class="home-table">
+   <tr>
+      <th><h3> Practice exams: </h3></th>
+      <th> <h3> Other free sources: </h3></th>
+   </tr>
+   <tr>
+      <td> <a href="security.html">Security+ (SY0 701)</a> </td>
+      <td> <a href="https://www.youtube.com/playlist?list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv" target="_blank"> Professor Messer </a> </td>
+   </tr>
+   <tr>
+      <td> <p> Linux <span style="color:#FFAA33;">*coming soon*</span> </p> </td>
+      <td> <a href="https://www.examcompass.com/comptia/security-plus-certification/free-security-plus-practice-tests" target="_blank"> Examcompass.com </a> </td>
+   </tr>
+   <tr>
+      <td> <p> CCNA <span style="color:#FFAA33;">*coming soon*</span> </p> </td>
+   </tr>
+</table>
 <br>
+<br>
+
 </center>
-
-
-
-</div>
 </section>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <div class="footer">
 <p> © Copyright 2023 - 2024 ∴ Site designed and hosted by ExamLite </p>
 <a href="privacy.html">Privacy policy</a>
+
+  <input type="checkbox" class="checkbox" id="checkbox">
+  <label for="checkbox" class="checkbox-label">
+    <span class="ball"></span>
+  </label>
+
 </div>
+
+<script>
+
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  var element = document.body;
+  document.body.classList.toggle("dark-mode")
+})
+
+</script>
 
 </body>
 

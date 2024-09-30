@@ -9,26 +9,176 @@
     body {
     
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("floppy.jpg");
-    color: lavender;
+    background: #292c35;
+    transition: background 0.2s linear;
+    color: #fff;
     
     }
+
+/************************************ D A R K - M O D E ************************************/
+
+
+    .dark-mode {
+
+    background: #FAF9F6;
+
+    }
+
+    .dark-mode h1 {
+
+    color: black;
+
+    }
+
+    .dark-mode .home {
+
+    background: white;
+    color: black;
+
+    }
+
+    .dark-mode .home p {
+
+    color: black;
+
+    }
+
+    .dark-mode .home-content a {
+
+    background: white;
+    color: black;
+
+    }
+
+    .dark-mode .home-content h1 {
+
+    color: black;
+
+    }
+
+    .dark-mode .home-content h3 {
+
+    color: black;
     
+    }
+
+.dark-mode .privacy-content h1 {
+
+    color: black;
+        
+    }
+        
+    .dark-mode .privacy-content h2 {
+        
+    color: black;
+            
+    }
+            
+    .dark-mode .exam-table a {
+
+    color: blue;
+
+    }
+
+    .dark-mode .exam-table th {
+
+    color: black;
+
+    }
+
+    .dark-mode .home-table th {
+
+    color: black;
+
+    }
+
+    .dark-mode .home-table a {
+
+    color: blue;
+
+    }
+
+    .dark-mode .home-table p {
+
+    color: blue;
+
+    }
+
+    .dark-mode .question-box {
+
+    background: white;
+    color: black;
+
+    }
+
+    .dark-mode .question-box h3 {
+
+    color: black;
+
+    }
+
+    .dark-mode .question-box p {
+
+    color: black;
+
+    }
+
+
+
+/************************************ D A R K - M O D E ************************************/
+
     .home {
     
     background-color: #333333;
-    border: 2px solid lavender;
+    border: 2px solid black;
     border-radius:30px;
     height: 100%;
-    width: 65%;
+    width: 70%;
     margin: 0 auto;
     
+    }
+
+    .home-content {
+
+    padding: 10px;
+    height: 100%;
+    width: 65%;
+    display: inline-block;
+    color: #fff;
+    
+    }
+
+   .home-content a {
+    
+    padding: 30px;
+    width: 40%;
+    border-radius: 10%;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s ease;
+    background: #292c35;
+    border: 2px solid black;
+    color: #FFBF00;
+    transform: scale(1.1);
+    display: inline-block;
+    justify-content: space-around;
+    
+    }
+
+    .home-content a:hover {
+
+    background: #292c35;
+    border: 3px solid #FFBF00;
+    color: #FFBF00;
+
     }
     
     .privacy {
     
     background-color: #333333;
-    border: 2px solid lavender;
+    border: 2px solid #fff;
     border-radius:30px;
     display: flex;
     height: 100%;
@@ -39,6 +189,10 @@
         }
 
     .privacy-content {
+   
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
 
@@ -47,17 +201,17 @@
 
         align-items: center;
         border-radius: 30%;
-        border: 3px solid lavender;
-        position: relative;
+        border: 2px solid #fff;
     
     }
     
     .home-content h1 {
     
-    font-size: 40px;
+    color:#fff;
+    font-size: 45px;
     font-weight: 700;
-    text-shadow: 2px 2px 4px #000000;
     Padding: 15px;
+    text-indent: 10px;
     
     }
 
@@ -65,7 +219,7 @@
     
         font-size: 30px;
         text-indent: 5px;
-        color: lavender;
+        color: #fff;
         text-shadow: 2px 2px 4px #000000;
         text-decoration: none;
         display: block;
@@ -75,15 +229,17 @@
     .home-content h3 {
 
         text-indent: 8px;
+        line-height: 1.6;
+
     }  
     
     .home-content p {
     
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 500;
-    text-shadow: 1px 1px 2px #000000;
-    padding: 10px;
+    padding: 2px;
     text-indent: 10px;
+    line-height: 1.5;
     
     }
 
@@ -91,10 +247,9 @@
     
         font-size: 25px;
         font-weight: 500;
-        text-shadow: 1px 1px 2px #000000;
         padding: 10px;
         text-indent: 10px;
-        color: lavender;
+        color: #fff;
         text-decoration: none;
         transition: .3s;
         
@@ -104,54 +259,63 @@
         .home-content p a:hover,
         .home-content p a.active {
         
-        color: lightseagreen;
+        color: #FFBF00;
         
         }
 
     .privacy-content h1 {
     
-    font-size: 80px;
-    font-weight: 700;
-    text-shadow: 2px 2px 4px #000000;
-    Padding: 20px;
+        color:#fff;
+        font-size: 45px;
+        font-weight: 700;
+        Padding: 15px;
+        text-indent: 10px;
         
         }
- .privacy-content h4 {
-    color: lightseagreen;
-    font-size: 23px;
-    text-indent: 10px;
 
-        }
-
-.privacy-content h5 {
+    .privacy-content h2 {
+    
     font-size: 20px;
-    text-indent: 10px;
+    text-indent: 8px;
+    line-height: 1.6;
+    color:#fff;
 
-        
-     }
-
- .privacy-content h5 a {
-    font-size: 20px;
-    color: lavender;
-    text-decoration: none;
-    transition: .3s;
-    
-            
-    }
-
-    .privacy-content h5 a:hover,
-    .privacy-content h5 a.active {
-    
-    color: lightseagreen;
-    
     }
 
 .privacy-content h3 {
-    font-size: 23px;
-    color: lightseagreen;
+
+    text-indent: 8px;
+    line-height: 1.6;
+    color:#FFBF00;
+
+    }
+
+    .privacy-content p {
+    
+    font-size: 18px;
+    font-weight: 500;
+    padding: 2px;
     text-indent: 10px;
+    line-height: 1.5;
+        
+        }
+
+ .privacy-content p a {
+
+    font-size: 20px;
+    color: #FFBF00;
+    text-decoration: none;
+    transition: .3s;
+            
+    }
+
+    .privacy-content p a:hover,
+    .privacy-content p a.active {
+    
+    color: #FFBF00;
     
     }
+
 
     .header {
     
@@ -160,7 +324,7 @@
     text-shadow: 2px 2px 4px #000000;
     background-color: #333333;
     border: 2px solid #333333;
-    border-bottom-color: lavender;
+    border-bottom-color: black;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -172,7 +336,7 @@
     .navbar a {
     
     font-size: 25px;
-    color: lavender;
+    color: #fff;
     text-decoration: none;
     margin-left: 35px;
     transition: .3s;
@@ -182,7 +346,7 @@
     .navtext {
     
     font-size: 25px;
-    color: lavender;
+    color: #fff;
     text-decoration: none;
     margin-left: 40px;
     transition: .3s;
@@ -192,7 +356,7 @@
     .navbar a:hover,
     .navbar a.active {
     
-    color: lightseagreen;
+    color: #FFBF00;
     
     }
     
@@ -205,15 +369,15 @@
     display: none;
     position: absolute;
     background-color: #333333;
-    border: 2px solid lavender;
-    border-radius:30px;
+    border: 2px solid black;
+    border-radius:10px;
     min-width: 150px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     }
     
     .dropdown-content a {
-    color: lavender;
+    color: #fff;
     text-decoration: none;
     font-size: 20px;
     display: block;
@@ -226,29 +390,30 @@
     
     .exam-table {
 
-    justify-content: space-around;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 10px;
     
     }
 
-    th {
+    .exam-table th {
 
-    font-size: 30px;
-    color: lightseagreen;
-    text-align: center;
-    text-shadow: 2px 2px 4px #000000;
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 2px;
+    color: #FFBF00;
     text-decoration: none;
     
     }
-
     
-    td {
 
-    font-size: 25px;
-    color: lavender;
+    .exam-table td {
+
+    margin: 0 auto;
+    font-size: 10px;
+    color: #fff;
     transition: .3s;
     width: 10%;
 
@@ -257,28 +422,96 @@
 
     .exam-table a {
     
-    font-size: 23px;
-    color: lavender;
+    margin: 0 auto;
+    font-size: 19px;
+    color: #fff;
     text-decoration: none;
-    text-align: center;
     transition: .3s;
     display: block;
-    width: 80%;
+    width: 25%;
     padding: 10px;
     
     }
 
+
     .exam-table a:hover,
     .exam-table a.active {
     
-    color: lightseagreen;
+    color: #FFBF00;
+    transform: scale(1.1);
     
     }
+
+
+/************************************ H O M E - TABLE ************************************/
+
+    .home-table {
+
+    
+    }
+
+    .home-table th {
+
+    font-size: 22px;
+    font-weight: 500;
+    padding: 2px;
+    color: #FFBF00;
+    line-height: 1.5;
+    
+    }
+    
+
+    .home-table td {
+
+    font-size: 10px;
+    color: #fff;
+    transition: .3s;
+    width: 25%;
+
+    }
+
+    .home-table td p {
+
+    margin: 0 auto;
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+    display: block;
+    width: 50%;
+    padding: 10px;
+
+    }
+
+
+    .home-table a {
+    
+    margin: 0 auto;
+    font-size: 17px;
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+    display: block;
+    width: 50%;
+    padding: 10px;
+    
+    }
+
+
+    .home-table a:hover,
+    .home-table a.active {
+    
+    color: #FFBF00;
+    transform: scale(1.1);
+    
+    }
+
+/************************************ H O M E - TABLE ************************************/
     
     .examlink a {
     
     font-size: 25px;
-    color: lavender;
+    color: #fff;
     text-decoration: none;
     text-align: center;
     transition: .3s;
@@ -291,9 +524,10 @@
     .examlink a:hover,
     .examlink a.active {
     
-    background-color: lightseagreen;
+    transform: scale(1.1);
     
     }
+
     
     .footer {
     
@@ -303,15 +537,17 @@
     width: 100%;
     padding: 8px;
     border: 2px solid #333333;
-    border-top-color: lavender;
+    border-top-color: black;
     background-color: #333333;
     justify-content: space-around;
     text-align: center;
+    color: #fff;
     
     }
+
     .footer a {
     
-        color: lavender;
+        color: #fff;
         text-decoration: none;
         margin-left: 35px;
         transition: .3s;
@@ -321,10 +557,36 @@
     .footer a:hover,
     .footer a.active {
         
-        color: lightseagreen;
+        color: #FFBF00;
         
         }
+
+   .footer button {
     
+    position: fixed;
+    left: 94%;
+    bottom: 0.5%;
+    width: 4%;
+    padding: 1px;
+    border-radius: 35%;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: space-around;
+    text-align: center;
+    transition: transform 0.2s ease;
+    background: linear-gradient(to right, #36454F, #333333);
+    border: 3px solid #fff;
+    color: #FFBF00;
+    
+    }
+
+    .footer button:hover{
+    transform: scale(1.1);
+    background: linear-gradient(to right, #D3D3D3, white);
+    border: 3px solid #FFBF00;
+    color: #36454F;
+    }
+
     .exam {
     
     background-color: transparent;
@@ -343,7 +605,7 @@
     
     .exam-content h1 {
     
-    font-size: 80px;
+    font-size: 50px;
     font-weight: 700;
     text-align: center;
     
@@ -353,35 +615,46 @@
     
     --hue: var(--hue-neutral);
     background-color: #333333;
-    border: 2px solid lavender;
+    border: 2px solid black;
     border-radius:30px;
     padding: 20px;
-    width: 70%;
+    width: 100%;
     margin: auto;
     
     } 
     
 .question-content {
 
-    color: lavender;
-
+    color: #fff;
 
 }
 
 .question-box h2 {
 
     font-weight: 20;
-    color: lavender;
+    color: #fff;
 }
 
 .question-box h3 {
 
-    font-weight: 20px;
-    Color: lavender;
-    border-bottom: 1px solid lavender;
+    Color: #fff;
+    border-bottom: 1px solid #fff;
     padding-bottom: 20px;
     font-size: 20px;
+    line-height: 1.6;
+
 }
+
+.info-box p {
+
+    font-weight: 20px;
+    Color: #fff;
+    padding-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.6;
+
+}
+
 
 .btn {
 
@@ -403,7 +676,7 @@
 
 .btn:hover:not([disabled]) {
 
-background: lightseagreen;
+background: #FFC000;
 
 }
 
@@ -412,6 +685,24 @@ background: lightseagreen;
 }
 
 #next-btn {
+
+    background-color: silver;
+    color: #333333;
+    font-weight: 500;
+    font-size: 15px;
+    float: right;
+    width: 15%;
+    border: 1px solid #333333;
+    padding: 10px;
+    Margin: 20px 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+
+}
+
+#info-btn {
 
     background-color: silver;
     color: #333333;
@@ -442,4 +733,62 @@ background: lightseagreen;
     align-items: center;
     justify-content: space-around;
     padding: 6px;
+}
+
+
+    .Quiz2 h2 {
+    
+    font-size: 25px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px #000000;
+    padding: 10px;
+    text-indent: 5px;
+    
+    }
+
+    .Quiz2 p {
+    
+    font-size: 22px;
+    font-weight: 500;
+    width: 90%;
+    Margin: 20px 0;
+    text-shadow: 1px 1px 2px #000000;
+    padding: 10px;
+    text-indent: 5px;
+    
+    }
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  float: right;
+  background: #292c35;
+  border: 1px solid #fff;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 1px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
 }
