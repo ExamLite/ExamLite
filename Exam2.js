@@ -4,9 +4,9 @@ const questions = [
     question: "Is this an example of a question?",
     info: "This IS an example of a question.",
     answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
         {text: "", correct: true},
-        {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: false},
     ]
 },
@@ -17,8 +17,8 @@ const questions = [
     answers: [
         {text: "", correct: false},
         {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
     ] 
 },
 // question 3 //
@@ -28,8 +28,8 @@ const questions = [
     answers: [
         {text: "", correct: false},
         {text: "", correct: false},
-        {text: "", correct: true},
         {text: "", correct: false},
+        {text: "", correct: true},
     ]
 },
 // question 4 //
@@ -49,9 +49,9 @@ const questions = [
     info: "",
     answers: [
         {text: "", correct: false},
-        {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
     ]
 },
 // question 6 //
@@ -59,9 +59,9 @@ const questions = [
     question: "",
     info: "",
     answers: [
-        {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
         {text: "", correct: false},
     ]
 },
@@ -71,9 +71,9 @@ const questions = [
     info: "",
     answers: [
         {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
         {text: "", correct: true},
-        {text: "", correct: false},
-        {text: "", correct: false},
     ] 
 },
 // question 8 //
@@ -83,8 +83,8 @@ const questions = [
     answers: [
         {text: "", correct: false},
         {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
     ]
 },
 // question 9 //
@@ -93,8 +93,8 @@ const questions = [
     info: "",
     answers: [
         {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
         {text: "", correct: false},
     ]
 },
@@ -114,10 +114,10 @@ const questions = [
     question: "",
     info: "",
     answers: [
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
         {text: "", correct: true},
-        {text: "", correct: false},
-        {text: "", correct: false},
-        {text: "", correct: false},
     ]
 },
 // question 12 //
@@ -127,8 +127,8 @@ const questions = [
     answers: [
         {text: "", correct: false},
         {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
     ] 
 },
 // question 13 //
@@ -136,8 +136,8 @@ const questions = [
     question: "",
     info: "",
     answers: [
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
         {text: "", correct: false},
         {text: "", correct: false},
     ]
@@ -148,8 +148,8 @@ const questions = [
     info: "",
     answers: [
         {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
         {text: "", correct: false},
     ]
 },
@@ -158,10 +158,10 @@ const questions = [
     question: "",
     info: "",
     answers: [
-        {text: "", correct: false},
-        {text: "", correct: false},
-        {text: "", correct: false},
         {text: "", correct: true},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
     ]
 },
 // question 16 //
@@ -192,9 +192,9 @@ const questions = [
     info: "",
     answers: [
         {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
         {text: "", correct: true},
-        {text: "", correct: false},
-        {text: "", correct: false},
     ]
 },
 // question 19 //
@@ -204,8 +204,8 @@ const questions = [
     answers: [
         {text: "", correct: false},
         {text: "", correct: false},
-        {text: "", correct: true},
         {text: "", correct: false},
+        {text: "", correct: true},
     ]
 },
 // question 20 //
@@ -214,8 +214,8 @@ const questions = [
     info: "",
     answers: [
         {text: "", correct: false},
-        {text: "", correct: true},
         {text: "", correct: false},
+        {text: "", correct: true},
         {text: "", correct: false},
     ]
 },
@@ -311,13 +311,13 @@ Below is a breakdown of the exam:
 <span style="font-size: 25px;">Q1.</span> question question question?
 <br>
 <br>
-<span style="color:#9aeabc;"> A - Words </span>
+A - Words
 <br>
 <br>
 B - Words
 <br>
 <br>
-C - Words
+<span style="color:#9aeabc;"> C - Words </span>
 <br>
 <br>
 D - Words
@@ -341,10 +341,10 @@ A - Words
 B - Words
 <br>
 <br>
-C - Words
+<span style="color:#9aeabc;"> C - Words </span>
 <br>
 <br>
-<span style="color:#9aeabc;"> D - Words </span>
+D - Words
 <br>
 <br>
 info info info info 
@@ -365,10 +365,10 @@ A - Words
 B - Words
 <br>
 <br>
-<span style="color:#9aeabc;"> C - Words </span>
+C - Words
 <br>
 <br>
-D - Words
+<span style="color:#9aeabc;"> D - Words </span>
 <br>
 <br>
 info info info info
@@ -431,34 +431,10 @@ info info info info
 <span style="font-size: 25px;">Q6.</span> question question question?
 <br>
 <br>
-A - Words
+<span style="color:#9aeabc;"> A - Words </span>
 <br>
 <br>
 B - Words
-<br>
-<br>
-<span style="color:#9aeabc;"> C - Words </span>
-<br>
-<br>
-D - Words
-<br>
-<br>
-info info info info
-<br>
-<br>
-<br>
-<hr>
-<br>
-<br>
-
-<!—Question 7 -->
-<span style="font-size: 25px;">Q7.</span> question question question?
-<br>
-<br>
-A - Words
-<br>
-<br>
-<span style="color:#9aeabc;"> B - Words </span>
 <br>
 <br>
 C - Words
@@ -475,8 +451,8 @@ info info info info
 <br>
 <br>
 
-<!—Question 8 -->
-<span style="font-size: 25px;">Q8.</span> question question question?
+<!—Question 7 -->
+<span style="font-size: 25px;">Q7.</span> question question question?
 <br>
 <br>
 A - Words
@@ -499,8 +475,8 @@ info info info info
 <br>
 <br>
 
-<!—Question 9 -->
-<span style="font-size: 25px;">Q9.</span> question question question?
+<!—Question 8 -->
+<span style="font-size: 25px;">Q8.</span> question question question?
 <br>
 <br>
 A - Words
@@ -510,6 +486,30 @@ B - Words
 <br>
 <br>
 <span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 9 -->
+<span style="font-size: 25px;">Q9.</span> question question question?
+<br>
+<br>
+A - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> B - Words </span>
+<br>
+<br>
+C - Words
 <br>
 <br>
 D - Words
@@ -551,30 +551,6 @@ info info info info
 <span style="font-size: 25px;">Q11.</span> question question question?
 <br>
 <br>
-<span style="color:#9aeabc;"> A - Words </span>
-<br>
-<br>
-B - Words
-<br>
-<br>
-C - Words
-<br>
-<br>
-D - Words
-<br>
-<br>
-info info info info
-<br>
-<br>
-<br>
-<hr>
-<br>
-<br>
-
-<!—Question 12 -->
-<span style="font-size: 25px;">Q12.</span> question question question?
-<br>
-<br>
 A - Words
 <br>
 <br>
@@ -595,14 +571,38 @@ info info info info
 <br>
 <br>
 
-<!—Question 13 -->
-<span style="font-size: 25px;">Q13.</span> question question question?
+<!—Question 12 -->
+<span style="font-size: 25px;">Q12.</span> question question question?
 <br>
 <br>
 A - Words
 <br>
 <br>
-<span style="color:#9aeabc;"> B - Words </span>
+B - Words
+<br>
+<br>
+<span style="color:#9aeabc;"> C - Words </span>
+<br>
+<br>
+D - Words
+<br>
+<br>
+info info info info
+<br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+<!—Question 13 -->
+<span style="font-size: 25px;">Q13.</span> question question question?
+<br>
+<br>
+<span style="color:#9aeabc;"> A - Words </span>
+<br>
+<br>
+B - Words
 <br>
 <br>
 C - Words
@@ -626,10 +626,10 @@ info info info info
 A - Words
 <br>
 <br>
-B - Words
+<span style="color:#9aeabc;"> B - Words </span>
 <br>
 <br>
-<span style="color:#9aeabc;"> C - Words </span>
+C - Words
 <br>
 <br>
 D - Words
@@ -647,7 +647,7 @@ info info info info
 <span style="font-size: 25px;">Q15.</span> question question question?
 <br>
 <br>
-A - Words
+<span style="color:#9aeabc;"> A - Words </span>
 <br>
 <br>
 B - Words
@@ -656,7 +656,7 @@ B - Words
 C - Words
 <br>
 <br>
-<span style="color:#9aeabc;"> D - Words </span>
+D - Words
 <br>
 <br>
 info info info info
@@ -722,13 +722,13 @@ info info info info
 A - Words
 <br>
 <br>
-<span style="color:#9aeabc;"> B - Words </span>
+B - Words
 <br>
 <br>
 C - Words
 <br>
 <br>
-D - Words
+<span style="color:#9aeabc;"> D - Words </span>
 <br>
 <br>
 info info info info 
@@ -749,10 +749,10 @@ A - Words
 B - Words
 <br>
 <br>
-<span style="color:#9aeabc;"> C - Words </span>
+C - Words
 <br>
 <br>
-D - Words
+<span style="color:#9aeabc;"> D - Words </span>
 <br>
 <br>
 info info info info
@@ -770,10 +770,10 @@ info info info info
 A - Words
 <br>
 <br>
-<span style="color:#9aeabc;"> B - Words </span>
+B - Words
 <br>
 <br>
-C - Words
+<span style="color:#9aeabc;"> C - Words </span>
 <br>
 <br>
 D - Words
