@@ -56,24 +56,18 @@
 
     }
 
-    .dark-mode .home-content h3 {
+    .dark-mode .privacy-content h1 {
 
     color: black;
     
     }
-
-.dark-mode .privacy-content h1 {
-
-    color: black;
-        
-    }
-        
+    
     .dark-mode .privacy-content h2 {
-        
+
     color: black;
-            
-    }
-            
+    
+    }    
+
     .dark-mode .exam-table a {
 
     color: blue;
@@ -131,19 +125,17 @@
     
     background-color: #333333;
     border: 2px solid black;
-    border-radius:30px;
+    border-radius: 5px;
     height: 100%;
-    width: 70%;
+    width: 40%;
     margin: 0 auto;
     
     }
 
     .home-content {
 
-    padding: 10px;
     height: 100%;
-    width: 65%;
-    display: inline-block;
+    width: 90%;
     color: #fff;
     
     }
@@ -177,26 +169,26 @@
     
     .privacy {
     
-    background-color: #333333;
-    border: 2px solid #fff;
-    border-radius:30px;
-    display: flex;
-    height: 100%;
-    width: 80%;
-    padding: 10px;
-    margin: 0 auto;
-        
+        background-color: #333333;
+        border: 2px solid #fff;
+        border-radius:30px;
+        display: flex;
+        height: 100%;
+        width: 80%;
+        padding: 10px;
+        margin: 0 auto;
+            
+            }
+    
+        .privacy-content {
+       
+        width: 80%;
+        padding: 10px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    
         }
-
-    .privacy-content {
-   
-    width: 80%;
-    padding: 10px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-
-    }
     .home-content img {
 
         align-items: center;
@@ -235,7 +227,7 @@
     
     .home-content p {
     
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
     padding: 2px;
     text-indent: 10px;
@@ -263,64 +255,62 @@
         
         }
 
-    .privacy-content h1 {
+        .privacy-content h1 {
     
-        color:#fff;
-        font-size: 45px;
-        font-weight: 700;
-        Padding: 15px;
-        text-indent: 10px;
-        
-        }
-
-    .privacy-content h2 {
-    
-    font-size: 20px;
-    text-indent: 8px;
-    line-height: 1.6;
-    color:#fff;
-
-    }
-
-.privacy-content h3 {
-
-    text-indent: 8px;
-    line-height: 1.6;
-    color:#FFBF00;
-
-    }
-
-    .privacy-content p {
-    
-    font-size: 18px;
-    font-weight: 500;
-    padding: 2px;
-    text-indent: 10px;
-    line-height: 1.5;
-        
-        }
-
- .privacy-content p a {
-
-    font-size: 20px;
-    color: #FFBF00;
-    text-decoration: none;
-    transition: .3s;
+            color:#fff;
+            font-size: 45px;
+            font-weight: 700;
+            Padding: 15px;
+            text-indent: 10px;
             
-    }
-
-    .privacy-content p a:hover,
-    .privacy-content p a.active {
+            }
     
-    color: #FFBF00;
+        .privacy-content h2 {
+        
+        font-size: 20px;
+        text-indent: 8px;
+        line-height: 1.6;
+        color:#fff;
     
-    }
-
+        }
+    
+    .privacy-content h3 {
+    
+        text-indent: 8px;
+        line-height: 1.6;
+        color:#FFBF00;
+    
+        }
+    
+        .privacy-content p {
+        
+        font-size: 18px;
+        font-weight: 500;
+        padding: 2px;
+        text-indent: 10px;
+        line-height: 1.5;
+            
+            }
+    
+     .privacy-content p a {
+    
+        font-size: 20px;
+        color: #FFBF00;
+        text-decoration: none;
+        transition: .3s;
+                
+        }
+    
+        .privacy-content p a:hover,
+        .privacy-content p a.active {
+        
+        color: #FFBF00;
+        
+        }
 
     .header {
     
     width: 100%;
-    padding: 8px;
     text-shadow: 2px 2px 4px #000000;
     background-color: #333333;
     border: 2px solid #333333;
@@ -329,13 +319,14 @@
     justify-content: space-around;
     align-items: center;
     z-index: 100px;
+    position: fixed;
     
     }
     
     
     .navbar a {
     
-    font-size: 25px;
+    font-size: 18px;
     color: #fff;
     text-decoration: none;
     margin-left: 35px;
@@ -345,7 +336,7 @@
     
     .navtext {
     
-    font-size: 25px;
+    font-size: 18px;
     color: #fff;
     text-decoration: none;
     margin-left: 40px;
@@ -379,7 +370,7 @@
     .dropdown-content a {
     color: #fff;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     }
     
@@ -428,7 +419,7 @@
     text-decoration: none;
     transition: .3s;
     display: block;
-    width: 25%;
+    width: 35%;
     padding: 10px;
     
     }
@@ -444,11 +435,6 @@
 
 
 /************************************ H O M E - TABLE ************************************/
-
-    .home-table {
-
-    
-    }
 
     .home-table th {
 
@@ -531,17 +517,16 @@
     
     .footer {
     
-    position: fixed;
     left: 0px;
     bottom: 0px;
     width: 100%;
-    padding: 8px;
+    padding: 5px;
     border: 2px solid #333333;
     border-top-color: black;
     background-color: #333333;
-    justify-content: space-around;
     text-align: center;
     color: #fff;
+    position: fixed;
     
     }
 
@@ -561,31 +546,6 @@
         
         }
 
-   .footer button {
-    
-    position: fixed;
-    left: 94%;
-    bottom: 0.5%;
-    width: 4%;
-    padding: 1px;
-    border-radius: 35%;
-    font-size: 14px;
-    cursor: pointer;
-    justify-content: space-around;
-    text-align: center;
-    transition: transform 0.2s ease;
-    background: linear-gradient(to right, #36454F, #333333);
-    border: 3px solid #fff;
-    color: #FFBF00;
-    
-    }
-
-    .footer button:hover{
-    transform: scale(1.1);
-    background: linear-gradient(to right, #D3D3D3, white);
-    border: 3px solid #FFBF00;
-    color: #36454F;
-    }
 
     .exam {
     
@@ -616,7 +576,7 @@
     --hue: var(--hue-neutral);
     background-color: #333333;
     border: 2px solid black;
-    border-radius:30px;
+    border-radius: 5px;
     padding: 20px;
     width: 100%;
     margin: auto;
@@ -765,8 +725,7 @@ background: #FFC000;
 
 .checkbox-label {
   float: right;
-  background: #292c35;
-  border: 1px solid #fff;
+  background: black;
   width: 50px;
   height: 26px;
   border-radius: 50px;
