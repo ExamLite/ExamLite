@@ -12,24 +12,24 @@ const questions = [
 },
 // question 2 //
 {
-    question: "",
-    info: "",
+    question: "Management has been taking measures to increase the network security. You have been tasked with implementing an ACL on the edge router. What type of security control could this be considered?",
+    info: "Implementing a Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network.",
     answers: [
-        {text: "", correct: false},
-        {text: "", correct: false},
-        {text: "", correct: false},
-        {text: "", correct: true},
-    ] 
+        {text: "Corrective", correct: false},
+        {text: "Preventive", correct: true},
+        {text: "Deterrent", correct: false},
+        {text: "Detective", correct: false},
+    ]
 },
 // question 3 //
 {
-    question: "",
-    info: "",
+    question: "Management has been taking measures to increase the network security. You have been tasked with implementing an ACL on the edge router. What type of security control could this be considered?",
+    info: "Implementing a Preventive security control helps reduce the likelihood that an attack can succeed. This is an action that will take place BEFORE an attack occurs. A Corrective security control eliminates / reduces the impact of a security violation. This will take place AFTER an attack. A Deterrent security control may not prevent an attack but will attempt to discourage an attacker from trying. A Detective security control does not prevent an attack but will hopefully help identify and record an attempted / successful intrusion on your network.",
     answers: [
-        {text: "", correct: false},
-        {text: "", correct: false},
-        {text: "", correct: false},
-        {text: "", correct: true},
+        {text: "Corrective", correct: false},
+        {text: "Preventive", correct: true},
+        {text: "Deterrent", correct: false},
+        {text: "Detective", correct: false},
     ]
 },
 // question 4 //
@@ -37,10 +37,10 @@ const questions = [
     question: "",
     info: "",
     answers: [
-        {text: "Deterrent", correct: false},
-        {text: "Directive", correct: false},
-        {text: "Compensating", correct: true},
-        {text: "Detective", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
     ]
 },
 // question 5 //
@@ -48,10 +48,10 @@ const questions = [
     question: "",
     info: "",
     answers: [
-        {text: "Directive", correct: true},
-        {text: "Deterrent", correct: false},
-        {text: "Preventive", correct: false},
-        {text: "Corrective", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: false},
+        {text: "", correct: true},
+        {text: "", correct: false},
     ]
 },
 // question 6 //
@@ -226,6 +226,7 @@ const answerButtons = document.getElementById("answer-buttons");
 const NextButton = document.getElementById("next-btn");
 const InfoButton = document.getElementById("info-btn");
 const infoElement = document.getElementById("info");
+const PrevButton = document.getElementById("prev-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -233,8 +234,15 @@ let score = 0;
 function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
+
+       // Reset the selected answers for all questions
+       questions.forEach(question => {
+        question.selectedAnswer = null; // Reset the selected answer
+    }); 
+
     NextButton.innerHTML = "Next";
     InfoButton.innerHTML = "Explanation";
+    PrevButton.style.display = "none";
     showQuestion();
 }
 
@@ -250,12 +258,47 @@ function showQuestion(){
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
+
+        // If the answer is selected, highlight it
+        if (currentQuestion.selectedAnswer === answer.text) {
+        button.classList.add("selected");
+        if (answer.correct) {
+            button.classList.add("correct");
+        } else {
+            button.classList.add("incorrect");
+        }
+        button.disabled = true; // Disable this button as it's already selected
+        }
+
+        // Only show the correct answer if an answer has been selected
+        if (currentQuestion.selectedAnswer) {
+            if (answer.correct) {
+                button.classList.add("correct"); // Highlight the correct answer
+            } else if (answer.text === currentQuestion.selectedAnswer) {
+                button.classList.add("incorrect"); // Highlight the selected (incorrect) answer
+            }
+        }
+
         answerButtons.appendChild(button);
         if(answer.correct){
             button.dataset.correct = answer.correct;
         }
+        
+        // Only add the click event if the answer hasn't been selected
+        if (!currentQuestion.selectedAnswer) {
         button.addEventListener("click", selectAnswer);
+        } else {
+        button.disabled = true; // Disable buttons if an answer has already been selected
+        }
+
+        button.addEventListener("click", selectAnswer);
+        PrevButton.addEventListener("click", handlePrevButton);
     });
+
+    // Show/hide Previous button based on the question index
+    PrevButton.style.display = currentQuestionIndex === 0 ? "none" : "block"; // Hide if first question
+    NextButton.style.display = "block"; // Show Next button after selecting an answer
+    InfoButton.style.display = "block"; // Always show the Explanation button
 }
 
 function myFunction() {
@@ -277,6 +320,10 @@ function resetState(){
 function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
+
+    // Store the selected answer in the question object
+    questions[currentQuestionIndex].selectedAnswer = selectedBtn.innerHTML;
+
     if(isCorrect){
         selectedBtn.classList.add("correct");
         score++;
@@ -786,6 +833,7 @@ info info info info
 `;
     NextButton.innerHTML = "Take again";
     NextButton.style.display = "block";
+    PrevButton.style.display = "none"; // Hide the Previous button at the end
 }
 
 function handleNextButton(){
@@ -795,6 +843,11 @@ function handleNextButton(){
     }else{
         showScore();
     }
+}
+
+function handlePrevButton() {
+    currentQuestionIndex--;
+    showQuestion();
 }
 
 NextButton.addEventListener("click", ()=>{

@@ -374,7 +374,7 @@
     display: block;
     }
     
-    .dropdown-content a:hover {background-color: transparent;}
+    .dropdown-content a:hover {background-color: #333333;}
     
     .dropdown:hover .dropdown-content {display: block;}
 
@@ -578,7 +578,7 @@
     border: 2px solid black;
     border-radius: 5px;
     padding: 20px;
-    width: 100%;
+    width: 80%;
     margin: auto;
     
     } 
@@ -600,7 +600,7 @@
     Color: #fff;
     border-bottom: 1px solid #fff;
     padding-bottom: 20px;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.6;
 
 }
@@ -624,7 +624,7 @@
     font-size: 17px;
     width: 100%;
     border: 1px solid #333333;
-    padding: 25px;
+    padding: 20px;
     Margin: 10px 0;
     text-align: left;
     border-radius: 4px;
@@ -645,6 +645,24 @@ background: #FFC000;
 }
 
 #next-btn {
+
+    background-color: silver;
+    color: #333333;
+    font-weight: 500;
+    font-size: 15px;
+    float: right;
+    width: 15%;
+    border: 1px solid #333333;
+    padding: 10px;
+    Margin: 20px 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+
+}
+
+#prev-btn {
 
     background-color: silver;
     color: #333333;
@@ -685,6 +703,13 @@ background: #FFC000;
 
 .incorrect{
     background: #ff9393;
+}
+
+
+.selected {
+
+    transform: scale(1.1);
+
 }
 
 #progress {
@@ -750,4 +775,20 @@ background: #FFC000;
 
 .checkbox:checked + .checkbox-label .ball {
   transform: translateX(24px);
+}
+
+.color-bar {
+    height: 30px; /* Height of the bar */
+    background: linear-gradient(to right,
+        #7D4C24, /* Brown */
+        #D66E24, /* Orange */
+        #E5A04D, /* Gold */
+        #B7C53A, /* Olive Green */
+        #A88A30, /* Mustard */
+        #C76B3C, /* Burnt Orange */
+        #A04B2D, /* Deep Red */
+        #6D4C4D, /* Maroon */
+        #D3A75B, /* Tan */
+        #E7B3B3  /* Soft Peach */
+    );
 }
