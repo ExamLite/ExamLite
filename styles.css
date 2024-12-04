@@ -1,0 +1,365 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    flex-direction: column; /* Allow vertical stacking */
+    margin: 0;
+    padding-top: 200px; /* Create space for the navbar */
+    padding-bottom: 40px; /* Added padding at the bottom */
+}
+
+.navbar {
+    width: 100%;
+    background-color: white;
+    border-bottom: 3px solid #007bff;
+    text-align: center;
+    position: fixed; /* Fixed position at the top */
+    padding: 5px;
+    top: 0;
+    z-index: 1000; /* Ensure the navbar stays above other content */
+    display: flex; 
+    align-items: center; /* Align items vertically */ 
+    justify-content: space-between; /* Space items apart */
+} 
+
+.navbar-brand { 
+    margin-left: 20px; /* Space from the left edge */ 
+} 
+
+.nav-brand-link { 
+    color: #007bff; 
+    text-decoration: none; 
+    font-size: 30px; 
+    font-weight: bold; 
+}
+
+.navbar-center { 
+    flex-grow: 1; /* Allow this div to take available space */ 
+    display: flex; 
+    justify-content: center; /* Center the content */ 
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1px; /* Added gap for spacing */
+}
+
+.navbar ul li {
+    margin: 0 5px;
+    text-align: center;
+}
+
+.navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 50px;
+    border-radius: 3px;
+}
+
+.navbar ul li a.active { 
+    background-color: lightgrey; /* Light grey background on hover */
+}
+
+.navbar ul li a:hover {
+    background-color: lightgrey; /* Light grey background on hover */
+    transform: scale(1.1);
+}
+
+.navbar ul li a span {
+    display: none;
+    margin-top: 5px;
+    font-size: 14px;
+    color: black;
+}
+
+.navbar ul li a:hover span {
+    display: block; /* Show text on hover */
+}
+
+.nav-icon {
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin: auto;
+    transition: transform 0.3s;
+}
+
+.landing-container {
+    background-color: white;
+    border: 3px solid #007bff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 80%; /* Use percentage for flexibility */
+    max-width: 900px; /* Set a maximum width */
+    text-align: center;
+    align-self: center; /* Center the container */
+}
+
+.landing-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.landing-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.landing-section-title {
+    font-size: 22px;
+    margin-top: 20px;
+    color: black;
+    display: flex;
+    align-items: center;
+}
+
+.landing-section-title img {
+    margin-right: 10px;
+}
+
+.tabs {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.tablink {
+    background-color: inherit; 
+    border: none; 
+    outline: none; 
+    cursor: pointer; 
+    padding: 14px 16px; 
+    transition: background-color 0.3s; 
+    font-size: 18px;
+    color: black;
+    display: flex; /* Use flexbox for alignment */ 
+    flex-direction: column; /* Arrange items vertically */ 
+    align-items: center; /* Center items horizontally */ 
+    justify-content: center;
+}
+
+.tablink img { 
+    margin-bottom: 5px; /* Add some space between the icon and text */
+}
+
+.tablink:hover {
+    background-color: #ddd;
+}
+
+.tablink.active {
+    background-color: #ccc;
+}
+
+/* Styles for QuickExams tab content */
+#QuickExams {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Styles for FullExams tab content */
+#FullExams {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Styles for DomainExams tab content */
+#DomainExams {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Shared styles for all tab contents */
+.tabcontent {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    text-align: left; /* Align links to the left */
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+.exam-container {
+    background-color: white;
+    border: 3px solid #007bff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    padding-bottom: 60px; /* Add extra padding at the bottom */
+    width: 80%; /* Use percentage for flexibility */
+    max-width: 900px; /* Set a maximum width */
+    text-align: center;
+    position: relative;
+    align-self: center; /* Center the container */
+}
+
+.exam-name { 
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#question-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#exam {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#next-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+#explanation-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 100px;
+}
+
+#prev-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+#restart-btn {
+    margin-top: 20px;
+}
+
+#back-btn {
+    position: absolute;
+    right: 20px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#answers-review {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.wrong-answer {
+    color: red;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px; /* Adjusted gap for smaller screens */
+    }
+
+    .landing-container, .exam-container {
+        width: 95%; /* Use a higher percentage for smaller screens */
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-title {
+        font-size: 24px;
+    }
+
+    .landing-description, .a {
+        font-size: 16px;
+    }
+
+    .landing-section-title {
+        font-size: 20px;
+    }
+
+    .navbar ul li a {
+        font-size: 16px;
+    }
+}
+

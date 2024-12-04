@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exams</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand"> 
+            <a href="index.html"><img src="lamp_logo.png"></a> 
+        </div>
+        <div class="navbar-center">
+        <ul>
+            <li><a href="index.html" title="Home"><img src="icons/home.png" alt="Home" class="nav-icon">Home</a></li>
+            <li><a href="exams.html" class="active" title="Exams"><img src="icons/exams.png" alt="Exams" class="nav-icon">Exams</a></li>
+            <li><a href="about.html" title="About Us"><img src="icons/about.png" alt="About Us" class="nav-icon">About us</a></li>
+            <li><a href="contact.html" title="Contact Us"><img src="icons/contact.png" alt="Contact Us" class="nav-icon">Contact us</a></li>
+        </ul>
+        </div>
+    </nav>
+    <div class="landing-container">
+        <h1 class="landing-title">Security+ (SY0 701) - Practice exams</h1>
+        <p class="landing-description">Select an exam to get started:</p>
+
+        <div class="tabs">
+            <button class="tablink active" onclick="openTab(event, 'QuickExams')"><img src="icons/quick.png">Quick Exams</button>
+            <button class="tablink" onclick="openTab(event, 'FullExams')"><img src="icons/full.png">Full Length Exams</button>
+            <button class="tablink" onclick="openTab(event, 'DomainExams')"><img src="icons/domain.png">Exams by Domain</button>
+        </div>
+
+        <div id="QuickExams" class="tabcontent" style="display: block;">
+            <h2 class="landing-section-title"><img src="icons/quick.png" alt="Quick Exam Icon"> Quick Exams - 20 Questions</h2>
+            <ul>
+                <li><a href="quick_exam1.html">Quick Exam 1</a></li>
+                <!-- Add more quick exams as needed -->
+            </ul>
+        </div>
+
+        <div id="FullExams" class="tabcontent" style="display:none">
+            <h2 class="landing-section-title"><img src="icons/full.png" alt="Full Exam Icon"> Full Length Exams - 90 Questions</h2>
+            <ul>
+                <li><a href="full_exam1.html">Full Length Exam 1</a></li>
+                <!-- Add more full length exams as needed -->
+            </ul>
+        </div>
+
+        <div id="DomainExams" class="tabcontent" style="display:none">
+            <h2 class="landing-section-title"><img src="icons/domain.png" alt="Domain Exam Icon"> Exams by Domain - 20 Questions</h2>
+            <ul>
+                <li><a href="domain_exam1.html">Domain Exam 1</a></li>
+                <!-- Add more domain exams as needed -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        function openTab(evt, tabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablink" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
