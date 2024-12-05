@@ -329,11 +329,27 @@ button:hover {
     color: red;
 }
 
-/* Media queries for responsiveness */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #007bff;
+    border-radius: 8px;
+    margin: 2px 0;
+    transition: 0.4s;
+}
+
+/* Responsive navbar - hide items and show hamburger icon on small screens */
 @media (max-width: 768px) {
     .navbar ul {
+        display: none;
         flex-direction: column;
-        gap: 10px; /* Adjusted gap for smaller screens */
+        gap: 0;
     }
 
     .landing-container, .exam-container {
@@ -341,8 +357,30 @@ button:hover {
     }
 
     .navbar ul li {
-        margin: 10px 0;
+        margin: 2px ;
     }
+
+.hamburger {
+    display: flex;
+    margin-right: 20px;
+}
+
+.navbar.active ul {
+    display: flex;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #999;
+    flex-direction: column;
+}
+
+.navbar ul li a {
+    padding: 1px;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+}
 }
 
 @media (max-width: 480px) {
@@ -358,8 +396,4 @@ button:hover {
         font-size: 20px;
     }
 
-    .navbar ul li a {
-        font-size: 16px;
-    }
 }
-

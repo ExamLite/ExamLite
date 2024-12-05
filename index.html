@@ -19,7 +19,12 @@
             <li><a href="about.html" title="About Us"><img src="icons/about.png" alt="About Us" class="nav-icon">About us</a></li>
             <li><a href="contact.html" title="Contact Us"><img src="icons/contact.png" alt="Contact Us" class="nav-icon">Contact us</a></li>
         </ul>
+        <div class="hamburger" onclick="toggleNavbar()"> 
+            <div></div> 
+            <div></div> 
+            <div></div> 
         </div>
+    </div>
     </nav>
     <div class="landing-container">
         <h1 class="landing-title">Welcome to ExamLite!</h1>
@@ -27,5 +32,11 @@
         <p class="landing-description">Test your knowledge with a practice exam on our <a href="exams.html">Exams</a> page.</p>
         <img src="lamp.png">
     </div>
+    <script> 
+    function toggleNavbar() { 
+        const navbar = document.querySelector('.navbar'); 
+        navbar.classList.toggle('active'); 
+        } 
+        </script>
 </body>
 </html>

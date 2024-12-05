@@ -18,6 +18,11 @@
             <li><a href="about.html" title="About Us"><img src="icons/about.png" alt="About Us" class="nav-icon">About us</a></li>
             <li><a href="contact.html" class="active" title="Contact Us"><img src="icons/contact.png" alt="Contact Us" class="nav-icon">Contact us</a></li>
         </ul>
+        <div class="hamburger" onclick="toggleNavbar()"> 
+            <div></div> 
+            <div></div> 
+            <div></div> 
+        </div>
         </div>
     </nav>
     <div class="landing-container">
@@ -25,5 +30,11 @@
         <p class="landing-description">If you have any questions or suggestions, feel free to contact us by emailing:</p>
         <p class="landing-description">Examlite.contact.us@gmail.com</p>
     </div>
+    <script> 
+        function toggleNavbar() { 
+            const navbar = document.querySelector('.navbar'); 
+            navbar.classList.toggle('active'); 
+            } 
+            </script>
 </body>
 </html>
