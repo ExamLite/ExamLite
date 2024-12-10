@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confetti Castle Defense</title>
+    <title>Canvas Game</title>
     <style>
         body {
             margin: 0;
@@ -13,46 +13,96 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            flex-direction: column; /* Stack items vertically */
+            flex-direction: column;
+            height: 100vh; /* Ensure it takes full height */
         }
         canvas {
             background: linear-gradient(to bottom, #00008B, #87CEEB); /* Dark blue to light blue gradient */
         }
-        #tryAgainButton, #buffButton, #sprinkleButton, #menuScreen, #pauseMenu, #startWaveButton {
-            display: none; /* Initially hidden */
-            position: absolute;
-            padding: 10px 10px;
-            font-size: 15px;
-            background-color: #FF0000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #buffButton {
-            top: 8%; /* Position near the top */
-            left: 35%; /* Position away from the edge */
-            background-color: #FF0000; /* Original color */
-            transition: background-color 0.3s; /* Smooth transition */
-            background: linear-gradient(145deg, #FF4040, #FF0000); 
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.6); 
-        }
+        #gameMenuBar {
+    width: 1600px; /* Match the canvas width */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+    justify-items: center;
+    align-items: center;
+    color: white;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 50;
+    z-index: 2; /* Ensure it is above all other elements */
+    display: none; /* Hide menu bar initially */
+}
 
-        #buffButton.cooldown {
-            background-color: grey;
-        }
-        #sprinkleButton {
-            top: 8%; /* Position below the buff button */
-            left: 40%; /* Position away from the edge */
-            background-color: #FFD700; /* Gold color */
-            transition: background-color 0.3s; /* Smooth transition */
-            background: linear-gradient(145deg, #FFD700, #FFA500); 
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.6);
-        }
-        #sprinkleButton.cooldown {
-            background-color: grey;
-        }
+.left, .center, .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.center {
+    justify-content: center;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+#gameMenuBar div, #gameMenuBar button {
+    margin: 0 5px; /* Smaller margin to fit everything */
+    color: white;
+    font-size: 20px;
+}
+
+#gameMenuBar button {
+    padding: 10px 15px;
+    background-color: #FF0000; /* Original color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+#gameMenuBar button.cooldown {
+    background-color: grey;
+}
+
+#gameMenuBar #buffButton {
+    background: linear-gradient(145deg, #FF4040, #FF0000); 
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.6); 
+}
+
+#gameMenuBar #sprinkleButton {
+    background: linear-gradient(145deg, #FFD700, #FFA500); 
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.6);
+}
+
+#gameMenuBar #startWaveButton {
+    background-color: #00FF00;
+    animation: glow 2s infinite; /* Apply the glow animation */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#gameMenuBar #pauseButton {
+    background-color: #FF0000;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#gameMenuBar #turretButton {
+    background: linear-gradient(145deg, #FF00FF, #ff00aa); 
+    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.6);
+}
         #confettiCanvas {
             position: absolute;
             top: 50;
@@ -64,6 +114,7 @@
             z-index: 1; /* Ensure it is above the confetti canvas */
             width: 100%;
             height: 100%;
+            color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -71,10 +122,11 @@
             background: rgba(0, 0, 0, 0.8); /* Keep the background */
         }
         #menuInfo {
-        width: 50%;
-        height: 50%;
-        display: flex;
-        flex-direction: column;
+            width: 50%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         #pauseMenu {
             display: none; /* Hide pause menu initially */
@@ -84,9 +136,10 @@
             background: rgba(0, 0, 0, 0.8);
             width: 100%;
             height: 100%;
+            color: white;
             top: 0;
             left: 0;
-            transform: none;
+            position: absolute;
         }
         #menuTitle, #pauseTitle {
             font-size: 48px;
@@ -106,19 +159,6 @@
         #startButton:hover, #resumeButton:hover {
             cursor: pointer;
         }
-        #pauseButton {
-            display: none; /* Hide pause button initially */
-            position: absolute;
-            top: 10px; /* 10px from the top */
-            right: 10px; /* 10px from the right */
-            padding: 10px 20px;
-            font-size: 20px;
-            background-color: #FF0000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
         #tryAgainButton {
             display: none; /* Initially hidden */
             position: absolute;
@@ -133,7 +173,6 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
         #gameOverMenu {
             display: none; /* Initially hidden */
             position: absolute;
@@ -148,13 +187,11 @@
             justify-content: center;
             z-index: 2; /* Ensure it is above all other elements */
         }
-
         #gameOverTitle {
             font-size: 48px;
             color: white;
             margin-bottom: 20px;
         }
-
         @keyframes glow {
     0% {
         box-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700, 0 0 20px #FFD700;
@@ -166,69 +203,65 @@
         box-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700, 0 0 20px #FFD700;
     }
 }
-        #startWaveButton { 
-            top: 8%; /* Position below the buff button */
-            right: 25%; /* Position away from the edge */
-            animation: glow 2s infinite; /* Apply the glow animation */
-            padding: 15px 30px;
-            font-size: 20px;
-            background-color: #00FF00;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
     <div id="menuScreen">
-        <div id="menuTitle">Confetti castle defense</div>
-        <br>
+        <div id="menuTitle">Confetti Castle Defense</div>
         <button id="startButton">Start</button>
         <br>
         <br>
         <br>
-        <br>
-        <br>
         <div class="menuInfo">
-        <h2>Click and drag confetti spells to defend the castle!</h2>
-        <h3> Keybinding: </h3>
-        <p> 1 - Allows you to click / drag a longer spell.</p>
-        <p> 2 - Confetti spell.</p>
-        <p> Spacebar - Starts the next wave.</p>
-    </div>
+            <h2>Click and drag confetti spells to defend the castle!</h2>
+            <h3>Keybinding:</h3>
+            <p>1 - <img src="longer_example.PNG"> Allows you to click / drag a longer spell.</p>
+            <p>2 - <img src="dots_example.PNG"> Confetti spell.</p>
+            <p>3 - <img src="turret_example.PNG"> Wizard Turret (Cost 50 coins). Not as powerful as the wizard spells, but will eventually get the job done.</p>
+            <p>Spacebar - Starts the next wave.</p>
+        </div>
     </div>
     <div id="pauseMenu">
         <div id="pauseTitle">Game Paused</div>
         <button id="resumeButton">Resume</button>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
         <div class="menuInfo">
-        <h2>Click and drag confetti spells to defend the castle!</h2>
-        <h3> Keybinding: </h3>
-        <p> 1 - Allows you to click / drag a longer spell.</p>
-        <p> 2 - Confetti spell.</p>
-        <p> Spacebar - Starts the next wave.</p>
-    </div>
+            <h2>Click and drag confetti spells to defend the castle!</h2>
+            <h3>Keybinding:</h3>
+            <p>1 - <img src="longer_example.PNG"> Allows you to click / drag a longer spell.</p>
+            <p>2 - <img src="dots_example.PNG"> Confetti spell.</p>
+            <p>3 - <img src="turret_example.PNG"> Wizard Turret (Cost 50 coins). Not as powerful as the wizard spells, but will eventually get the job done.</p>
+            <p>Spacebar - Starts the next wave.</p>
+        </div>
     </div>
     <div id="gameOverMenu">
         <div id="gameOverTitle">Game Over</div>
         <button id="tryAgainButton" onclick="location.reload()">Try Again</button>
     </div>
-    <!-- Include this inside your body tag, along with your other elements -->
-<canvas id="confettiCanvas" width="1600" height="800"></canvas>
+    <canvas id="confettiCanvas" width="1600" height="800"></canvas>
     <canvas id="gameCanvas" width="1600" height="800"></canvas>
-    <button id="pauseButton">Pause</button>
-    <button id="startWaveButton" style="display: none;">Next wave</button>  
-    <button id="buffButton">
-    <img src="longer.png" style="width: 24px; height: 24px;">
-    </button>    
-    <button id="sprinkleButton">
-    <img src="dots.png" style="width: 24px; height: 24px;">
-    </button>    
+    <div id="gameMenuBar">
+        <div class="left">
+            <div id="waveCounter">Wave: 1</div>
+            <div></div>
+            <div></div>
+            <div id="coinCounter">Coins: 0</div>
+        </div>
+        <div class="center">
+            <button id="buffButton">
+                <img src="longer.png" style="width: 24px; height: 24px;">
+            </button>
+            <button id="sprinkleButton">
+                <img src="dots.png" style="width: 24px; height: 24px;">
+            </button>
+            <button id="turretButton">
+                <img src="turret.png" style="width: 24px; height: 24px;"> 50 coins
+            </button>
+        </div>
+        <div class="right">
+            <div id="nextWaveSpace"><button id="startWaveButton" style="display: none;">Next Wave</button></div>
+            <button id="pauseButton">Pause</button>
+        </div>
+    </div>
     <script src="game.js"></script>
 </body>
 </html>

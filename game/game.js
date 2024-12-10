@@ -1,7 +1,6 @@
 const MAX_SHAPE_SIZE = 300;
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-const startWaveButton = document.getElementById('startWaveButton');
 
 let shapes = [];
 let enemies = [];
@@ -12,6 +11,7 @@ const TOUCH_THRESHOLD = 10;
 let gameOver = false;
 let gamePaused = false;
 let waveWasInProgress = false;
+let gameLoopRunning = false; // Flag to control the game loop
 
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
@@ -22,7 +22,46 @@ const SPIKE_WIDTH = 40;
 const SPIKE_HEIGHT = 40;
 const CASTLE_START_X = (CANVAS_WIDTH - CASTLE_WIDTH) / 2;
 
+let projectiles = [];
+let turrets = [];
+
+const startButton = document.getElementById('startButton');
+const menuScreen = document.getElementById('menuScreen');
+const pauseButton = document.getElementById('pauseButton');
+const pauseMenu = document.getElementById('pauseMenu');
+const resumeButton = document.getElementById('resumeButton');
+const gameMenuBar = document.getElementById('gameMenuBar');
+const startWaveButton = document.getElementById('startWaveButton');
+const gameOverMenu = document.getElementById('gameOverMenu');
+const tryAgainButton = document.getElementById('tryAgainButton');
+const waveCounterDiv = document.getElementById('waveCounter');
+const coinCounterDiv = document.getElementById('coinCounter');
+const turretButton = document.getElementById('turretButton');
+const turretCost = 50;
+const turretShootingDelay = 800; // Delay in milliseconds (500ms = 0.5 seconds)
+
+const enemyTypes = {
+    'enemy1': { size: 20, speed: 1.5, color: '#FF0000' },
+    'enemy2': { size: 30, speed: 1.3, color: '#FFA500' },
+    'enemy3': { size: 40, speed: 1.1, color: '#FFFF00' },
+    'enemy4': { size: 50, speed: 0.9, color: '#008000' },
+    'enemy5': { size: 60, speed: 0.7, color: '#0000FF' },
+    'enemy6': { size: 70, speed: 0.5, color: '#4B0082' },
+    'enemy7': { size: 80, speed: 0.3, color: '#EE82EE' }
+};
+
+const enemyOrder = ['enemy7', 'enemy6', 'enemy5', 'enemy4', 'enemy3', 'enemy2', 'enemy1'];
+
+let isPlacingTurret = false;
+let mouseX = 0;
+let mouseY = 0;
+const allowedAreaYStart = 120; // Adjust starting Y coordinate for spike area
+const allowedAreaYEnd = 160; // Adjust ending Y coordinate for spike area
+const allowedAreaXStart = 80; // Adjust starting X coordinate for spike area
+const allowedAreaXEnd = 1520; // Adjust ending X coordinate for spike area
+
 let waveNumber = 0;
+let coinCount = 0;
 let enemySpawnInterval;
 let waveInProgress = false;
 
@@ -47,6 +86,161 @@ buffButton.style.display = 'none'; // Hide buff button initially
 
 const sprinkleButton = document.getElementById('sprinkleButton');
 sprinkleButton.style.display = 'none'; // Hide sprinkle button initially
+
+function drawTurret(turret) {
+    ctx.fillStyle = '#FF00FF'; // Glowing magenta
+    ctx.beginPath();
+    ctx.moveTo(turret.x, turret.y);
+    ctx.lineTo(turret.x - 10, turret.y + 20);
+    ctx.lineTo(turret.x + 10, turret.y + 20);
+    ctx.closePath();
+    ctx.fill();
+}
+canvas.addEventListener('mousemove', (event) => {
+    const canvasRect = canvas.getBoundingClientRect();
+    mouseX = event.clientX - canvasRect.left;
+    mouseY = event.clientY - canvasRect.top;
+});
+
+canvas.addEventListener('click', (event) => {
+    if (isPlacingTurret && mouseY >= allowedAreaYStart && mouseY <= allowedAreaYEnd && mouseX >= allowedAreaXStart && mouseX <= allowedAreaXEnd) {
+        placeTurret(mouseX, mouseY);
+        isPlacingTurret = false; // Stop placing turret after it's placed
+    } else if (isPlacingTurret) {
+        alert('You can only place turrets in the highlighted area!');
+    }
+});
+
+function placeTurret(x, y) {
+    if (coinCount >= turretCost) {
+        coinCount -= turretCost; // Deduct coins
+        updateCoinCounter();
+
+        const turret = {
+            x: x,
+            y: y,
+            angle: 0, // Initial angle
+            lastShotTime: 0 // Track the last shot time
+        };
+
+        turrets.push(turret);
+        drawTurrets();
+    } else {
+        alert('Not enough coins to place a turret!');
+    }
+}
+
+turretButton.addEventListener('click', () => {
+    if (coinCount >= turretCost) {
+        isPlacingTurret = true;
+    } else {
+        alert('Not enough coins to place a turret!');
+    }
+});
+
+function drawTurrets() {
+    turrets.forEach(turret => {
+        ctx.fillStyle = '#FF00FF'; // Glowing magenta
+        ctx.beginPath();
+        ctx.moveTo(turret.x, turret.y);
+        ctx.lineTo(turret.x - 10, turret.y + 20);
+        ctx.lineTo(turret.x + 10, turret.y + 20);
+        ctx.closePath();
+        ctx.fill();
+    });
+}
+
+function drawProjectiles() {
+    projectiles.forEach(projectile => {
+        ctx.fillStyle = '#FFFFFF'; // White color for projectiles
+        ctx.beginPath();
+        ctx.arc(projectile.x, projectile.y, 3, 0, Math.PI * 2);
+        ctx.fill();
+    });
+}
+
+function updateProjectiles() {
+    projectiles = projectiles.filter(projectile => {
+        projectile.x += projectile.vx;
+        projectile.y += projectile.vy;
+
+        // Check for collision with enemies or out of bounds
+        return !isProjectileOutOfBounds(projectile) && !isProjectileCollidingWithEnemy(projectile);
+    });
+}
+
+function isProjectileOutOfBounds(projectile) {
+    return projectile.x < 0 || projectile.x > canvas.width || projectile.y < 0 || projectile.y > canvas.height;
+}
+
+function isProjectileCollidingWithEnemy(projectile) {
+    for (const enemy of enemies) {
+        const dx = projectile.x - enemy.x;
+        const dy = projectile.y - enemy.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < enemy.size / 2) {
+            const currentEnemyIndex = enemyOrder.indexOf(enemy.type);
+            
+            if (currentEnemyIndex > 0) {
+                const newEnemyType = enemyOrder[currentEnemyIndex - 1];
+                enemy.type = newEnemyType;
+                enemy.size = enemyTypes[newEnemyType].size;
+                enemy.speed = enemyTypes[newEnemyType].speed;
+                enemy.color = enemyTypes[newEnemyType].color;
+            } else {
+                enemies.splice(enemies.indexOf(enemy), 1); // Remove enemy if it is the smallest type
+            }
+
+            projectiles.splice(projectiles.indexOf(projectile), 1); // Remove the projectile
+            return true;
+        }
+    }
+    return false;
+}
+
+function shootFromTurret(turret) {
+    const currentTime = Date.now();
+
+    // Check if the turret can shoot again based on the delay
+    if (currentTime - turret.lastShotTime >= turretShootingDelay) {
+        const projectileSpeed = 5;
+        const projectile = {
+            x: turret.x,
+            y: turret.y,
+            vx: projectileSpeed * Math.cos(turret.angle),
+            vy: projectileSpeed * Math.sin(turret.angle)
+        };
+
+        projectiles.push(projectile);
+        turret.lastShotTime = currentTime; // Update the last shot time
+    }
+}
+
+function updateTurrets() {
+    turrets.forEach(turret => {
+        // Find the nearest enemy
+        let nearestEnemy = null;
+        let nearestDistance = Infinity;
+
+        enemies.forEach(enemy => {
+            const dx = enemy.x - turret.x;
+            const dy = enemy.y - turret.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < nearestDistance) {
+                nearestDistance = distance;
+                nearestEnemy = enemy;
+            }
+        });
+
+        if (nearestEnemy) {
+            // Update turret angle to face the nearest enemy
+            turret.angle = Math.atan2(nearestEnemy.y - turret.y, nearestEnemy.x - turret.x);
+            shootFromTurret(turret);
+        }
+    });
+}
 
 buffButton.addEventListener('click', () => {
     if (buffCooldownTimer <= 0) {
@@ -156,16 +350,14 @@ function updateShapes() {
 function drawEnemies() {
     enemies.forEach(enemy => {
         ctx.fillStyle = enemy.color;
-        ctx.fillRect(enemy.x, enemy.y, enemy.size, enemy.size);
+        ctx.beginPath();
+        ctx.arc(enemy.x, enemy.y, enemy.size / 2, 0, Math.PI * 2);
+        ctx.fill();
     });
 }
 
 function updateEnemies() {
-    enemies.forEach(enemy => {
-        enemy.y -= enemy.speed;
-    });
-
-    // Collision detection with shapes
+    // Apply falling effect if collision detected
     enemies.forEach(enemy => {
         shapes.forEach(shape => {
             if (isTouchingShape(shape, enemy.x, enemy.y, enemy.size)) {
@@ -173,20 +365,21 @@ function updateEnemies() {
             }
         });
 
-        // Apply falling effect if collision detected
         if (enemy.falling) {
             enemy.y += 5; // Increase falling speed
+        } else {
+            enemy.y -= enemy.speed; // Move up otherwise
         }
+    });
 
-        // Remove enemies that have fallen off the canvas
-        enemies = enemies.filter(enemy => enemy.y < canvas.height);
+    // Remove enemies that have fallen off the canvas
+    enemies = enemies.filter(enemy => enemy.y < canvas.height);
 
-        // Check if any enemy reaches the top of the castle
-        enemies.forEach(enemy => {
-            if (enemy.y <= 160 - SPIKE_HEIGHT) {
-                gameOver = true;
-            }
-        });
+    // Check if any enemy reaches the top of the castle
+    enemies.forEach(enemy => {
+        if (enemy.y <= 160 - SPIKE_HEIGHT) {
+            gameOver = true;
+        }
     });
 }
 
@@ -200,19 +393,37 @@ function isTouchingShape(shape, enemyX, enemyY, enemySize) {
     });
 }
 
+function updateWaveCounter() {
+    waveCounterDiv.innerText = `Wave: ${waveNumber}`;
+}
+
+function updateCoinCounter() {
+    coinCounterDiv.innerText = `Coins: ${coinCount}`;
+}
+
+function completeWave() {
+    const coinsEarned = waveNumber * 10; // For example, 10 coins per wave number
+    coinCount += coinsEarned;
+    startWaveButton.style.display = 'block'; // Show the Start Wave button
+    updateWaveCounter(); // Update the wave counter
+    updateCoinCounter(); // Update the coin counter
+}
+
 function startWave() {
     waveNumber++;
     waveInProgress = true;
     startWaveButton.style.display = 'none'; // Hide the button when a wave starts
 
+    drawWaveNumber(); // Update the wave number display
+
     const baseEnemyCount = 50; // Base count
-    const incrementalIncrease = 10; // Incremental count
+    const incrementalIncrease = 20; // Incremental count
     const enemyCount = baseEnemyCount + waveNumber * incrementalIncrease;
 
     let enemiesSpawned = 0;
-    const enemiesPerSpawn = 5; // Number of enemies to spawn together
+    const enemiesPerSpawn = 7; // Number of enemies to spawn together
 
-    enemySpawnInterval = setInterval(() => {
+    const enemySpawnInterval = setInterval(() => {
         if (gamePaused) return; // Prevent spawning when the game is paused
         for (let i = 0; i < enemiesPerSpawn; i++) {
             if (enemiesSpawned < enemyCount) {
@@ -233,7 +444,7 @@ function startWave() {
                 } else {
                     enemyType = 'enemy7';
                 }
-
+    
                 let enemySize, enemySpeed, enemyColor;
                 switch (enemyType) {
                     case 'enemy1':
@@ -278,34 +489,32 @@ function startWave() {
                 }
 
                 const enemyX = CASTLE_START_X + Math.random() * CASTLE_WIDTH;
-                const enemyY = 160 + CASTLE_HEIGHT;
+                const enemyY = canvas.height; // Start from the bottom of the canvas
                 enemies.push({
                     type: enemyType,
                     x: enemyX,
                     y: enemyY,
-                    size: enemySize,
-                    speed: enemySpeed,
-                    color: enemyColor,
+                    size: enemyTypes[enemyType].size,
+                    speed: enemyTypes[enemyType].speed,
+                    color: enemyTypes[enemyType].color,
                     falling: false
                 });
-
+    
                 enemiesSpawned++;
             }
         }
-
+    
         if (enemiesSpawned >= enemyCount) {
             clearInterval(enemySpawnInterval);
             waveInProgress = false;
-            // Show the Start Wave button after the wave ends
-            startWaveButton.style.display = 'block';
+            completeWave(); // Call completeWave() when the wave ends
         }
-    }, 2000 - waveNumber * 100); // Decrease spawn interval with each wave
+    }, 2000 - waveNumber * 100); // Adjusted interval (3 seconds initially)
 }
 
 startWaveButton.addEventListener('click', () => {
     startWave();
 });
-
 
 function drawCastle() {
     ctx.fillStyle = '#808080';
@@ -487,15 +696,8 @@ function drawChatBubble() {
 }
 
 function drawWaveNumber() {
-    const wizardX = CASTLE_START_X + (CASTLE_WIDTH / 2);
-    const wizardY = 240 - SPIKE_HEIGHT - 80; // Updated wizard position
-
-    const waveNumberX = wizardX - 500; // Move to the right of the wizard
-    const waveNumberY = wizardY - 90; // Position it slightly above the wizard
-
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = '20px Arial';
-    ctx.fillText(`Wave: ${waveNumber}`, waveNumberX, waveNumberY);
+    const waveCounter = document.getElementById('waveCounter');
+    waveCounter.innerText = `Wave: ${waveNumber}`;
 }
 
 function checkWaveEnd() {
@@ -509,19 +711,17 @@ function checkWaveEnd() {
     }
 }
 
-// Assuming this function handles the game over conditions
 function checkGameOverCondition() {
     if (gameOver) {
-        triggerGameOver();
+        gameOverMenu.style.display = 'flex'; // Show the Game Over menu
+        gameMenuBar.style.display = 'none'; // Hide the game menu bar
+        pauseButton.style.display = 'none'; // Hide the pause button
+        buffButton.style.display = 'none'; // Hide the buff button
+        sprinkleButton.style.display = 'none'; // Hide the sprinkle button
+        startWaveButton.style.display = 'none'; // Ensure the start wave button is hidden
+        tryAgainButton.style.display = 'block';
     }
-
-    // Show the Try Again button
-    const tryAgainButton = document.getElementById('tryAgainButton');
-    tryAgainButton.style.display = 'block';
 }
-
-const gameOverMenu = document.getElementById('gameOverMenu');
-const tryAgainButton = document.getElementById('tryAgainButton');
 
 function triggerGameOver() {
     gameOver = true;
@@ -555,6 +755,8 @@ document.addEventListener('keydown', event => {
         buffButton.click(); // Simulate a click on the buff button when '1' is pressed
     } else if (event.key === '2') {
         sprinkleButton.click(); // Simulate a click on the sprinkle button when '2' is pressed
+    } else if (event.key === '3') {
+        turretButton.click(); // Simulate a click on the sprinkle button when '2' is pressed
     }
 });
 
@@ -599,9 +801,9 @@ createConfetti();
 drawConfetti();
 
 function gameLoop() {
-    if (gamePaused) return; // Check if the game is paused
-    if (gameOver) {
-        return; // Stop the game loop when the game is over
+    if (gamePaused || gameOver) {
+        gameLoopRunning = false; // Stop the game loop if the game is paused or over
+        return;
     }
 
     drawCanvasBackground(); // Draw the radiant gradient background
@@ -611,6 +813,10 @@ function gameLoop() {
     drawEnemies();
     updateShapes();
     updateEnemies();
+    drawTurrets(); // Draw turrets
+    drawProjectiles(); // Draw projectiles
+    updateProjectiles(); // Update projectiles
+    updateTurrets(); // Update turrets
 
     // Handle buff effects
     if (buffActive) {
@@ -631,7 +837,7 @@ function gameLoop() {
         drawPowerBar();
     }
 
-    // Display the wave number near the wizard
+    // Draw the wave number in the game menu bar
     drawWaveNumber();
 
     // Update the chat bubble
@@ -648,20 +854,48 @@ function gameLoop() {
     // Check for game over condition
     checkGameOverCondition();
 
+    // Highlight allowed area for turret placement
+    if (isPlacingTurret) {
+        ctx.fillStyle = 'rgba(0, 0, 255, 0.3)'; // Semi-transparent blue
+        ctx.fillRect(allowedAreaXStart, allowedAreaYStart, allowedAreaXEnd - allowedAreaXStart, allowedAreaYEnd - allowedAreaYStart);
+
+        // Draw the blue border with glow
+        ctx.strokeStyle = '#0000FF'; // Blue color
+        ctx.lineWidth = 5; // Width of the border
+        ctx.shadowColor = '#0000FF'; // Blue shadow color for glowing effect
+        ctx.shadowBlur = 10; // Blur amount for the shadow
+        ctx.strokeRect(allowedAreaXStart, allowedAreaYStart, allowedAreaXEnd - allowedAreaXStart, allowedAreaYEnd - allowedAreaYStart);
+        ctx.shadowColor = 'transparent'; // Reset shadow color to prevent other elements from glowing
+
+        // Draw the turret following the mouse
+        drawTurret(mouseX, mouseY);
+    }
+
     requestAnimationFrame(gameLoop);
 }
 
+function startGameLoop() {
+    if (!gameLoopRunning) {
+        gameLoopRunning = true;
+        requestAnimationFrame(gameLoop);
+    }
+}
 
+function drawTurret(x, y) {
+    ctx.fillStyle = '#FF00FF'; // Glowing magenta
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x - 10, y + 20);
+    ctx.lineTo(x + 10, y + 20);
+    ctx.closePath();
+    ctx.fill();
+}
 
-const startButton = document.getElementById('startButton');
-const menuScreen = document.getElementById('menuScreen');
-const pauseButton = document.getElementById('pauseButton');
-const pauseMenu = document.getElementById('pauseMenu');
-const resumeButton = document.getElementById('resumeButton');
 
 // Handle start button click
 startButton.addEventListener('click', () => {
     menuScreen.style.display = 'none';
+    gameMenuBar.style.display = 'grid'; // Show the menu bar
     confettiCanvas.style.display = 'none'; // Hide the confetti canvas when the game starts
     canvas.style.display = 'block';
     buffButton.style.display = 'block'; // Show buff button when game starts
