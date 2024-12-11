@@ -41,16 +41,13 @@ const turretCost = 50;
 const turretShootingDelay = 800; // Delay in milliseconds (500ms = 0.5 seconds)
 
 const enemyTypes = {
-    'enemy1': { size: 20, speed: 1.5, color: '#FF0000' },
-    'enemy2': { size: 30, speed: 1.3, color: '#FFA500' },
-    'enemy3': { size: 40, speed: 1.1, color: '#FFFF00' },
-    'enemy4': { size: 50, speed: 0.9, color: '#008000' },
-    'enemy5': { size: 60, speed: 0.7, color: '#0000FF' },
-    'enemy6': { size: 70, speed: 0.5, color: '#4B0082' },
-    'enemy7': { size: 80, speed: 0.3, color: '#EE82EE' }
+    'enemy1': { size: 20, speed: 2.5, color: '#FF0000' }, // Fastest
+    'enemy2': { size: 40, speed: 2.0, color: '#FFA500' },
+    'enemy3': { size: 60, speed: 1.5, color: '#FFFF00' },
+    'enemy4': { size: 80, speed: 1.0, color: '#008000' }  // Slowest
 };
 
-const enemyOrder = ['enemy7', 'enemy6', 'enemy5', 'enemy4', 'enemy3', 'enemy2', 'enemy1'];
+const enemyOrder = ['enemy4', 'enemy3', 'enemy2', 'enemy1'];
 
 let isPlacingTurret = false;
 let mouseX = 0;
@@ -87,6 +84,20 @@ buffButton.style.display = 'none'; // Hide buff button initially
 const sprinkleButton = document.getElementById('sprinkleButton');
 sprinkleButton.style.display = 'none'; // Hide sprinkle button initially
 
+function transformEnemy(enemy) {
+    const currentEnemyIndex = enemyOrder.indexOf(enemy.type);
+
+    if (currentEnemyIndex > 0) {
+        const newEnemyType = enemyOrder[currentEnemyIndex - 1];
+        enemy.type = newEnemyType;
+        enemy.size = enemyTypes[newEnemyType].size;
+        enemy.speed = enemyTypes[newEnemyType].speed;
+        enemy.color = enemyTypes[newEnemyType].color;
+    } else {
+        enemies.splice(enemies.indexOf(enemy), 1); // Remove enemy if it is the smallest type
+    }
+}
+
 function drawTurret(turret) {
     ctx.fillStyle = '#FF00FF'; // Glowing magenta
     ctx.beginPath();
@@ -108,6 +119,22 @@ canvas.addEventListener('click', (event) => {
         isPlacingTurret = false; // Stop placing turret after it's placed
     } else if (isPlacingTurret) {
         alert('You can only place turrets in the highlighted area!');
+    } else {
+        // Handle click and drag transformation
+        const canvasRect = canvas.getBoundingClientRect();
+        const clickX = event.clientX - canvasRect.left;
+        const clickY = event.clientY - canvasRect.top;
+
+        for (const enemy of enemies) {
+            const dx = clickX - enemy.x;
+            const dy = clickY - enemy.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < enemy.size / 2) {
+                transformEnemy(enemy); // Transform the enemy on click
+                break;
+            }
+        }
     }
 });
 
@@ -180,18 +207,7 @@ function isProjectileCollidingWithEnemy(projectile) {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < enemy.size / 2) {
-            const currentEnemyIndex = enemyOrder.indexOf(enemy.type);
-            
-            if (currentEnemyIndex > 0) {
-                const newEnemyType = enemyOrder[currentEnemyIndex - 1];
-                enemy.type = newEnemyType;
-                enemy.size = enemyTypes[newEnemyType].size;
-                enemy.speed = enemyTypes[newEnemyType].speed;
-                enemy.color = enemyTypes[newEnemyType].color;
-            } else {
-                enemies.splice(enemies.indexOf(enemy), 1); // Remove enemy if it is the smallest type
-            }
-
+            transformEnemy(enemy); // Transform the enemy
             projectiles.splice(projectiles.indexOf(projectile), 1); // Remove the projectile
             return true;
         }
@@ -357,20 +373,41 @@ function drawEnemies() {
 }
 
 function updateEnemies() {
-    // Apply falling effect if collision detected
-    enemies.forEach(enemy => {
-        shapes.forEach(shape => {
-            if (isTouchingShape(shape, enemy.x, enemy.y, enemy.size)) {
-                enemy.falling = true; // Fall when hit
-            }
+    enemies.forEach((enemy, enemyIndex) => {
+        let enemyHit = false;
+
+        shapes.forEach((shape) => {
+            shape.points = shape.points.filter((point, pointIndex) => {
+                const dx = point.x - enemy.x;
+                const dy = point.y - enemy.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < enemy.size / 2 + TOUCH_THRESHOLD) {
+                    if (!enemyHit) {
+                        transformEnemy(enemy); // Transform the enemy when it collides with a point
+                    }
+                    enemyHit = true; // Mark enemy as hit
+                    return false; // Remove the point upon collision
+                }
+                return true; // Keep the point if it doesn't collide
+            });
         });
 
+        // Apply falling effect if enemy is falling
         if (enemy.falling) {
             enemy.y += 5; // Increase falling speed
         } else {
             enemy.y -= enemy.speed; // Move up otherwise
         }
+
+        // Remove enemies that are completely transformed to the smallest type and not hit again
+        if (enemyHit && enemy.type === 'enemy1') {
+            enemies.splice(enemyIndex, 1); // Remove the enemy from the array
+        }
     });
+
+    // Remove shapes that have no points left
+    shapes = shapes.filter(shape => shape.points.length > 0);
 
     // Remove enemies that have fallen off the canvas
     enemies = enemies.filter(enemy => enemy.y < canvas.height);
@@ -416,12 +453,12 @@ function startWave() {
 
     drawWaveNumber(); // Update the wave number display
 
-    const baseEnemyCount = 50; // Base count
-    const incrementalIncrease = 20; // Incremental count
+    const baseEnemyCount = 30; // Base count
+    const incrementalIncrease = 10; // Incremental count
     const enemyCount = baseEnemyCount + waveNumber * incrementalIncrease;
 
     let enemiesSpawned = 0;
-    const enemiesPerSpawn = 7; // Number of enemies to spawn together
+    const enemiesPerSpawn = 5; // Number of enemies to spawn together
 
     const enemySpawnInterval = setInterval(() => {
         if (gamePaused) return; // Prevent spawning when the game is paused
@@ -429,63 +466,14 @@ function startWave() {
             if (enemiesSpawned < enemyCount) {
                 const rand = Math.random();
                 let enemyType;
-                if (rand < 0.14) {
-                    enemyType = 'enemy1'; // 14% chance for each enemy type
-                } else if (rand < 0.28) {
+                if (rand < 0.10) {
+                    enemyType = 'enemy1'; // 10% chance for each enemy type
+                } else if (rand < 0.50) {
                     enemyType = 'enemy2';
-                } else if (rand < 0.42) {
+                } else if (rand < 0.75) {
                     enemyType = 'enemy3';
-                } else if (rand < 0.56) {
-                    enemyType = 'enemy4';
-                } else if (rand < 0.70) {
-                    enemyType = 'enemy5';
-                } else if (rand < 0.84) {
-                    enemyType = 'enemy6';
                 } else {
-                    enemyType = 'enemy7';
-                }
-    
-                let enemySize, enemySpeed, enemyColor;
-                switch (enemyType) {
-                    case 'enemy1':
-                        enemySize = 20;
-                        enemySpeed = 2.5 + waveNumber * 0.1; // Fastest
-                        enemyColor = '#FF0000'; // Red
-                        break;
-                    case 'enemy2':
-                        enemySize = 30;
-                        enemySpeed = 2.2 + waveNumber * 0.1;
-                        enemyColor = '#FFA500'; // Orange
-                        break;
-                    case 'enemy3':
-                        enemySize = 40;
-                        enemySpeed = 1.9 + waveNumber * 0.1;
-                        enemyColor = '#FFFF00'; // Yellow
-                        break;
-                    case 'enemy4':
-                        enemySize = 50;
-                        enemySpeed = 1.6 + waveNumber * 0.1;
-                        enemyColor = '#008000'; // Green
-                        break;
-                    case 'enemy5':
-                        enemySize = 60;
-                        enemySpeed = 1.3 + waveNumber * 0.1;
-                        enemyColor = '#0000FF'; // Blue
-                        break;
-                    case 'enemy6':
-                        enemySize = 70;
-                        enemySpeed = 1.0 + waveNumber * 0.1;
-                        enemyColor = '#4B0082'; // Indigo
-                        break;
-                    case 'enemy7':
-                        enemySize = 80;
-                        enemySpeed = 0.7 + waveNumber * 0.1; // Slowest
-                        enemyColor = '#EE82EE'; // Violet
-                        break;
-                    default:
-                        enemySize = 20;
-                        enemySpeed = 2.5 + waveNumber * 0.1;
-                        enemyColor = '#FF0000';
+                    enemyType = 'enemy4';
                 }
 
                 const enemyX = CASTLE_START_X + Math.random() * CASTLE_WIDTH;
@@ -499,18 +487,19 @@ function startWave() {
                     color: enemyTypes[enemyType].color,
                     falling: false
                 });
-    
+
                 enemiesSpawned++;
             }
         }
-    
+
         if (enemiesSpawned >= enemyCount) {
             clearInterval(enemySpawnInterval);
             waveInProgress = false;
             completeWave(); // Call completeWave() when the wave ends
         }
-    }, 2000 - waveNumber * 100); // Adjusted interval (3 seconds initially)
+    }, 3000 - waveNumber * 100); // Adjusted interval (3 seconds initially)
 }
+
 
 startWaveButton.addEventListener('click', () => {
     startWave();
