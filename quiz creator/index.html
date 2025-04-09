@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Creator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div id="navbar">
+    <h1><a href="#" id="quiz-editor-link">Quiz Creator</a></h1>
+    <div id="nav-buttons">
+        <button id="edit-btn">Edit Mode</button>
+        <button id="add-question-btn">Add Question</button>
+    </div>
+    <button id="clear-storage-btn">Clear Storage</button>
+</div>
+<div id="quiz-name-container">
+    <div id="quiz-name-display">Your Quiz Name Here</div>
+    <input type="text" id="quiz-name-input" style="display:none;" placeholder="Enter quiz name here">
+</div>
+<div id="question-list">
+    <!-- Example radio buttons -->
+    <div class="answer-container">
+        <input type="radio" id="radio1" class="edit-radio" name="radio-group">
+        <label for="radio1">Option 1</label>
+    </div>
+    <div class="answer-container">
+        <input type="radio" id="radio2" class="edit-radio" name="radio-group">
+        <label for="radio2">Option 2</label>
+    </div>
+</div>
+
+<div id="help-container">
+    <button id="close-help-btn" class="close-btn">&times;</button>
+    <h2>Welcome to Quiz Creator!</h2>
+    <p>Create a simple multiple choice quiz with ease. No subscriptions. No logins. No hassle.</p>
+    <p>This would be an ideal study tool to use if you want to quiz yourself or slap it on the projector and quiz a class. Unfortunately, it only saves on your device. This isn't a good tool if you're looking to create a quiz and share it with others. This is something we're still working on. </p>
+    <p><strong>Data Storage Notice:</strong> Please be aware that all quiz data is saved locally on your current device. This means that your quiz data is stored only on the computer or device you are using right now. If you move these files to another computer or device, the saved data will not transfer with them.</p>
+    <hr>
+    <ul>
+        <li>
+            <strong>Create New Quiz:</strong> Click this to create a new quiz. This creates a new HTML file. Once you have named the file, it will download to your 'Downloads' folder. Be sure to move that new file to the folder containing your original quiz, styles.css and script.cs files.<br>
+            <p><strong>Note:</strong> Renaming the file will cause all saved data to be lost. Please ensure you name the file what you want <strong>before</strong> you start working on your quiz.</p>
+            <button id="create-quiz-btn">Create New Quiz</button>
+            <hr>
+        </li>
+        <li>
+            <strong>Edit Mode:</strong> Toggle this to edit the quiz. When enabled, you can modify the quiz name, questions, and answers. To mark the correct answer, select the radio button next to the answers. <br>
+            <button class="help-btn" id="help-edit-btn">Edit Mode</button>
+            <hr>
+        </li>
+        <li>
+            <strong>Add Question:</strong> Click this to add a new question to your quiz. Each question will include multiple answer options.<br>
+            <button class="help-btn" id="help-add-question-btn">Add Question</button>
+            <hr>
+        </li>
+        <li>
+            <strong>Clear Storage:</strong> Use this button to clear the stored data for this quiz from your browser's local storage. This action cannot be undone.<br>
+            <p><strong>Note:</strong> This will only clear the storage for this quiz. Your other quizzes will keep their data. </p>
+            <button class="help-btn" id="help-clear-storage-btn">Clear Storage</button>
+        </li>
+    </ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

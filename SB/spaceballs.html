@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Balls</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Deep space background color */
+    background-image: radial-gradient(white 1px, transparent 1px),
+                      radial-gradient(white 1px, transparent 1px),
+                      radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px, 100px 100px, 150px 150px;
+    background-position: 0 0, 25px 25px, 50px 50px;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    height: 100vh;
+}
+        
+        h1 {
+            color: cyan;
+            text-shadow: 0 0 20px cyan;
+        }
+
+        #scoreboard {
+            display: flex;
+            justify-content: space-around;
+            width: 1200px;
+            margin: 20px;
+            padding: 20px;
+            background-color: black;
+            border: 5px solid cyan;
+            box-shadow: 0 0 20px cyan;
+        }
+        .score {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #0f0;
+            font-size: 2em;
+            text-align: center;
+            border: 3px solid #0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 15px #0f0;
+        }
+        #player1Score {
+            color: #00f; /* Blue color for Player 1 */
+            border-color: #00f;
+            box-shadow: 0 0 15px #00f;
+        }
+        #player2Score {
+            color: #f00; /* Red color for Player 2 */
+            border-color: #f00;
+            box-shadow: 0 0 15px #f00;
+        }
+        #gameCanvas {
+            display: block;
+            background-color: #333;
+            border: 5px solid cyan;
+            box-shadow: 0 0 20px cyan;
+        }
+    </style>
+</head>
+<body>
+    <h1> Space balls </h1>
+    <div id="scoreboard">
+        <div class="score" id="player1Score">Player 1: 0</div>
+        <div class="score" id="player2Score">Player 2: 0</div>
+    </div>
+<br>
+<br>
+<br>
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <script src="game9.js"></script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+</html>

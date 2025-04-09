@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards</title>
+<style>
+body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background-color: #333;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #444;
+  border-bottom: 2px solid #0099ff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar-left {
+  margin-left: 20px; /* Add some margin to the left */
+}
+
+.website-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #007bff;
+  display: inline-block;
+  cursor: pointer; /* Make it look clickable */
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #0099ff; 
+  padding: 10px;
+}
+
+.website-name.flipped {
+  transform: rotateX(360deg); /* Change to rotateX for a vertical flip */
+}
+
+.navbar-center {
+  flex-grow: 1; /* Allow this container to grow and center the content */
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  padding-right: 170px; /* Adjust this value to move buttons left */
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between buttons */
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent; /* Remove background color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor on hover */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    cursor: pointer;
+}
+
+.dropbtn img {
+    border-radius: 5px;
+    width: 40px; /* Set icon size */
+    height: 40px;
+}
+
+.dropbtn:hover img {
+    opacity: 0.7; /* Lower opacity to create a darker effect */
+}
+
+.dropbtn:hover {
+  background-color: transparent; /* Change background color on hover */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the dropdown below the button */
+  left: 0;
+  background-color: #444; /* Set a different background color */
+  border: 2px solid #0099ff;
+  z-index: 1;
+  width: 400px; /* Adjust width to fit sections */
+  padding: 10px 0; /* Add padding to separate sections */
+}
+
+.dropdown-section, .color-section {
+  padding: 10px 20px; /* Add padding for each section */
+  background-color: #444; /* Ensure section names have the same background color */
+}
+
+.dropdown-section h4, .color-section h5 {
+  margin: 0 0 10px 0; /* Add margin below section title */
+  color: white; /* Add color for better contrast */
+}
+
+.dropdown-content button.size-btn {
+  padding: 8px 12px;
+  margin: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: transparent; /* Default background color */
+  border: 1px solid #0099ff;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0099ff; /* Blue text */
+}
+
+.dropdown-content button.small-btn {
+  width: 50px; /* Smaller width for S button */
+}
+
+.dropdown-content button.large-btn {
+  width: 80px; /* Larger width for L button */
+}
+
+.dropdown-content button.font-btn {
+  padding: 8px 12px;
+  margin: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: white; /* Default background color */
+  text-align: center;
+  cursor: pointer;
+  color: #0099ff; /* Blue text */
+}
+
+.dropdown-content button.small-font {
+  font-size: 16px; /* Font size for 16px */
+  background-color: transparent; /* Default background color */
+  border: 1px solid #0099ff;
+}
+
+.dropdown-content button.medium-font {
+  font-size: 20px; /* Font size for 20px */
+  background-color: transparent; /* Default background color */
+  border: 1px solid #0099ff;
+}
+
+.dropdown-content button.large-font {
+  font-size: 24px; /* Font size for 24px */
+  background-color: transparent; /* Default background color */
+  border: 1px solid #0099ff;
+}
+
+.dropdown-content button.color-btn {
+  padding: 8px 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: #0099ff; /* New background color for buttons */
+  border: none;
+  width: 30px; /* Set width for color squares */
+  height: 30px; /* Set height for color squares */
+  cursor: pointer;
+  margin: 5px 5px; /* Space between color buttons */
+}
+
+.dropdown-content button:hover,
+.dropdown-content button.active {
+  background-color: #0099ff; /* Fill color when active or hovered */
+  color: white; /* White text when active or hovered */
+}
+
+.dropdown-content button.active {
+  color: white; /* White text for active button */
+  background-color: #0099ff; /* Blue fill for active button */
+  border: 2px dotted #fff; /* Blue border for active button */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Active state for selected flashcard color */
+.color-btn.active {
+  outline: 2px dotted #fff; /* Highlight selected color with a border */
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+  padding: 20px;
+  padding-top: 120px; /* Adjust to make space for both navbars */
+  background-color: #444;
+  overflow-y: auto;
+  height: auto;
+  margin-right: 60%; /* Add margin to make space for the right column */
+  transition: all 0.5s ease;
+  position: relative;
+  border: 2px solid #0099ff; /* Add a border around the left column */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 58%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding-top: 100px;
+  transition: all 0.5s ease;
+  z-index: 999;
+  background-color: #333; 
+  margin-left: 1%; /* Add left margin */
+  margin-right: 1%; /* Add right margin */
+}
+
+/* Centered flashcards */
+.right-column.centered {
+  width: 100%; /* Take full width */
+  justify-content: center;
+  padding-top: 0;
+  height: 100vh;
+}
+
+.flashcards-wrapper,
+.controls,
+.thumbnails {
+  width: 100%;
+}
+
+.counter {
+  font-size: 22px;
+  color: #fff;
+}
+
+/* Additional Styles */
+.flashcards-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.flashcard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  transition: transform 0.2s, opacity 0.2s;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flashcard-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap; /* Ensure line breaks are respected */
+  padding: 30px; /* Add padding to prevent text from touching the edges */
+  font-size: 20px; /* Increase font size for better readability */
+  line-height: 1.8; /* Increase line height for better readability */
+  text-align: center; /* Center-align the text */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+  color: #333; /* Darker text color for better contrast */
+}
+
+.flashcard-front {
+  background-color: #fff;
+}
+
+.flashcard-back {
+  background-color: #fff;
+  transform: rotateX(180deg);
+}
+
+.flashcard-inner.flipped {
+  transform: rotateX(180deg);
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  padding: 10px 10px;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scaled-text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide any overflowing text */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.scaled-text > div {
+  font-size: 18px; /* Initial font size */
+  line-height: 1.5; /* Ensure text is readable */
+  transition: font-size 0.3s; /* Smooth transition for font size */
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.counter {
+  font-size: 22px;
+  color: #fff;
+}
+
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  max-width: 90%; /* Ensure thumbnails wrap within the width of the container */
+}
+
+.thumbnail {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #353935;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin: 5px; /* Add margin for spacing between thumbnails */
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: #fff; /* Ensure a visible background color */
+}
+
+.thumbnail:hover {
+  background-color: #0099ff;
+  border-color: #fff;
+  color: white;
+}
+
+.thumbnail.active {
+  background-color: #0099ff; /* Highlight color for active thumbnail */
+  border-color: #fff;
+  color: #fff;
+}
+
+.edit-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.card-input-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px; /* Add space between wrappers */
+}
+
+.card-input {
+  margin-bottom: 10px;
+  width: 45%;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-input textarea {
+  min-height: 300px;
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  resize: none;
+  overflow-y: hidden;
+  background-color: transparent; /* Make the text boxes transparent */
+}
+
+.card-input-navbar {
+  position: fixed;
+  top: 67px; /* Adjust this value to position it below the main navbar */
+  left: 0;
+  width: calc(40% - 0px); /* Match the width of the left column minus the border width */
+  background-color: #444;
+  border: 2px solid #0099ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  z-index: 999; /* Ensure it stays on top */
+  color: white;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons within the container */
+  align-items: center;
+  gap: 10px; /* Space between buttons */
+}
+
+.card-heading {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.arrow:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.arrow:active {
+  background-color: #004080;
+  transform: translateY(0);
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #004080;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+<body>
+  <!-- Navbar section at the top -->
+  <nav class="navbar">
+  <div class="navbar-left">
+   <button class="dropbtn" id="toggleVisibilityBtn" onclick="toggleVisibility()"><img src="edit.png" alt="Icon" title="Edit your flashcards"></button>
+  </div>
+
+    <div class="navbar-center">
+    <span id="websiteName" class="website-name" data-flip-text="Flashcards" onclick="flipWebsiteName()">Flashcards</span>
+    </div>
+  </nav>
+
+  <div class="left-column"> 
+<nav class="card-input-navbar" id="cardInputNavbar">
+  <div class="button-container">
+<!-- Customize Tool Dropdown -->
+        <div class="dropdown">
+          <button class="dropbtn"> <img src="TB2.png" alt="Icon" title="Customize your flashcards"></button>
+          <div class="dropdown-content">
+            <!-- Section 1: Flashcard Size -->
+            <div class="dropdown-section">
+              <h4>Flashcard Size</h4>
+              <button onclick="setFlashcardSize('original')" id="size-original" class="size-btn small-btn">S</button>
+              <button onclick="setFlashcardSize('bigger')" id="size-bigger" class="size-btn large-btn">L</button>
+            </div>
+
+            <hr>            
+
+            <!-- Section 2: Font Size -->
+            <div class="dropdown-section">
+              <h4>Font Size</h4>
+              <button onclick="setFontSize('small')" id="font-small" class="font-btn small-font">16px</button>
+              <button onclick="setFontSize('medium')" id="font-medium" class="font-btn medium-font">20px</button>
+              <button onclick="setFontSize('large')" id="font-large" class="font-btn large-font">24px</button>
+            </div>
+            
+            <hr> 
+
+            <!-- Section 3: Flashcard Color -->
+            <div class="dropdown-section">
+              <h4>Flashcard Color</h4>
+              <!-- Section 3A: Front Side -->
+              <div class="color-section">
+                <h5>Front Side</h5>
+                <button onclick="setFlashcardColor('front', 'white')" id="front-white" class="color-btn" style="background-color: white;"></button>
+                <button onclick="setFlashcardColor('front', 'lightblue')" id="front-lightblue" class="color-btn" style="background-color: lightblue;"></button>
+                <button onclick="setFlashcardColor('front', 'lightgreen')" id="front-lightgreen" class="color-btn" style="background-color: lightgreen;"></button>
+                <button onclick="setFlashcardColor('front', 'brightblue')" id="front-brightblue" class="color-btn" style="background-color: #0096FF;"></button>
+                <button onclick="setFlashcardColor('front', 'cornflowerblue')" id="front-cornflowerblue" class="color-btn" style="background-color: #6495ED;"></button>
+                <button onclick="setFlashcardColor('front', 'vanilla')" id="front-vanilla" class="color-btn" style="background-color: #F3E5AB;"></button>
+                <button onclick="setFlashcardColor('front', 'lavender')" id="front-lavender" class="color-btn" style="background-color: #E6E6FA;"></button>
+                <button onclick="setFlashcardColor('front', 'periwinkle')" id="front-periwinkle" class="color-btn" style="background-color: #CCCCFF;"></button>
+                <button onclick="setFlashcardColor('front', 'pastelpink')" id="front-pastelpink" class="color-btn" style="background-color: #F8C8DC;"></button>
+                <button onclick="setFlashcardColor('front', 'mauve')" id="front-mauve" class="color-btn" style="background-color: #E0B0FF;"></button>
+                <button onclick="setFlashcardColor('front', 'lightgray')" id="front-lightgray" class="color-btn" style="background-color: #D3D3D3;"></button>
+                <button onclick="setFlashcardColor('front', 'grassgreen')" id="front-grassgreen" class="color-btn" style="background-color: #7CFC00;"></button>
+                <button onclick="setFlashcardColor('front', 'kellygreen')" id="front-kellygreen" class="color-btn" style="background-color: #4CBB17;"></button>
+                <button onclick="setFlashcardColor('front', 'neongreen')" id="front-neongreen" class="color-btn" style="background-color: #0FFF50;"></button>
+                <button onclick="setFlashcardColor('front', 'nyanza')" id="front-nyanza" class="color-btn" style="background-color: #ECFFDC;"></button>
+                <button onclick="setFlashcardColor('front', 'amber')" id="front-amber" class="color-btn" style="background-color: #FFBF00;"></button>
+                <button onclick="setFlashcardColor('front', 'yelloworange')" id="front-yelloworange" class="color-btn" style="background-color: #FFAA33;"></button>
+                <button onclick="setFlashcardColor('front', 'salmon')" id="front-salmon" class="color-btn" style="background-color: #FA8072;"></button>
+                <button onclick="setFlashcardColor('front', 'sunsetorange')" id="front-sunsetorange" class="color-btn" style="background-color: #FA5F55;"></button>
+                <button onclick="setFlashcardColor('front', 'watermelonpink')" id="front-watermelonpink" class="color-btn" style="background-color: #E37383;"></button>
+                <button onclick="setFlashcardColor('front', 'pastelyellow')" id="front-pastelyellow" class="color-btn" style="background-color: #FFFAA0;"></button>
+              </div>
+	      <!-- Section 3B: Back Side -->
+	      <div class="color-section">
+  		<h5>Back Side</h5>
+  		<button onclick="setFlashcardColor('back', 'white')" id="back-white" class="color-btn" style="background-color: white;"></button>
+  		<button onclick="setFlashcardColor('back', 'lightblue')" id="back-lightblue" class="color-btn" style="background-color: lightblue;"></button>
+  		<button onclick="setFlashcardColor('back', 'lightgreen')" id="back-lightgreen" class="color-btn" style="background-color: lightgreen;"></button>
+  		<button onclick="setFlashcardColor('back', 'brightblue')" id="back-brightblue" class="color-btn" style="background-color: #0096FF;"></button>
+  		<button onclick="setFlashcardColor('back', 'cornflowerblue')" id="back-cornflowerblue" class="color-btn" style="background-color: #6495ED;"></button>
+  		<button onclick="setFlashcardColor('back', 'vanilla')" id="back-vanilla" class="color-btn" style="background-color: #F3E5AB;"></button>
+  		<button onclick="setFlashcardColor('back', 'lavender')" id="back-lavender" class="color-btn" style="background-color: #E6E6FA;"></button>
+  		<button onclick="setFlashcardColor('back', 'periwinkle')" id="back-periwinkle" class="color-btn" style="background-color: #CCCCFF;"></button>
+  		<button onclick="setFlashcardColor('back', 'pastelpink')" id="back-pastelpink" class="color-btn" style="background-color: #F8C8DC;"></button>
+  		<button onclick="setFlashcardColor('back', 'mauve')" id="back-mauve" class="color-btn" style="background-color: #E0B0FF;"></button>
+  		<button onclick="setFlashcardColor('back', 'lightgray')" id="back-lightgray" class="color-btn" style="background-color: #D3D3D3;"></button>
+  		<button onclick="setFlashcardColor('back', 'grassgreen')" id="back-grassgreen" class="color-btn" style="background-color: #7CFC00;"></button>
+  		<button onclick="setFlashcardColor('back', 'kellygreen')" id="back-kellygreen" class="color-btn" style="background-color: #4CBB17;"></button>
+  		<button onclick="setFlashcardColor('back', 'neongreen')" id="back-neongreen" class="color-btn" style="background-color: #0FFF50;"></button>
+  		<button onclick="setFlashcardColor('back', 'nyanza')" id="back-nyanza" class="color-btn" style="background-color: #ECFFDC;"></button>
+  		<button onclick="setFlashcardColor('back', 'amber')" id="back-amber" class="color-btn" style="background-color: #FFBF00;"></button>
+  		<button onclick="setFlashcardColor('back', 'yelloworange')" id="back-yelloworange" class="color-btn" style="background-color: #FFAA33;"></button>
+  		<button onclick="setFlashcardColor('back', 'salmon')" id="back-salmon" class="color-btn" style="background-color: #FA8072;"></button>
+  		<button onclick="setFlashcardColor('back', 'sunsetorange')" id="back-sunsetorange" class="color-btn" style="background-color: #FA5F55;"></button>
+  		<button onclick="setFlashcardColor('back', 'watermelonpink')" id="back-watermelonpink" class="color-btn" style="background-color: #E37383;"></button>
+  		<button onclick="setFlashcardColor('back', 'pastelyellow')" id="back-pastelyellow" class="color-btn" style="background-color: #FFFAA0;"></button>
+	       </div>
+  </div>
+  </div>
+</div>
+    <button onclick="addFlashcard()">Add Flashcard</button>
+    <button onclick="addMultipleFlashcards(5)">Add 5 Flashcards</button>
+
+  </div>
+  </nav>
+  <!-- Existing content of the left column -->
+  <div class="edit-section" id="editSection">
+    <div class="card-input-wrapper">
+      <div class="card-heading">Flashcard 1</div>
+      <button class="delete-btn" onclick="deleteFlashcard(0)">×</button>
+      <div class="card-input">
+        <textarea id="frontText-0" rows="10" oninput="updateFlashcardText(0); enforceCharLimit(this);" placeholder="Flashcard 1 Front"></textarea>
+      </div>
+      <div class="card-input">
+        <textarea id="backText-0" rows="10" oninput="updateFlashcardText(0); enforceCharLimit(this);" placeholder="Flashcard 1 Back"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="right-column">
+    <div class="flashcards-wrapper">
+      <div class="flashcards-container" id="flashcardsContainer"></div>
+    </div>
+
+    <div class="controls">
+      <button class="arrow" onclick="prevCard()">&#9664;</button>
+      <div class="counter" id="counter"></div>
+      <button class="arrow" onclick="nextCard()">&#9654;</button>
+    </div>
+    
+    <div class="thumbnails" id="thumbnails"></div>
+  </div>
+
+<script>
+let flashcards = [{ frontText: 'Flashcard 1 Front', backText: 'Flashcard 1 Back' }];
+let currentCard = 0;
+const flashcardsContainer = document.getElementById('flashcardsContainer');
+const maxChars = 800;
+const maxLines = 25; // Line limit
+let isHidden = false; // Keep track of visibility state
+let currentFontSize = '20px'; // Default font size
+let currentSize = 'original'; // Default size
+let currentFrontColor = 'white'; // Default front color
+let currentBackColor = 'white'; // Default back color
+
+const colorMap = {
+  'white': '#FFFFFF',
+  'lightblue': '#ADD8E6',
+  'lightgreen': '#90EE90',
+  'brightblue': '#0096FF',
+  'cornflowerblue': '#6495ED',
+  'vanilla': '#F3E5AB',
+  'lavender': '#E6E6FA',
+  'periwinkle': '#CCCCFF',
+  'pastelpink': '#F8C8DC',
+  'mauve': '#E0B0FF',
+  'lightgray': '#D3D3D3',
+  'grassgreen': '#7CFC00',
+  'kellygreen': '#4CBB17',
+  'neongreen': '#0FFF50',
+  'nyanza': '#ECFFDC',
+  'amber': '#FFBF00',
+  'yelloworange': '#FFAA33',
+  'salmon': '#FA8072',
+  'sunsetorange': '#FA5F55',
+  'watermelonpink': '#E37383',
+  'pastelyellow': '#FFFAA0'
+};
+
+function initFlashcards() {
+  flashcards.forEach((card, index) => {
+    createFlashcardElement(card, index);
+  });
+  showCard(currentCard);
+  updateCounter();
+  updateThumbnails();
+  updateActiveSettings();
+}
+
+function addFlashcard() {
+  const cardId = flashcards.length + 1;
+  const frontText = `Flashcard ${cardId} Front`;
+  const backText = `Flashcard ${cardId} Back`;
+  flashcards.push({ frontText, backText });
+
+  const newCardIndex = flashcards.length - 1;
+  createFlashcardElement({ frontText, backText }, newCardIndex);
+
+  addFlashcardToEditSection(cardId);
+  currentCard = newCardIndex; // Set the new card as the current card
+  showCard(currentCard);
+  updateCounter();
+  updateThumbnails();
+}
+
+function addMultipleFlashcards(count) {
+  for (let i = 0; i < count; i++) {
+    addFlashcard();
+  }
+}
+
+function deleteFlashcard(index) {
+  // Collect the current text values from all flashcards
+  flashcards.forEach((card, i) => {
+    const frontText = document.getElementById(`frontText-${i}`).value;
+    const backText = document.getElementById(`backText-${i}`).value;
+    card.frontText = frontText;
+    card.backText = backText;
+  });
+
+  // Remove the flashcard from the array
+  flashcards.splice(index, 1);
+
+  // Clear the container and the edit section
+  flashcardsContainer.innerHTML = '';
+  editSection.innerHTML = '';
+
+  // Recreate flashcards and their edit inputs, preserving text content and placeholders
+  flashcards.forEach((card, i) => {
+    createFlashcardElement(card, i);
+    addFlashcardToEditSection(i + 1);
+
+    // Restore text content to the input fields
+    const frontTextarea = document.getElementById(`frontText-${i}`);
+    const backTextarea = document.getElementById(`backText-${i}`);
+    frontTextarea.value = card.frontText;
+    backTextarea.value = card.backText;
+
+    // Restore placeholders if text areas are empty
+    if (!frontTextarea.value) {
+      frontTextarea.placeholder = `Flashcard ${i + 1} Front`;
+    }
+    if (!backTextarea.value) {
+      backTextarea.placeholder = `Flashcard ${i + 1} Back`;
+    }
+  });
+
+  if (currentCard >= flashcards.length) {
+    currentCard = flashcards.length - 1;
+  }
+
+  showCard(currentCard);
+  updateCounter();
+  updateThumbnails();
+}
+
+function addFlashcardToEditSection(cardId) {
+  const editSection = document.getElementById('editSection');
+  const cardInputWrapper = document.createElement('div');
+  cardInputWrapper.className = 'card-input-wrapper';
+  cardInputWrapper.style.display = isHidden ? 'none' : 'flex'; // Follow the current state
+
+  const cardHeading = document.createElement('div');
+  cardHeading.className = 'card-heading';
+  cardHeading.textContent = `Flashcard ${cardId}`;
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.className = 'delete-btn';
+  deleteBtn.innerHTML = '×';
+  deleteBtn.onclick = () => deleteFlashcard(cardId - 1);
+
+  const cardInputFront = document.createElement('div');
+  cardInputFront.className = 'card-input';
+  cardInputFront.innerHTML = `
+    <textarea id="frontText-${cardId - 1}" rows="10" oninput="updateFlashcardText(${cardId - 1}); enforceCharLimit(this);" placeholder="Flashcard ${cardId} Front"></textarea>
+  `;
+  const cardInputBack = document.createElement('div');
+  cardInputBack.className = 'card-input';
+  cardInputBack.innerHTML = `
+    <textarea id="backText-${cardId - 1}" rows="10" oninput="updateFlashcardText(${cardId - 1}); enforceCharLimit(this);" placeholder="Flashcard ${cardId} Back"></textarea>
+  `;
+
+  cardInputWrapper.appendChild(cardHeading);
+  cardInputWrapper.appendChild(deleteBtn);
+  cardInputWrapper.appendChild(cardInputFront);
+  cardInputWrapper.appendChild(cardInputBack);
+  editSection.appendChild(cardInputWrapper);
+}
+
+function createFlashcardElement(card, index) {
+  const flashcard = document.createElement('div');
+  flashcard.className = 'flashcard';
+  flashcard.id = `flashcard-${index}`;
+  flashcard.innerHTML = `
+    <div class="flashcard-inner" id="card-${index}" onclick="flipCard(${index})">
+      <div class="flashcard-front scaled-text" id="front-${index}" style="background-color: ${colorMap[currentFrontColor]};"><div>${card.frontText}</div></div>
+      <div class="flashcard-back scaled-text" id="back-${index}" style="background-color: ${colorMap[currentBackColor]};"><div>${card.backText}</div></div>
+    </div>
+  `;
+  flashcardsContainer.appendChild(flashcard);
+  fitTextToContainer(document.getElementById(`front-${index}`).firstChild, currentFontSize);
+  fitTextToContainer(document.getElementById(`back-${index}`).firstChild, currentFontSize);
+}
+
+function flipCard(id) {
+  const card = document.getElementById(`card-${id}`);
+  card.classList.toggle('flipped');
+}
+
+function showCard(index) {
+  const flashcards = document.querySelectorAll('.flashcard');
+  const containerWidth = flashcardsContainer.clientWidth;
+  const cardMargin = 20;
+  flashcards.forEach((card, i) => {
+    card.style.transform = `translateX(${(i - index) * (containerWidth + cardMargin)}px)`;
+    card.style.transition = 'transform 0.5s'; // Add transition for smooth sliding
+  });
+  currentCard = index; // Update the current card index
+  updateCounter();
+  updateThumbnails();
+}
+
+function prevCard() {
+  currentCard = (currentCard > 0) ? currentCard - 1 : flashcards.length - 1;
+  showCard(currentCard);
+}
+
+function nextCard() {
+  currentCard = (currentCard < flashcards.length - 1) ? currentCard + 1 : 0;
+  showCard(currentCard);
+}
+
+function fitTextToContainer(element, customSize = null) {
+  if (customSize) {
+    element.style.fontSize = customSize;
+    return;
+  }
+
+  const parent = element.parentElement;
+  const parentHeight = parent.offsetHeight;
+  const parentWidth = parent.offsetWidth;
+  let fontSize = 18; // Initial font size
+  element.style.fontSize = `${fontSize}px`;
+
+  while (element.scrollHeight > parentHeight || element.scrollWidth > parentWidth) {
+    fontSize--;
+    element.style.fontSize = `${fontSize}px`;
+    if (fontSize <= 12) break; // Prevent font size from becoming too small
+  }
+}
+
+function setFontSize(size) {
+  const flashcardText = document.querySelectorAll('.flashcard .scaled-text > div');
+  flashcardText.forEach(text => {
+    switch (size) {
+      case 'small':
+        currentFontSize = '16px';
+        break;
+      case 'medium':
+        currentFontSize = '20px';
+        break;
+      case 'large':
+        currentFontSize = '24px';
+        break;
+    }
+    fitTextToContainer(text, currentFontSize);
+  });
+
+  updateActiveSettings(); // Update the active settings
+}
+
+function setFlashcardSize(size) {
+  const flashcardsContainer = document.querySelector('.flashcards-container');
+  const flashcards = document.querySelectorAll('.flashcard');
+  
+  if (size === 'original') {
+    flashcardsContainer.style.width = '100%';
+    flashcardsContainer.style.height = '400px';
+    flashcards.forEach(card => {
+      card.style.width = '100%';
+      card.style.height = '100%';
+      card.querySelector('.flashcard-inner').style.width = '100%';
+      card.querySelector('.flashcard-inner').style.height = '100%';
+    });
+  } else if (size === 'bigger') {
+    flashcardsContainer.style.width = '100%'; // Increase width
+    flashcardsContainer.style.height = '600px'; // Increase height
+    flashcards.forEach(card => {
+      card.style.width = '100%';
+      card.style.height = '100%';
+      card.querySelector('.flashcard-inner').style.width = '100%';
+      card.querySelector('.flashcard-inner').style.height = '100%';
+    });
+  }
+
+  currentSize = size; // Update the current size
+  updateActiveSettings(); // Update the active settings
+  showCard(currentCard); // Preserve the current card index and show the current card
+}
+
+function updateActiveSettings() {
+  document.getElementById('size-original').classList.remove('active');
+  document.getElementById('size-bigger').classList.remove('active');
+  document.getElementById('font-small').classList.remove('active');
+  document.getElementById('font-medium').classList.remove('active');
+  document.getElementById('font-large').classList.remove('active');
+
+  if (currentSize === 'original') {
+    document.getElementById('size-original').classList.add('active');
+  } else if (currentSize === 'bigger') {
+    document.getElementById('size-bigger').classList.add('active');
+  }
+
+  if (currentFontSize === '16px') {
+    document.getElementById('font-small').classList.add('active');
+  } else if (currentFontSize === '20px') {
+    document.getElementById('font-medium').classList.add('active');
+  } else if (currentFontSize === '24px') {
+    document.getElementById('font-large').classList.add('active');
+  }
+
+  // Remove 'active' class from all front color buttons
+  const frontColors = [
+    'white', 'lightblue', 'lightgreen', 'brightblue', 'cornflowerblue', 'vanilla',
+    'lavender', 'periwinkle', 'pastelpink', 'mauve', 'lightgray', 'grassgreen',
+    'kellygreen', 'neongreen', 'nyanza', 'amber', 'yelloworange', 'salmon',
+    'sunsetorange', 'watermelonpink', 'pastelyellow'
+  ];
+  frontColors.forEach(color => {
+    document.getElementById(`front-${color}`).classList.remove('active');
+  });
+
+  // Add 'active' class to the current front color button
+  document.getElementById(`front-${currentFrontColor}`).classList.add('active');
+
+  // Remove 'active' class from all back color buttons
+  const backColors = [
+    'white', 'lightblue', 'lightgreen', 'brightblue', 'cornflowerblue', 'vanilla',
+    'lavender', 'periwinkle', 'pastelpink', 'mauve', 'lightgray', 'grassgreen',
+    'kellygreen', 'neongreen', 'nyanza', 'amber', 'yelloworange', 'salmon',
+    'sunsetorange', 'watermelonpink', 'pastelyellow'
+  ];
+  backColors.forEach(color => {
+    document.getElementById(`back-${color}`).classList.remove('active');
+  });
+
+  // Add 'active' class to the current back color button
+  document.getElementById(`back-${currentBackColor}`).classList.add('active');
+}
+
+function updateFlashcardText(id) {
+  const frontText = document.getElementById(`frontText-${id}`).value;
+  const backText = document.getElementById(`backText-${id}`).value;
+  const frontElement = document.getElementById(`front-${id}`).firstElementChild;
+  const backElement = document.getElementById(`back-${id}`).firstElementChild;
+
+  frontElement.textContent = frontText;
+  backElement.textContent = backText;
+  fitTextToContainer(frontElement, currentFontSize);
+  fitTextToContainer(backElement, currentFontSize);
+}
+
+function enforceCharLimit(textarea) {
+  if (textarea.value.length > maxChars) {
+    textarea.value = textarea.value.substring(0, maxChars);
+  }
+}
+
+function enforceLineLimit(textarea) {
+  const lines = textarea.value.split('\n');
+  const trimmedLines = lines.slice(0, maxLines);
+  textarea.value = trimmedLines.join('\n');
+}
+
+function updateCounter() {
+  const counter = document.getElementById('counter');
+  counter.textContent = `${currentCard + 1} / ${flashcards.length}`;
+}
+
+function updateThumbnails() {
+  const thumbnailsContainer = document.getElementById('thumbnails');
+  thumbnailsContainer.innerHTML = ''; // Clear existing thumbnails
+  flashcards.forEach((card, index) => {
+    const thumbnail = document.createElement('div');
+    thumbnail.className = 'thumbnail';
+    if (index === currentCard) {
+      thumbnail.classList.add('active');
+    }
+    thumbnail.textContent = index + 1;
+    thumbnail.onclick = () => showCard(index);
+    thumbnailsContainer.appendChild(thumbnail);
+  });
+}
+
+function handleKeyPress(event) {
+  const activeElement = document.activeElement;
+  if (activeElement.tagName.toLowerCase() !== 'textarea') {
+    switch (event.key) {
+      case 'ArrowLeft':
+        prevCard();
+        break;
+      case 'ArrowRight':
+        nextCard();
+        break;
+      case ' ':
+        flipCard(currentCard);
+        event.preventDefault(); // Prevent scrolling
+        break;
+    }
+  }
+}
+
+document.addEventListener('keydown', handleKeyPress);
+
+function toggleVisibility() {
+  const leftColumn = document.querySelector('.left-column');
+  const toggleVisibilityBtn = document.getElementById('toggleVisibilityBtn');
+  const rightColumn = document.querySelector('.right-column');
+
+  if (isHidden) {
+    leftColumn.style.display = 'flex';
+    rightColumn.classList.remove('centered');
+    rightColumn.style.width = '58%';
+    rightColumn.style.marginLeft = '1%';
+    rightColumn.style.marginRight = '1%';
+  } else {
+    leftColumn.style.display = 'none';
+    rightColumn.classList.add('centered');
+    rightColumn.style.width = '80%';
+    rightColumn.style.marginLeft = '10%';
+    rightColumn.style.marginRight = '10%';
+  }
+
+  isHidden = !isHidden;
+
+  // Reposition flashcards to ensure they are correctly centered
+  setTimeout(() => {
+    repositionFlashcards();
+  }, 300); // Wait for the transition to complete
+}
+
+function repositionFlashcards() {
+  const flashcards = document.querySelectorAll('.flashcard');
+  const containerWidth = document.querySelector('.flashcards-container').clientWidth;
+  flashcards.forEach((card, i) => {
+    card.style.transform = `translateX(${(i - currentCard) * containerWidth}px)`;
+  });
+}
+
+function setFlashcardColor(side, color) {
+  const flashcards = document.querySelectorAll('.flashcard .flashcard-' + side);
+  flashcards.forEach(flashcard => {
+    flashcard.style.backgroundColor = colorMap[color];
+  });
+
+  // Update active color buttons and store the current colors
+  if (side === 'front') {
+    currentFrontColor = color;
+  } else if (side === 'back') {
+    currentBackColor = color;
+  }
+
+  updateActiveColors(side, color);
+}
+
+function updateActiveColors(side, color) {
+  const colors = Object.keys(colorMap);
+  
+  colors.forEach(col => {
+    document.getElementById(`${side}-${col}`).classList.remove('active');
+  });
+  document.getElementById(`${side}-${color}`).classList.add('active');
+}
+
+function flipWebsiteName() {
+  const websiteName = document.getElementById('websiteName');
+
+  // Check current state and toggle text and class
+  if (websiteName.classList.contains('flipped')) {
+    // Swap text back to the original
+    const originalText = websiteName.getAttribute('data-original-text');
+    if (originalText) {
+      websiteName.textContent = originalText;
+    }
+  } else {
+    // Store original text and swap to the flip text
+    websiteName.setAttribute('data-original-text', websiteName.textContent);
+    const flipText = websiteName.getAttribute('data-flip-text');
+    if (flipText) {
+      websiteName.textContent = flipText;
+    }
+  }
+
+  // Toggle the flip class
+  websiteName.classList.toggle('flipped');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Set default colors for front and back
+  setFlashcardColor('front', currentFrontColor);
+  setFlashcardColor('back', currentBackColor);
+});
+
+initFlashcards();
+</script>
+
+</body>
+</html>

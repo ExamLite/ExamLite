@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    width: 45%;
+    margin: auto;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hint-container {
+    width: 40%;
+    text-align: left;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.game-container {
+    width: 55%;
+}
+
+#board {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.square {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.correct {
+    background-color: #28a745;
+    color: white;
+}
+
+.present {
+    background-color: #E4D00A;
+    color: black;
+}
+
+.absent {
+    background-color: #899499;
+    color: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adds space between buttons */
+    margin-top: 20px;
+}
+
+.guess-button, .next-button {
+    width: auto;
+    padding: 15px 40px;
+    font-size: 18px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.guess-button {
+    background-color: #007bff;
+}
+
+.guess-button:hover {
+    background-color: #0069d9;
+}
+
+.next-button {
+    background-color: #28a745;
+}
+
+.next-button:hover {
+    background-color: #218838;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+#progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px auto;
+    display: flex;
+}
+
+.progress-segment {
+    height: 20px;
+    background-color: #007bff;
+    flex: 1;
+    margin: 1px;
+    opacity: 0.3;
+}
+
+.progress-segment.filled {
+    opacity: 1;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a, .button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        nav a:hover, .button:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Training Course</h1>
+    </header>
+    <nav>
+        <a href="course.html">Start Course</a>
+        <button class="button" onclick="confirmReset()">Reset Course</button>
+    </nav>
+    <div class="content">
+        <h2>About This Course</h2>
+        <p>This course will guide you through various subjects, providing study materials and quizzes to test your knowledge. You must complete each module in order to progress to the next.</p>
+    </div>
+    <script>
+        function resetCourse() {
+            localStorage.clear();
+            alert('Course progress has been reset.');
+            location.reload(); // Reload the page to update the state
+        }
+
+        function confirmReset() {
+            const confirmation = confirm('Are you sure you want to reset the course? This action cannot be undone.');
+            if (confirmation) {
+                resetCourse();
+            }
+        }
+    </script>
+</body>
+</html>
