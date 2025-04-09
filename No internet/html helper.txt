@@ -1,0 +1,38 @@
+	A
+
+        {text: " ", correct: true},
+        {text: " ", correct: false},
+        {text: " ", correct: false},
+        {text: " ", correct: false},
+
+
+	B
+
+        {text: " ", correct: false},
+        {text: " ", correct: true},
+        {text: " ", correct: false},
+        {text: " ", correct: false},
+
+
+	C
+
+        {text: " ", correct: false},
+        {text: " ", correct: false},
+        {text: " ", correct: true},
+        {text: " ", correct: false},
+
+
+	D
+
+
+        {text: " ", correct: false},
+        {text: " ", correct: false},
+        {text: " ", correct: false},
+        {text: " ", correct: true},
+
+
+
+-----------------------------------------------
+
+
+myGamePiece = new component(30, 30, "red", 10, 120);
