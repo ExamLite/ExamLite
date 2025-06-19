@@ -1,129 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examlite</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #000, #1a1a1a, #000);
-            color: #f4f4f4; 
-        }
-    
-        .navbar {
-            background-color: #1a1a1a; 
-            border-bottom: 2px solid #1cc5f0;
-            color: #f4f4f4;
-            padding: 0.5em;
-            text-align: center;
-        }
-    
-        .navbar h1 {
-            font-size: 1.5em;
-            margin: 0;
-        }
-    
-        .content {
-            margin: 5px;
-            padding: 10px;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-            align-items: center;
-            overflow-y: auto;
-        }
-    
-        .links {
-            display: grid;
-            grid-template-rows: repeat(10, auto);
-            grid-auto-flow: column; 
-            gap: 15px;
-            justify-content: center;
-        }
-    
-        a {
-            text-decoration: none;
-            color: #1cc5f0; 
-            padding: 5px;
-            background-color: #262626; 
-            border-radius: 3px;
-            font-size: 1em; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 150px; 
-            height: 40px; 
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-    
-        a:hover {
-            background-color: #21b5da; 
-            color: #ffffff; 
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examlite</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="navbar">
-        <h1>Examlite.com</h1>
-    </div>
-    <div class="content">
-        <div class="links">
-            <a href="turtle/index.html">Power shell</a>
-            <a href="RPS/index.html">RPS</a>
-            <a href="BTDE/BTDE_tickets.html">BTDE</a>
-            <a href="CCD/CCD.html">CCD</a>
-            <a href="breakout/breakout.html">Breakout</a>
-            <a href="breakout/breakout hard mode.html">Breakout (hard)</a>
-            <a href="SB/spaceballs.html">Spaceballs</a>
-            <a href="TG/1 on 1/game10.html">TG 1v1</a>
-            <a href="TG/With bots/game11.html">TG 1v1 bots</a>
-            <a href="wordle/test.html">Wordle</a>
-            <a href="quiz creator/index.html">Quiz creator</a>
-            <a href="OG Flashcards_Custom/index.html">Flashcard creator</a>
-            <a href="To do list/index.html">To do list</a>
-            <a href="WU screen/index.html">Update screen</a>
-            <a href="1 Course/home.html">Course/Modules</a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="Link page/index.html">Link page - Draft 1</a>
-        </div>
-        <p>Landing page for my HTML projects - PB</p>
-    </div>
+  <header>
+    <h1>Examlite</h1>
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Welcome to Examlite!</h2>
+      <p>Our exams have been taken down temporarily while we update the study material. </p>
+      <p> In the meantime, explore our other HTML projects. </p>
+    </section>
+
+    <section id="projects" class="tile-grid">
+
+<a href="turtle/index.html" class="tile">
+  <img src="ST_pics/ST1.PNG" alt="Description 1" />
+  <div class="tile-text">Power shell</div>
+</a>
+<a href="RPS/index.html" class="tile">
+  <img src="ST_pics/ST2.PNG" alt="Description 2" />
+  <div class="tile-text">Rock, Paper, Scissors</div>
+</a>
+<a href="CCD/CCD.html" class="tile">
+  <img src="ST_pics/ST3.PNG" alt="Description 3" />
+  <div class="tile-text">Confetti castle defense</div>
+</a>
+<a href="breakout/breakout.html" class="tile">
+  <img src="ST_pics/ST4.PNG" alt="Description 4" />
+  <div class="tile-text">Breakout</div>
+</a>
+<a href="breakout/breakout hard mode.html" class="tile">
+  <img src="ST_pics/ST5.PNG" alt="Description 5" />
+  <div class="tile-text">Breakout hard mode</div>
+</a>
+<a href="SB/spaceballs.html" class="tile">
+  <img src="ST_pics/ST6.PNG" alt="Description 6" />
+  <div class="tile-text">Space balls <br> (two player)</div>
+</a>
+<a href="TG/1 on 1/game10.html" class="tile">
+  <img src="ST_pics/ST7.PNG" alt="Description 7" />
+  <div class="tile-text">Tank game 1v1<br> (two player)</div>
+</a>
+<a href="TG/With bots/game11.html" class="tile">
+  <img src="ST_pics/ST8.PNG" alt="Description 8" />
+  <div class="tile-text">Tank game 1v1/bots<br> (two player)</div>
+</a>
+<a href="wordle/test.html" class="tile">
+  <img src="ST_pics/ST9.PNG" alt="Description 9" />
+  <div class="tile-text">Wordle game</div>
+</a>
+<a href="quiz creator/index.html" class="tile">
+  <img src="ST_pics/ST10.PNG" alt="Description 10" />
+  <div class="tile-text">Quiz creator</div>
+</a>
+
+<a href="1 Course/home.html" class="tile">
+  <img src="ST_pics/ST11.PNG" alt="Description 11" />
+  <div class="tile-text">Course / Modules</div>
+</a>
+<a href="BTDE/BTDE_tickets.html" class="tile">
+  <img src="ST_pics/ST12.PNG" alt="Description 12" />
+  <div class="tile-text">BTDE IT Solutions</div>
+</a>
+<a href="OG Flashcards_Custom/index.html" class="tile">
+  <img src="ST_pics/ST13.PNG" alt="Description 13" />
+  <div class="tile-text">Customizable flashcards</div>
+</a>
+<a href="To do list/index.html" class="tile">
+  <img src="ST_pics/ST14.PNG" alt="Description 14" />
+  <div class="tile-text">To-do list</div>
+</a>
+<a href="WU screen/index.html" class="tile">
+  <img src="ST_pics/ST15.PNG" alt="Description 15" />
+  <div class="tile-text">Fake Windows update screen</div>
+</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Examlite. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
