@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Expert Level</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .quiz-option {
+            display: block;
+            margin: 10px 0;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        .score-summary {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Module 3: Expert Level</h1>
+    </header>
+    <div class="content">
+        <h2>Study Materials</h2>
+        <p>Here are some expert-level study materials...</p>
+        
+        <h2>Quiz</h2>
+        <p>Answer the following questions to proceed:</p>
+        <form id="quizForm">
+            <div id="q1">
+                <p>Question 1: What is expert topic 1?</p>
+                <label class="quiz-option"><input type="radio" name="q1" value="A" required> A. Option 1</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="B"> B. Option 2</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="C"> C. Option 3</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="D"> D. Option 4</label>
+            </div>
+            <div id="q2">
+                <p>Question 2: What is expert topic 2?</p>
+                <label class="quiz-option"><input type="radio" name="q2" value="A" required> A. Option 1</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="B"> B. Option 2</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="C"> C. Option 3</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="D"> D. Option 4</label>
+            </div>
+            <button type="button" class="button" onclick="submitQuiz()">Submit</button>
+        </form>
+        <div id="result" style="display:none; margin-top:20px;">
+            <h2>Quiz Results</h2>
+            <p id="scoreSummary" class="score-summary"></p>
+            <div id="resultsContent"></div>
+            <a href="course.html" id="returnButton" class="button">Return to Course Overview</a>
+            <button onclick="location.reload()" id="retryButton" class="button" style="display:none;">Retry Quiz</button>
+        </div>
+    </div>
+    <script>
+        const correctAnswers = {
+            q1: 'A',
+            q2: 'D'
+        };
+
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+            const resultsContent = document.getElementById('resultsContent');
+            resultsContent.innerHTML = ''; // Clear previous results
+            let correctCount = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const selectedAnswer = formData.get(question);
+                const questionDiv = document.getElementById(question);
+                const labels = questionDiv.querySelectorAll('.quiz-option');
+
+                // Create a div to show question and answers
+                const questionResultDiv = document.createElement('div');
+                const questionText = questionDiv.querySelector('p').innerText;
+                questionResultDiv.innerHTML = `<p>${questionText}</p>`;
+
+                labels.forEach(label => {
+                    const input = label.querySelector('input');
+                    const labelCopy = label.cloneNode(true); // Clone the label
+
+                    if (input.value === correctAnswer) {
+                        labelCopy.classList.add('correct');
+                    }
+                    if (input.checked) {
+                        if (input.value === correctAnswer) {
+                            correctCount++;
+                        } else {
+                            labelCopy.classList.add('incorrect');
+                        }
+                    }
+
+                    // Remove the input from the clone
+                    labelCopy.removeChild(labelCopy.firstChild);
+                    questionResultDiv.appendChild(labelCopy);
+                });
+
+                resultsContent.appendChild(questionResultDiv);
+            }
+
+            const scorePercentage = (correctCount / totalQuestions) * 100;
+            localStorage.setItem('module3Score', scorePercentage);
+
+            form.style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+
+            // Display the number of correct answers and percentage
+            document.getElementById('scoreSummary').innerText = `You got ${correctCount} out of ${totalQuestions} correct (${scorePercentage}%).`;
+
+            const passPercentage = 0.8;
+            if (correctCount / totalQuestions >= passPercentage) {
+                document.getElementById('returnButton').style.display = 'inline-block';
+                localStorage.setItem('module3Completed', 'true');
+            } else {
+                document.getElementById('retryButton').style.display = 'inline-block';
+            }
+        }
+    </script>
+</body>
+</html>

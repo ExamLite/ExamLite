@@ -1,0 +1,224 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px 50px;
+    padding: 0;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+nav {
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#website-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#add-list-button, #clear-all-lists-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#add-list-button {
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+#add-list-button:hover {
+    background-color: #16a085;
+}
+
+#clear-all-lists-button {
+    background-color: red;
+    color: #ffffff;
+}
+
+#clear-all-lists-button:hover {
+    background-color: darkred;
+}
+
+.list {
+    border: 2px solid #bdc3c7;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 20px;
+    min-width: 200px;
+    min-height: 100px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    cursor: move;
+}
+
+.list-title {
+    font-weight: bold;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #bdc3c7;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 40%;
+    color: #2c3e50;
+    cursor: text;
+}
+
+.list-title:hover, .list-title:focus {
+    border: 1px solid #1abc9c;
+}
+
+.delete-list-button {
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-list-button:hover {
+    background-color: darkred;
+}
+
+.add-task-button {
+    background-color: #1abc9c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-task-button:hover {
+    background-color: #16a085;
+}
+
+.tasks-container {
+    margin-top: 10px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-number {
+    margin-right: 10px;
+    color: #2c3e50;
+}
+
+.task textarea {
+    flex-grow: 1;
+    outline: none;
+    padding: 5px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    min-width: 100px;
+    min-height: 50px; /* Set a minimum height */
+    box-sizing: border-box;
+    resize: none; /* Disable manual resizing */
+    color: #2c3e50;
+    overflow: hidden;
+}
+
+/* Hide scrollbar for Webkit-based browsers (Chrome, Safari) */
+.task textarea::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.task textarea {
+    scrollbar-width: none;
+}
+
+.delete-button {
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+.progress-bar {
+    height: 30px;
+    width: 100%;
+    background-color: #bdc3c7;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    position: relative;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    background-color: #1abc9c;
+    width: 0;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-bar-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c3e50;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* Custom class for the ghost element while dragging */
+.sortable-ghost {
+    opacity: 1 !important;
+    background: #fff;
+    border: 1px dashed #ccc;
+}

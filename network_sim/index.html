@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Network Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🛠️ Network Simulator  🛠️</h1>
+
+  <div id="toolbar">
+  <div class="left-buttons">
+    <button onclick="addDevice('Router')">Add Router</button>
+    <button onclick="addDevice('Switch')">Add Switch</button>
+    <button onclick="toggleCableMode()" id="cableBtn">🔌 Cable Mode</button>
+    <button onclick="toggleEditMode()" id="editBtn">✏️ Edit Mode</button>
+  </div>
+  <div class="right-buttons">
+    <button onclick="toggleDeleteMode()" id="deleteBtn">🗑️ Delete Mode</button>
+    <button onclick="saveTopology()">💾 Save</button>
+    <input type="file" id="loadInput" style="display: none" onchange="loadTopology(event)" />
+    <button onclick="document.getElementById('loadInput').click()">📂 Load</button>
+  </div>
+</div>
+
+  <canvas id="network-canvas" width="1600" height="750"></canvas>
+
+  <!-- Port selection popup -->
+  <div id="port-popup" style="display: none; position: absolute;">
+    <label for="portSelect">Select Port:</label>
+    <select id="portSelect"></select>
+    <button onclick="confirmPortSelection()">Connect</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

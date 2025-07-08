@@ -1,0 +1,120 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #141E30, #243B55);
+    color: white;
+    text-align: center;
+}
+
+/* Sticky Footer */
+main {
+    flex-grow: 1;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header & Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Active Page Styling */
+.nav-list a.active {
+    color: #ff4081;
+    font-weight: bold;
+    border-bottom: 2px solid #ff4081;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #ff4081;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+}

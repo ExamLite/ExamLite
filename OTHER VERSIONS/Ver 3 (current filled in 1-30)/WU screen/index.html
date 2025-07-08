@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Windows 10 Update Screen</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            background-color: #0078d4;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+        }
+        #left {
+            flex: 8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #0078d4;
+            color: white;
+            font-family: Segoe UI, Arial, sans-serif;
+            margin: 0 5%;
+        }
+        #left.fullscreen {
+            background: linear-gradient(to right, #0078d4, #005a9e);
+	    cursor: none;
+        }
+        #right {
+            flex: 2;
+            background-color: #005a9e;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            height: 100%;
+            width: 20%;
+        }
+        #updateText {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+        .loadingWheel {
+            width: 50px;
+            height: 50px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #0078d4;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #fullscreenBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #004377;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        #fullscreenBtn:hover {
+            background-color: #003366;
+        }
+        input, button {
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+        #restartMessage {
+            font-size: 1.5rem;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        .input-group {
+            width: 100%;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-group label, .input-group input {
+            width: 80%;
+            text-align: center;
+        }
+        .input-group input {
+            height: 30px;
+        }
+        /* Remove arrows from number input */
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="left">
+            <div class="loadingWheel"></div>
+            <p style="font-size: 1.5rem; margin: 5px 0;">Working on updates <span id="updateText">0%</span></p>
+            <p style="font-size: 1.5rem; margin: 5px 0;">Don't turn off your PC. This will take a while.</p>
+            <div id="restartMessage">Your PC will restart several times.</div>
+        </div>
+        <div id="right">
+            <h2>Settings</h2>
+            <div class="input-group">
+                <label for="minutes">How long should the update take? (minutes)</label>
+                <input type="number" id="minutes" placeholder="Minutes" value="30" min="0">
+            </div>
+            <div class="input-group">
+                <label for="startPercent">Starting percentage</label>
+                <input type="number" id="startPercent" placeholder="Percentage" value="7" min="0" max="99">
+            </div>
+            <button onclick="startTimer()">Start</button>
+            <button id="fullscreenBtn" onclick="toggleFullscreen()">Go Fullscreen</button>
+        </div>
+    </div>
+    <script>
+        function startTimer() {
+            let minutes = document.getElementById('minutes').value;
+            let startPercent = document.getElementById('startPercent').value;
+            let seconds = minutes * 60;
+            let updateText = document.getElementById('updateText');
+            let percentage = parseInt(startPercent);
+            let increment = (100 - percentage) / seconds;
+
+            let interval = setInterval(function() {
+                percentage += increment;
+                updateText.innerHTML = Math.min(100, Math.floor(percentage)) + "%";
+                if (seconds > 0) {
+                    seconds--;
+                } else {
+                    clearInterval(interval);
+                    updateText.innerHTML = "100%";
+                }
+            }, 1000);
+        }
+
+        function toggleFullscreen() {
+            let leftDiv = document.getElementById('left');
+            if (!document.fullscreenElement) {
+                leftDiv.requestFullscreen();
+                leftDiv.classList.add('fullscreen');
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    leftDiv.classList.remove('fullscreen');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

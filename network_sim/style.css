@@ -1,0 +1,63 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: #1e868a;
+}
+
+h1 {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+#toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin: 10px auto;
+  max-width: 1200px;
+}
+
+.left-buttons button,
+.right-buttons button {
+  margin: 0 5px;
+}
+
+button {
+  margin: 0 5px;
+  padding: 8px 14px;
+  border: none;
+  background-color: #4285f4;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2d72da;
+}
+
+#cableBtn, #editBtn, #deleteBtn {
+  background-color: #444;
+}
+
+canvas {
+  border: 2px solid #ccc;
+  background-color: #fff;
+  margin: 10px auto;
+  display: block;
+  cursor: crosshair;
+}
+
+#port-popup {
+  display: none;
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

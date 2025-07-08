@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .module {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .module a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .completed {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .not-passed {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .locked {
+            background-color: #e0e0e0;
+            color: #a0a0a0;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Course Overview</h1>
+    </header>
+    <nav>
+        <a href="home.html">Home</a> <!-- Add Home button here -->
+    </nav>
+    <div class="content">
+        <div class="module" id="module1">
+            <h2>Module 1: Introduction</h2>
+            <a href="module1.html">Start Module 1</a>
+            <p id="module1Score"></p>
+        </div>
+        <div class="module locked" id="module2">
+            <h2>Module 2: Advanced Topics</h2>
+            <a href="module2.html" id="module2Link">Start Module 2</a>
+            <p id="module2Score"></p>
+        </div>
+        <div class="module locked" id="module3">
+            <h2>Module 3: Expert Level</h2>
+            <a href="module3.html" id="module3Link">Start Module 3</a>
+            <p id="module3Score"></p>
+        </div>
+    </div>
+    <script>
+        // Function to check each module's completion status
+        function checkModules() {
+            const totalModules = 3;
+            let lastPassedModule = 0; // Keeps track of the last module that was passed
+
+            for (let i = 1; i <= totalModules; i++) {
+                const moduleScore = localStorage.getItem(`module${i}Score`);
+                if (moduleScore !== null) {
+                    document.getElementById(`module${i}Score`).innerText = `Score: ${moduleScore}%`;
+                    if (parseFloat(moduleScore) >= 80) {
+                        document.getElementById(`module${i}`).classList.add('completed');
+                        lastPassedModule = i;
+                    } else {
+                        document.getElementById(`module${i}`).classList.add('not-passed');
+                    }
+                }
+            }
+
+            // Ensure all previously unlocked modules remain unlocked
+            for (let i = 1; i <= lastPassedModule + 1; i++) {
+                unlockModule(i);
+            }
+        }
+
+        // Function to lock subsequent modules
+        function lockSubsequentModules(startIndex) {
+            const totalModules = 3;
+            for (let i = startIndex; i <= totalModules; i++) {
+                lockModule(i);
+            }
+        }
+
+        // Function to lock a specific module
+        function lockModule(moduleIndex) {
+            const moduleElement = document.getElementById(`module${moduleIndex}`);
+            if (moduleElement && !moduleElement.classList.contains('completed')) {
+                moduleElement.classList.add('locked');
+                const moduleLink = document.getElementById(`module${moduleIndex}Link`);
+                if (moduleLink) {
+                    moduleLink.classList.add('locked');
+                }
+            }
+        }
+
+        // Function to unlock a specific module
+        function unlockModule(moduleIndex) {
+            const moduleElement = document.getElementById(`module${moduleIndex}`);
+            if (moduleElement) {
+                moduleElement.classList.remove('locked');
+                const moduleLink = document.getElementById(`module${moduleIndex}Link`);
+                if (moduleLink) {
+                    moduleLink.classList.remove('locked');
+                }
+            }
+        }
+
+        checkModules(); // Call the function to check modules on page load
+    </script>
+</body>
+</html>

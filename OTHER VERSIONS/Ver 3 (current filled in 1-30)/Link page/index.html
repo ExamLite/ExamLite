@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examlite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #000, #1a1a1a, #000);
+            color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #1a1a1a;
+            border-bottom: 2px solid #1cc5f0;
+            color: #f4f4f4;
+            padding: 0.5em;
+            text-align: center;
+        }
+
+        .navbar h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 46px; /* Matches the height of the navbar */
+            width: 200px;
+            height: calc(100% - 44px); /* Accounts for the navbar's height */
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            overflow-y: auto; /* Allows scrolling */
+            border-right: 2px solid #1cc5f0; /* Adds a right border matching the navbar's bottom border */
+        }
+
+        .tabs {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .tabs li {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #262626;
+            border-bottom: 1px solid #1cc5f0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .tabs li:hover {
+            background-color: #1cc5f0;
+        }
+
+        .links-container {
+            margin-left: 210px;
+            padding: 10px;
+        }
+
+        .links {
+    display: none;
+    grid-template-columns: repeat(5, 150px); /* 5 links per row */
+    gap: 4px; /* Space between rows and columns */
+}
+
+.links a {
+    text-decoration: none;
+    color: #1cc5f0;
+    padding: 5px 10px;
+    background-color: #262626;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 35px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px; /* Adds extra space around each button */
+}
+
+.links a:hover {
+    background-color: #1cc5f0;
+    color: #ffffff;
+}
+
+.tabs li.highlighted {
+    background-color: #1cc5f0; /* Bright color for the active tab */
+    color: #ffffff;           /* White text for visibility */
+    font-weight: bold;        /* Make the active tab stand out */
+    border-bottom: 3px solid #1cc5f0; /* Add emphasis to the selected tab */
+}
+
+#welcome {
+    font-size: 1.2em;
+    color: #f4f4f4;
+    text-align: center;
+    margin: 20px;
+    line-height: 1.5;
+}
+
+.welcome-text {
+    display: block; /* Ensures the welcome text behaves like a block element */
+    text-align: center; /* Centers the text */
+    font-size: 1.2em; /* Slightly larger font for emphasis */
+    color: #f4f4f4; /* Matches the overall theme */
+    margin: 20px 0; /* Adds some spacing around the text */
+}
+
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Examlite.com</h1>
+    </div>
+    <div class="sidebar">
+        <ul class="tabs">
+            <li onclick="showLinks('tab1')">Tab 1</li>
+            <li onclick="showLinks('tab2')">Tab 2</li>
+            <li onclick="showLinks('tab3')">Tab 3</li>
+            <li onclick="showLinks('tab4')">Tab 4</li>
+            <li onclick="showLinks('tab5')">Tab 5</li>
+            <li onclick="showLinks('tab6')">Tab 6</li>
+            <li onclick="showLinks('tab7')">Tab 7</li>
+            <li onclick="showLinks('tab8')">Tab 8</li>
+            <li onclick="showLinks('tab9')">Tab 9</li>
+            <li onclick="showLinks('tab10')">Tab 10</li>
+        </ul>
+    </div>
+    <div class="links-container">
+        <div id="welcome" class="welcome-text">
+            <p>Welcome to Examlite! Click a tab to explore the links.</p>
+        </div>
+        <div id="tab1" class="links">
+            <a href="#" target="_blank">Tab 1 - Link 1</a>
+            <a href="#" target="_blank">Tab 1 - Link 2</a>
+            <a href="#" target="_blank">Tab 1 - Link 3</a>
+            <a href="#" target="_blank">Tab 1 - Link 4</a>
+            <a href="#" target="_blank">Tab 1 - Link 5</a>
+            <a href="#" target="_blank">Tab 1 - Link 6</a>
+            <a href="#" target="_blank">Tab 1 - Link 7</a>
+            <a href="#" target="_blank">Tab 1 - Link 8</a>
+            <a href="#" target="_blank">Tab 1 - Link 9</a>
+            <a href="#" target="_blank">Tab 1 - Link 10</a>            
+        </div>
+        <div id="tab2" class="links">
+            <a href="#" target="_blank">Tab 2 - Link 1</a>
+            <a href="#" target="_blank">Tab 2 - Link 2</a>
+            <a href="#" target="_blank">Tab 2 - Link 3</a>
+            <a href="#" target="_blank">Tab 2 - Link 4</a>
+            <a href="#" target="_blank">Tab 2 - Link 5</a>
+            <a href="#" target="_blank">Tab 2 - Link 6</a>
+            <a href="#" target="_blank">Tab 2 - Link 7</a>
+            <a href="#" target="_blank">Tab 2 - Link 8</a>
+            <a href="#" target="_blank">Tab 2 - Link 9</a>
+            <a href="#" target="_blank">Tab 2 - Link 10</a>
+            <a href="#" target="_blank">Tab 2 - Link 1</a>
+            <a href="#" target="_blank">Tab 2 - Link 2</a>
+            <a href="#" target="_blank">Tab 2 - Link 3</a>
+            <a href="#" target="_blank">Tab 2 - Link 4</a>
+            <a href="#" target="_blank">Tab 2 - Link 5</a>
+            <a href="#" target="_blank">Tab 2 - Link 6</a>
+            <a href="#" target="_blank">Tab 2 - Link 7</a>
+            <a href="#" target="_blank">Tab 2 - Link 8</a>
+            <a href="#" target="_blank">Tab 2 - Link 9</a>
+            <a href="#" target="_blank">Tab 2 - Link 10</a> 
+            <a href="#" target="_blank">Tab 2 - Link 1</a>
+            <a href="#" target="_blank">Tab 2 - Link 2</a>
+            <a href="#" target="_blank">Tab 2 - Link 3</a>
+            <a href="#" target="_blank">Tab 2 - Link 4</a>
+            <a href="#" target="_blank">Tab 2 - Link 5</a>
+            <a href="#" target="_blank">Tab 2 - Link 6</a>
+            <a href="#" target="_blank">Tab 2 - Link 7</a>
+            <a href="#" target="_blank">Tab 2 - Link 8</a>
+            <a href="#" target="_blank">Tab 2 - Link 9</a>
+            <a href="#" target="_blank">Tab 2 - Link 10</a> 
+            <a href="#" target="_blank">Tab 2 - Link 1</a>
+            <a href="#" target="_blank">Tab 2 - Link 2</a>
+            <a href="#" target="_blank">Tab 2 - Link 3</a>
+            <a href="#" target="_blank">Tab 2 - Link 4</a>
+            <a href="#" target="_blank">Tab 2 - Link 5</a>
+            <a href="#" target="_blank">Tab 2 - Link 6</a>
+            <a href="#" target="_blank">Tab 2 - Link 7</a>
+            <a href="#" target="_blank">Tab 2 - Link 8</a>
+            <a href="#" target="_blank">Tab 2 - Link 9</a>
+            <a href="#" target="_blank">Tab 2 - Link 10</a> 
+            <a href="#" target="_blank">Tab 2 - Link 1</a>
+            <a href="#" target="_blank">Tab 2 - Link 2</a>
+            <a href="#" target="_blank">Tab 2 - Link 3</a>
+            <a href="#" target="_blank">Tab 2 - Link 4</a>
+            <a href="#" target="_blank">Tab 2 - Link 5</a>
+            <a href="#" target="_blank">Tab 2 - Link 6</a>
+            <a href="#" target="_blank">Tab 2 - Link 7</a>
+            <a href="#" target="_blank">Tab 2 - Link 8</a>
+            <a href="#" target="_blank">Tab 2 - Link 9</a>
+            <a href="#" target="_blank">Tab 2 - Link 10</a>          
+        </div>
+        <div id="tab3" class="links">
+            <a href="#" target="_blank">Tab 3 - Link 1</a>
+            <a href="#" target="_blank">Tab 3 - Link 2</a>
+            <a href="#" target="_blank">Tab 3 - Link 3</a>
+            <a href="#" target="_blank">Tab 3 - Link 4</a>
+            <a href="#" target="_blank">Tab 3 - Link 5</a>
+            <a href="#" target="_blank">Tab 3 - Link 6</a>
+            <a href="#" target="_blank">Tab 3 - Link 7</a>
+            <a href="#" target="_blank">Tab 3 - Link 8</a>
+            <a href="#" target="_blank">Tab 3 - Link 9</a>
+            <a href="#" target="_blank">Tab 3 - Link 10</a>            
+        </div>
+        <div id="tab4" class="links">
+            <a href="#" target="_blank">Tab 4 - Link 1</a>
+            <a href="#" target="_blank">Tab 4 - Link 2</a>
+            <a href="#" target="_blank">Tab 4 - Link 3</a>
+            <a href="#" target="_blank">Tab 4 - Link 4</a>
+            <a href="#" target="_blank">Tab 4 - Link 5</a>
+            <a href="#" target="_blank">Tab 4 - Link 6</a>
+            <a href="#" target="_blank">Tab 4 - Link 7</a>
+            <a href="#" target="_blank">Tab 4 - Link 8</a>
+            <a href="#" target="_blank">Tab 4 - Link 9</a>
+            <a href="#" target="_blank">Tab 4 - Link 10</a>            
+        </div>
+        <div id="tab5" class="links">
+            <a href="#" target="_blank">Tab 5 - Link 1</a>
+            <a href="#" target="_blank">Tab 5 - Link 2</a>
+            <a href="#" target="_blank">Tab 5 - Link 3</a>
+            <a href="#" target="_blank">Tab 5 - Link 4</a>
+            <a href="#" target="_blank">Tab 5 - Link 5</a>
+            <a href="#" target="_blank">Tab 5 - Link 6</a>
+            <a href="#" target="_blank">Tab 5 - Link 7</a>
+            <a href="#" target="_blank">Tab 5 - Link 8</a>
+            <a href="#" target="_blank">Tab 5 - Link 9</a>
+            <a href="#" target="_blank">Tab 5 - Link 10</a>            
+        </div>
+        <div id="tab6" class="links">
+            <a href="#" target="_blank">Tab 6 - Link 1</a>
+            <a href="#" target="_blank">Tab 6 - Link 2</a>
+            <a href="#" target="_blank">Tab 6 - Link 3</a>
+            <a href="#" target="_blank">Tab 6 - Link 4</a>
+            <a href="#" target="_blank">Tab 6 - Link 5</a>
+            <a href="#" target="_blank">Tab 6 - Link 6</a>
+            <a href="#" target="_blank">Tab 6 - Link 7</a>
+            <a href="#" target="_blank">Tab 6 - Link 8</a>
+            <a href="#" target="_blank">Tab 6 - Link 9</a>
+            <a href="#" target="_blank">Tab 6 - Link 10</a>            
+        </div>
+        <div id="tab7" class="links">
+            <a href="#" target="_blank">Tab 7 - Link 1</a>
+            <a href="#" target="_blank">Tab 7 - Link 2</a>
+            <a href="#" target="_blank">Tab 7 - Link 3</a>
+            <a href="#" target="_blank">Tab 7 - Link 4</a>
+            <a href="#" target="_blank">Tab 7 - Link 5</a>
+            <a href="#" target="_blank">Tab 7 - Link 6</a>
+            <a href="#" target="_blank">Tab 7 - Link 7</a>
+            <a href="#" target="_blank">Tab 7 - Link 8</a>
+            <a href="#" target="_blank">Tab 7 - Link 9</a>
+            <a href="#" target="_blank">Tab 7 - Link 10</a>            
+        </div>
+        <div id="tab8" class="links">
+            <a href="#" target="_blank">Tab 8 - Link 1</a>
+            <a href="#" target="_blank">Tab 8 - Link 2</a>
+            <a href="#" target="_blank">Tab 8 - Link 3</a>
+            <a href="#" target="_blank">Tab 8 - Link 4</a>
+            <a href="#" target="_blank">Tab 8 - Link 5</a>
+            <a href="#" target="_blank">Tab 8 - Link 6</a>
+            <a href="#" target="_blank">Tab 8 - Link 7</a>
+            <a href="#" target="_blank">Tab 8 - Link 8</a>
+            <a href="#" target="_blank">Tab 8 - Link 9</a>
+            <a href="#" target="_blank">Tab 8 - Link 10</a>            
+        </div>
+        <div id="tab9" class="links">
+            <a href="#" target="_blank">Tab 9 - Link 1</a>
+            <a href="#" target="_blank">Tab 9 - Link 2</a>
+            <a href="#" target="_blank">Tab 9 - Link 3</a>
+            <a href="#" target="_blank">Tab 9 - Link 4</a>
+            <a href="#" target="_blank">Tab 9 - Link 5</a>
+            <a href="#" target="_blank">Tab 9 - Link 6</a>
+            <a href="#" target="_blank">Tab 9 - Link 7</a>
+            <a href="#" target="_blank">Tab 9 - Link 8</a>
+            <a href="#" target="_blank">Tab 9 - Link 9</a>
+            <a href="#" target="_blank">Tab 9 - Link 10</a>            
+        </div>
+        <div id="tab10" class="links">
+            <a href="#" target="_blank">Tab 10 - Link 1</a>
+            <a href="#" target="_blank">Tab 10 - Link 2</a>
+            <a href="#" target="_blank">Tab 10 - Link 3</a>
+            <a href="#" target="_blank">Tab 10 - Link 4</a>
+            <a href="#" target="_blank">Tab 10 - Link 5</a>
+            <a href="#" target="_blank">Tab 10 - Link 6</a>
+            <a href="#" target="_blank">Tab 10 - Link 7</a>
+            <a href="#" target="_blank">Tab 10 - Link 8</a>
+            <a href="#" target="_blank">Tab 10 - Link 9</a>
+            <a href="#" target="_blank">Tab 10 - Link 10</a>
+        </div>
+    </div>
+    <script>
+function showLinks(tabId) {
+    const allTabs = document.querySelectorAll('.links');
+    const allTabButtons = document.querySelectorAll('.tabs li');
+
+    // Hide all content (including the welcome message)
+    allTabs.forEach(tab => (tab.style.display = 'none'));
+
+    // Remove the "highlighted" class from all tabs
+    allTabButtons.forEach(button => button.classList.remove('highlighted'));
+
+    // Show the selected tab content
+    document.getElementById(tabId).style.display = 'grid';
+
+    // Add the "highlighted" class to the clicked tab
+    const activeTab = Array.from(allTabButtons).find(button => button.innerText === tabId.replace('tab', 'Tab '));
+    if (activeTab) activeTab.classList.add('highlighted');
+}
+
+// Show the welcome message when the page loads
+document.getElementById('welcome').style.display = 'grid';
+
+    </script>
+</body>
+</html>

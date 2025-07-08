@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wordle Game</h1>
+                <div id="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+        <div class="content">
+            <div id="hint" class="hint-container">
+                <!-- Hint will be dynamically loaded here -->
+            </div>
+            <div class="game-container">
+                <div id="board">
+                    <!-- Rows will be generated dynamically -->
+                </div>
+                <div class="button-container">
+                <button id="guessButton" class="guess-button">Guess</button>
+                    <button id="nextButton" class="next-button" style="display: none;">Next</button>
+                </div>
+                <div id="message" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
