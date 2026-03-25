@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminal Writer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal">
+    <div class="title-bar">
+      user@workstation: ~ — bash
+    </div>
+
+    <div class="prompt-line">
+      <span class="prompt-user">user</span>@<span class="prompt-host">workstation</span>:<span class="prompt-path">~/docs</span><span class="prompt-symbol">$</span> nano report.yaml
+    </div>
+
+    <div class="yaml-header">
+      <pre>
+config:
+  version: 1.0
+  environment: production
+  enabled: true
+  description: "Press F11 to toggle full-screen mode"
+      </pre>
+    </div>
+
+    <div class="editor-container">
+      <div id="editor" contenteditable="true"></div>
+    </div>
+
+    <div class="toolbar">
+      <button id="btn-download">Save as .doc</button>
+      <button id="btn-clear">Clear</button>
+      <span>Use Ctrl+B / Ctrl+I / Ctrl+U for formatting.</span>
+    </div>
+
+    <div class="status-bar">
+      <span>GNU nano 7.0 &nbsp;&nbsp; report.yaml</span>
+      <span id="word-count">Words: 0</span>
+    </div>
+  </div>
+
+  <!-- Fake CLI filename prompt -->
+  <div id="filename-prompt" class="prompt-overlay">
+    <div class="prompt-box">
+      <div class="prompt-text">File Name to Write:</div>
+      <input id="filename-input" type="text" value="">
+      <div class="prompt-buttons">
+        <button id="filename-ok">OK</button>
+        <button id="filename-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
