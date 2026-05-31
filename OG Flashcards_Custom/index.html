@@ -32,6 +32,61 @@ body {
   margin-left: 20px; /* Add some margin to the left */
 }
 
+.navbar-right {
+  margin-right: 20px;
+}
+
+.clear-storage-btn {
+  background-color: #ff4444;
+  padding: 8px 14px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.clear-storage-btn:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+.clear-storage-btn:active {
+  background-color: #990000;
+  transform: translateY(0);
+}
+
+.export-btn {
+  background-color: #4CAF50; /* green */
+  padding: 8px 14px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.export-btn:hover {
+  background-color: #45a049;
+}
+
+.import-btn {
+  background-color: #2196F3; /* blue */
+  padding: 8px 14px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.import-btn:hover {
+  background-color: #0b7dda;
+}
+
 .website-name {
   font-size: 20px;
   font-weight: bold;
@@ -521,12 +576,19 @@ button:active {
   <!-- Navbar section at the top -->
   <nav class="navbar">
   <div class="navbar-left">
-   <button class="dropbtn" id="toggleVisibilityBtn" onclick="toggleVisibility()"><img src="edit.png" alt="Icon" title="Edit your flashcards"></button>
+  <button class="dropbtn" id="toggleVisibilityBtn" onclick="toggleVisibility()"><img src="edit.png" alt="Icon" title="Edit your flashcards"></button>
   </div>
 
-    <div class="navbar-center">
-    <span id="websiteName" class="website-name" data-flip-text="Flashcards" onclick="flipWebsiteName()">Flashcards</span>
-    </div>
+  <div class="navbar-center">
+  <span id="websiteName" class="website-name" data-flip-text="Flashcards" onclick="flipWebsiteName()">Flashcards</span>
+  </div>
+
+  <div class="navbar-right">
+  <button class="export-btn" onclick="exportFlashcards()">Save</button>
+  <input type="file" id="importFile" accept=".json" onchange="importFlashcards(event)" style="display:none;">
+  <button class="import-btn" class="flashcard-btn" onclick="document.getElementById('importFile').click()">Import</button>
+  <button class="clear-storage-btn" onclick="clearStorage()">Clear Storage</button>
+  </div>
   </nav>
 
   <div class="left-column"> 
@@ -646,7 +708,8 @@ button:active {
   </div>
 
 <script>
-let flashcards = [{ frontText: 'Flashcard 1 Front', backText: 'Flashcard 1 Back' }];
+let isInitializing = false;
+let flashcards = [{ frontText: '', backText: '' }];
 let currentCard = 0;
 const flashcardsContainer = document.getElementById('flashcardsContainer');
 const maxChars = 800;
@@ -681,20 +744,132 @@ const colorMap = {
   'pastelyellow': '#FFFAA0'
 };
 
+// Load saved data from localStorage
+function loadSavedData() {
+  const savedFlashcards = localStorage.getItem("flashcards");
+  const savedSettings = localStorage.getItem("flashcardSettings");
+
+  if (savedFlashcards) {
+    flashcards = JSON.parse(savedFlashcards);
+  }
+
+  if (savedSettings) {
+    const settings = JSON.parse(savedSettings);
+    currentFontSize = settings.fontSize || currentFontSize;
+    currentSize = settings.size || currentSize;
+    currentFrontColor = settings.frontColor || currentFrontColor;
+    currentBackColor = settings.backColor || currentBackColor;
+  }
+}
+
+// Save flashcards + settings
+function saveData() {
+  localStorage.setItem("flashcards", JSON.stringify(flashcards));
+
+  const settings = {
+    fontSize: currentFontSize,
+    size: currentSize,
+    frontColor: currentFrontColor,
+    backColor: currentBackColor
+  };
+
+  localStorage.setItem("flashcardSettings", JSON.stringify(settings));
+}
+
+function exportFlashcards() {
+  let filename = prompt("What would you like to name your flashcard file?", "my_flashcards");
+
+  // If user clicks CANCEL → stop the export entirely
+  if (filename === null) {
+    return; 
+  }
+
+  // If user leaves it blank → use default name
+  filename = filename.trim();
+  if (filename === "") {
+    filename = "flashcards";
+  }
+
+  const dataStr = JSON.stringify(flashcards, null, 2);
+  const blob = new Blob([dataStr], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `${filename}.json`;
+  a.click();
+
+  URL.revokeObjectURL(url);
+}
+
+function importFlashcards(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const imported = JSON.parse(e.target.result);
+
+      if (!Array.isArray(imported)) {
+        alert("Invalid file format.");
+        return;
+      }
+
+      flashcards = imported;
+      saveData();
+      initFlashcards();
+      showCard(0);
+
+      alert("Flashcards imported successfully!");
+    } catch (err) {
+      alert("Error reading file.");
+    }
+  };
+
+  reader.readAsText(file);
+}
+
 function initFlashcards() {
+  flashcardsContainer.innerHTML = '';
+  editSection.innerHTML = '';
+
   flashcards.forEach((card, index) => {
+    // 1. Create edit section first
+    addFlashcardToEditSection(index + 1);
+
+    // 2. Restore saved text into textareas BEFORE creating flashcard display
+    const frontTextarea = document.getElementById(`frontText-${index}`);
+    const backTextarea = document.getElementById(`backText-${index}`);
+
+    frontTextarea.value = card.frontText;
+    backTextarea.value = card.backText;
+
+    // ⭐ 3. Update the flashcards array so it matches the restored text
+    flashcards[index].frontText = frontTextarea.value;
+    flashcards[index].backText = backTextarea.value;
+
+    // 4. Now create the flashcard display using the restored text
     createFlashcardElement(card, index);
   });
+
   showCard(currentCard);
   updateCounter();
   updateThumbnails();
   updateActiveSettings();
 }
 
+function clearStorage() {
+  if (confirm("Are you sure you want to delete ALL saved flashcards and settings?")) {
+    localStorage.clear();
+    location.reload();
+  }
+}
+
 function addFlashcard() {
   const cardId = flashcards.length + 1;
-  const frontText = `Flashcard ${cardId} Front`;
-  const backText = `Flashcard ${cardId} Back`;
+  const frontText = "";
+  const backText = "";
   flashcards.push({ frontText, backText });
 
   const newCardIndex = flashcards.length - 1;
@@ -705,6 +880,7 @@ function addFlashcard() {
   showCard(currentCard);
   updateCounter();
   updateThumbnails();
+  saveData();
 }
 
 function addMultipleFlashcards(count) {
@@ -756,6 +932,7 @@ function deleteFlashcard(index) {
   showCard(currentCard);
   updateCounter();
   updateThumbnails();
+  saveData();
 }
 
 function addFlashcardToEditSection(cardId) {
@@ -871,6 +1048,7 @@ function setFontSize(size) {
   });
 
   updateActiveSettings(); // Update the active settings
+  saveData();
 }
 
 function setFlashcardSize(size) {
@@ -900,6 +1078,7 @@ function setFlashcardSize(size) {
   currentSize = size; // Update the current size
   updateActiveSettings(); // Update the active settings
   showCard(currentCard); // Preserve the current card index and show the current card
+  saveData();
 }
 
 function updateActiveSettings() {
@@ -953,15 +1132,27 @@ function updateActiveSettings() {
 }
 
 function updateFlashcardText(id) {
+  if (isInitializing) return;
+
   const frontText = document.getElementById(`frontText-${id}`).value;
   const backText = document.getElementById(`backText-${id}`).value;
+
+  // ✅ Update the data model
+  flashcards[id].frontText = frontText;
+  flashcards[id].backText = backText;
+
+  // ✅ Update the visible flashcard
   const frontElement = document.getElementById(`front-${id}`).firstElementChild;
   const backElement = document.getElementById(`back-${id}`).firstElementChild;
 
   frontElement.textContent = frontText;
   backElement.textContent = backText;
+
   fitTextToContainer(frontElement, currentFontSize);
   fitTextToContainer(backElement, currentFontSize);
+
+  // ✅ Now save the updated flashcards array
+  saveData();
 }
 
 function enforceCharLimit(textarea) {
@@ -1065,6 +1256,7 @@ function setFlashcardColor(side, color) {
   }
 
   updateActiveColors(side, color);
+  saveData();
 }
 
 function updateActiveColors(side, color) {
@@ -1100,12 +1292,17 @@ function flipWebsiteName() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Set default colors for front and back
-  setFlashcardColor('front', currentFrontColor);
+  isInitializing = true;
+
+  loadSavedData();          // 1. Load flashcards + settings
+  initFlashcards();         // 2. Build UI from loaded data
+  setFlashcardSize(currentSize); // 3. Apply saved size
+  setFlashcardColor('front', currentFrontColor); // 4. Apply saved colors
   setFlashcardColor('back', currentBackColor);
+
+  isInitializing = false;   // 5. Now allow saving
 });
 
-initFlashcards();
 </script>
 
 </body>
